@@ -7,3 +7,20 @@ Minimal single page website where a random quote is displayed. On every refresh 
 You can send a quote with the author( not optional ) and add one of your social networks profile ( optional ) to be referred.
 
 Send some feedback if you want to help and you will be reffered on about ( page able soon ) and here.
+
+
+Goal
+=========
+Improve skills and help people find nice quotes.
+
+License
+=========
+Under MIT License :')
+
+Author
+=========
+- [Paulo Nunes] []
+
+
+
+[paulo nunes]: http://facebook.com/SwagCokieMnstr "Paulo Nunes"
