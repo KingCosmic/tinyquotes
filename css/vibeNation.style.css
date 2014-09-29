@@ -1,0 +1,97 @@
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(250, 250, 250);
+}
+
+body div.wrapper {
+    width: 70%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+body div.wrapper cite:focus, p:focus {
+    border: 0;
+    outline: 0;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+div.wrapper cite {
+    width: 98%;
+    height: auto;
+    float: left;
+    padding: 1%;
+    font-family: Georgia;
+    font-size: 2.5em;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    color: rgba(64, 80, 90, 1);
+}
+
+div.wrapper cite::before {
+    font-family: Georgia;
+    font-size: 1em;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    color: rgba(64, 80, 90, 1);
+    content: '“';
+}
+
+div.wrapper cite::after {
+    font-family: Georgia;
+    font-size: 1em;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    color: rgba(64, 80, 90, 1);
+    content: '“';
+    content: '”';
+}
+
+div.wrapper p#author {
+    font-family: Georgia;
+    font-size: 1.1em;
+    color: rgba(64, 80, 90, 1);
+}
+
+div.wrapper p#author::before {
+    font-family: Georgia;
+    font-size: 1.1em;
+    color: rgba(64, 80, 90, 1);
+    content: '- ';
+}
+
+div.send {
+    float: right;
+    width: auto;
+    height: auto;
+    font-family: Open Sans;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px;
+    border-radius: 2px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+div.send a {
+    text-decoration: none;
+    color: rgba(64, 80, 90, 1);
+}
+
+div.wrapper p#author a {
+    font-family: Georgia;
+    font-size: 1.1em;
+    color: rgba(64, 80, 90, 1);
+}
