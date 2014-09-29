@@ -19,8 +19,8 @@ Under MIT License :')
 
 Author
 =========
-- [Paulo Nunes] []
+- Paulo Nunes | [@DaLancelotBruh] []
 
 
 
-[paulo nunes]: http://facebook.com/SwagCokieMnstr "Paulo Nunes"
+[@dalancelotbruh]: http://twitter.com/DaLancelotBruh "Paulo Nunes"
