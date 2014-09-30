@@ -162,11 +162,14 @@ div.refresh {
     position: fixed;
     bottom: 15px;
     right: 190px;
-    background-color: rgba(64, 80, 90, 1);
+    background: url(../img/refresh.png) no-repeat center;
+    background-color: transparent;
+    background-size: 80%;
     border-radius: 2px;
+    -webkit-animation: bling 1.3s linear infinite;
 }
 
-div.refresh:hover {
+div.refresh:focus {
     -webkit-animation: bling 1s linear;
 }
 
@@ -180,6 +183,58 @@ div.refresh:hover {
     100% {
         -webkit-transform: scale(1, 1);
     }
+}
+
+div.wrapper ul {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: rgba(64, 80, 90, 1);
+}
+
+div.wrapper ul li {
+    float: left;
+    padding: .5%;
+    font-family: Georgia;
+    font-size: .9em;
+    margin: 0;
+    color: rgba(64, 80, 90, 1);
+}
+
+div.wrapper ul li a {
+    color: rgba(64, 80, 90, 1);
+}
+
+div.wrapper section {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 10px 0;
+}
+
+div.wrapper section h2 {
+    font-family: Georgia;
+    color: rgba(64, 80, 90, 1);
+    font-size: 2em;
+    text-align: center;
+}
+
+div.wrapper section h2 i {
+    font-size: .7em;
+    font-style: normal;
+    padding: .25em;
+    margin-left: .5em;
+    color: rgba(250, 250, 250, 1);
+    background-color: rgba(64, 80, 90, .4);
+    border-radius: 3px;
+    cursor: default;
+}
+
+div.wrapper section h2:hover i {
+    background-color: rgba(64, 80, 90, .5);
 }
 
 

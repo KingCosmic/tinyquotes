@@ -9,13 +9,19 @@
 	<link rel="stylesheet" type="text/css" href="css/vibeNation.style.css">
     <link rel="stylesheet" type="text/css" href="css/fonts.css">
 </head>
-<body>
+<body onload="randomQ()">
     <div class="wrapper">
-        <cite contenteditable="true" id="cite"></cite><div class="refresh" onclick="refresh()" title="Cita Aleatoria"></div>
+        <cite contenteditable="true" onmouseover="this.select()" id="cite"></cite><div class="refresh" onclick="randomQ()" title="Cita Aleatoria"></div>
         <p id="author" contenteditable="false"></p>
+        <ul>
+            <li>Comparte con:</li>
+            <li><a href="#" target="_blank" id="twitter">Twitter</a></li>
+            <li><a href="#" target="_blank" id="tumblr">Tumblr</a></li>
+        </ul>
     </div>
     <div class="send"><a href="mailto:amiguencio@icloud.com?subject=QUOTE%20TITLE&body=QUOTE%20TEXT">Send Me</a></div>
     <div class="how_to"><a href="how_to.html">How To</a></div>
+    <script src="js/quotes.js" type="text/javascript"></script>
     <script src="js/tests.script.js" type="text/javascript"></script>
 </body>
 </html>
