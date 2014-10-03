@@ -114,8 +114,11 @@ div.how_to {
 }
 
 div.how_to a {
+    float: left;
     text-decoration: none;
     color: rgba(64, 80, 90, 1);
+    margin: 0;
+    padding: 0;
 }
 
 div.wrapper h1 {
@@ -167,6 +170,7 @@ div.refresh {
     background-size: 80%;
     border-radius: 2px;
     -webkit-animation: bling 1.3s linear infinite;
+    cursor: pointer;
 }
 
 div.refresh:focus {
@@ -237,6 +241,35 @@ div.wrapper section h2:hover i {
     background-color: rgba(64, 80, 90, .5);
 }
 
+
+div.wrapper p#author span.dev_fav {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(64, 80, 90, 1);
+    border-radius: 3px;
+    padding: 0;
+    margin: 4px 5px;
+    display: inline-block;
+}
+
+div.wrapper p#author span.dev_fav:hover::before {
+    opacity: 1;
+}
+
+div.wrapper p#author span.dev_fav::before {
+    width: 140px;
+    padding: 0;
+    margin: 0;
+    content: 'Favorito del Dev';
+    position: relative;
+    float: right;
+    right: -10px;
+    font-family: Georgia;
+    font-size: .8em;
+    color: rgba(64, 80, 90, .9);
+    opacity: 0;
+}
 
 
 

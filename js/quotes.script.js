@@ -50,4 +50,10 @@ function randomQ() {
     // This two lines define the elements where the quote will be written
     document.getElementById("cite").innerHTML = quoteT;
     document.getElementById("author").innerHTML = authorNReferal;
+    var quoteSharer = quoteT,
+        quoteSharer = encodeURIComponent(quoteSharer.trim()),
+        twitter = document.getElementById("twitter"),
+        tumblr = document.getElementById("tumblr");
+    twitter.href = "https://twitter.com/intent/tweet?text=" + quoteSharer + "%20-" + quoteB;
+    tumblr.href = "http://www.tumblr.com/share/link?description=" + quoteSharer + "%20-" + quoteB;
 }
