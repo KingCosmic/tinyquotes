@@ -16,5 +16,12 @@ var quotes = [
     "Con el ojo por ojo, al final todos ciegos//Mahatma Gandhi//Alex Coll",
     "Es el sindrome FLictonic CLipple Weber//Haruko Haruhara, Furi Curi//DaLancelotBruh//twitter//fav",
     "La ciudad se llenó de humo, olvidando que ahí fuera existe un mundo. No hay cosas extraordinarias, vives en un mundo donde sólo hay cosas obvias. Una vida entera que espera morir lentamente... Pero Haruko está aquí y yo no olvido que existe un mundo ahí fuera.//Raharu Haruha, Furi Curi//DaLancelotBruh//twitter//fav",
-    "Con un ejercito detras se puede ser sumamente politico//Gayo, Gladiator//lorenzo.v.matterhorn.948//facebook"
+    "Con un ejercito detras se puede ser sumamente politico//Gayo, Gladiator//lorenzo.v.matterhorn.948//facebook",
+    "Instaura una pequeña anarquía, altera el orden establecido, y comenzará a reinar el caos. Soy un agente del caos. ¿Y sabes qué tiene el caos? Que es justo//Joker, Batman//toofartooblack//tumblr",
+    "&iexcl;ESTO ES ESPARTA!//Leonidas, 300 La Pelicula//lorenzo.v.matterhorn.948//facebook",
+    "Quisiera volver a verte hoy mismo, pero estoy dispuesto a esperar toda la noche y buena parte de ma&ntilde;ana//Augustus Waters, Bajo la misma Estrella//toofartooblack//tumblr//fav",
+    "Oh, no me importaría Hazel Grace. Sería un privilegio que me rompieras el coraz&oacute;n//Augustus Waters, Bajo la misma Estrella//toofartooblack//tumblr//fav",
+    "Es una metafora. Te colocas el arma asesina entre los dientes, pero no le das el poder de matarte//Augustus Waters, Bajo la misma Estrella//toofartooblack//tumblr//fav",
+    "Aceptamos el amor que creemos merecer//Profesor Bill, Ventajas de Ser un Marginado//toofartooblack//tumblr//fav",
+    "Yo no soy un monstruo... sólo voy un paso por delante//Joker, Batman//toofartooblack//tumblr//fav"
 ];

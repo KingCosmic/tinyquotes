@@ -89,6 +89,56 @@ div.send {
     bottom: 10px;
 }
 
+div.love {
+    float: right;
+    width: 20px;
+    height: 20px;
+    font-family: Open Sans;
+    padding: 10px;
+    border-radius: 2px;
+    position: fixed;
+    right: 270px;
+    bottom: 10px;
+    border-radius: 4px;
+}
+
+div.loving {
+    background: transparent url(../img/heart.png) no-repeat center;
+    background-size: 25px;
+    float: right;
+    width: 20px;
+    height: 20px;
+    font-family: Open Sans;
+    padding: 10px;
+    border-radius: 2px;
+    position: fixed;
+    right: 270px;
+    bottom: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+div.toLove {
+    background: transparent url(../img/heart.png) no-repeat center;
+    background-size: 25px;
+    float: right;
+    width: 20px;
+    height: 20px;
+    font-family: Open Sans;
+    padding: 10px;
+    border-radius: 2px;
+    position: fixed;
+    right: 270px;
+    bottom: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: .7;
+}
+
+div.toLove:hover {
+    opacity: .9;
+}
+
 div.send a {
     text-decoration: none;
     color: rgba(64, 80, 90, 1);
@@ -212,6 +262,11 @@ div.wrapper ul li a {
     color: rgba(64, 80, 90, 1);
 }
 
+div.wrapper ul li a.disabled {
+    text-decoration: none;
+    cursor: default;
+}
+
 div.wrapper section {
     width: 100%;
     height: auto;
@@ -246,29 +301,18 @@ div.wrapper p#author span.dev_fav {
     float: left;
     width: 20px;
     height: 20px;
-    background-color: rgba(64, 80, 90, 1);
+    background: url(../img/star.png) no-repeat center;
+    background-size: 18px;
+    background-color: transparent;
     border-radius: 3px;
     padding: 0;
-    margin: 4px 5px;
+    margin: 1px 5px;
     display: inline-block;
+    opacity: .7;
 }
 
-div.wrapper p#author span.dev_fav:hover::before {
-    opacity: 1;
-}
-
-div.wrapper p#author span.dev_fav::before {
-    width: 140px;
-    padding: 0;
-    margin: 0;
-    content: 'Favorito del Dev';
-    position: relative;
-    float: right;
-    right: -10px;
-    font-family: Georgia;
-    font-size: .8em;
-    color: rgba(64, 80, 90, .9);
-    opacity: 0;
+div.wrapper p#author span.dev_fav:hover {
+    opacity: .8;
 }
 
 
