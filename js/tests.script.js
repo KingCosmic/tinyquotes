@@ -1,14 +1,17 @@
-/* Made by Paulo Nunes. Free to use.
+/* Made by Paulo Nunes.
  * v1.4 2/10/2014
+ * made for Tiny Quotes webpage, use under MIT License rights.
 */
-// Quotes are stored on another js file
-var selectedQ;
-// Social references to use
-var refTw = "http://www.twitter.com/",
+
+var selectedQ,
+    msg = 0,
+    // Social references to use
+    refTw = "http://www.twitter.com/",
     refFb = "http://www.facebook.com/",
     refYt = "http://www.youtube.com/user/",
     refBe = "http://www.behance.com/",
     refTu = ".tumblr.com";
+
 // Used a function so now you don't have to refresh the page to display a random quote
 function randomQ() {
     "use strict";
@@ -23,8 +26,7 @@ function randomQ() {
         authorNReferal,
         social = quote[3], // Gets the social network will be used
         fav = quote[4], // Gets if the quote is one of the Developers Favourite
-        pFav = '<span class="dev_fav" title="Favorita del Desarrollador"></span>', // Element to add to all favorite quotes
-        luv = i;
+        pFav = '<span class="dev_fav" title="Favorita del Desarrollador"></span>'; // Element to add to all favorite quotes
     // If the referral is not defined only the quote and the author will be outputed
     if (referal === undefined) {
         authorNReferal = quoteB;
@@ -83,7 +85,7 @@ function randomQ() {
                     break;
             };
         } 
-    }
+    };
     // This two lines define the elements where the quote will be written
     document.getElementById("cite").innerHTML = quoteT;
     document.getElementById("author").innerHTML = authorNReferal;
@@ -103,43 +105,60 @@ function randomQ() {
     tumblr.href = "http://www.tumblr.com/share/link?description=" + quoteSharer + "%20-" + quoteB;
     
     var checkLove = localStorage.getItem("quoteLoved"),
-        searchLove = checkLove.search(i + ","),
         loving = document.getElementById("love");
-    if (searchLove === -1) {
+    if (checkLove === null) {
+        localStorage.setItem("quoteLoved", "");
         loving.setAttribute("class", "toLove");
-        console.warn("not loved.");
-    } else if (searchLove != -1) {
-        loving.setAttribute("class", "loving");
-        console.warn("loved");
+    } else {
+        var searchLove = checkLove.indexOf(i + ",");
+        if (searchLove === -1) {
+            loving.setAttribute("class", "toLove");
+            console.warn("not loved. " + i);
+        } else if (searchLove != -1) {
+            loving.setAttribute("class", "loving");
+            console.warn("loved " + i);
+        };
     };
     
     // return the value of i (the random number) to use it on love()
     return selectedQ = i;
 }
+
 // Set interval to show a new random quote every 60 seconds
 var quoteInterval = setInterval(function() {
     randomQ();
-}, 60000);
-// Function to search on authors and output all their quotes on the console
-function search(author) {
-    for (var i = 0; i < quotes.length; i++) {
-        var splitQ = quotes[i].split("//"),
-            quote = splitQ[0],
-            authorQ = splitQ[1],
-            authorF = authorQ.search(author);
-        if (!authorF) {
-            console.info(quote + " -" + authorQ);
-        };
+    switch (msg) {
+        case 0:
+            console.clear();
+            console.info("Gracias por passarte 1 minuto con nosotros :')");
+            msg = msg +1;
+            break;
+        case 1:
+            console.clear();
+            console.info("DOS minutos. Te gustan nuestras frases.");
+            msg = msg +1;
+            break;
+        case 2:
+            console.clear();
+            console.info("¿TRES minutos? ¿No seras un bot?");
+            msg = 10;
+            break;
+        case 10:
+            console.clear();
+            console.info("¿DIEZ minutos? Eres de los nuestro :¡)");
+            msg = msg +1;
+            break;
     };
-};
+}, 60000);
 
+// Function to love/add a quote on your favourite(locally)
 function love() {
     var quotesLoved = localStorage.getItem("quoteLoved");
     if (quotesLoved === null) {
         localStorage.setItem("quoteLoved", selectedQ + ",");
     } else {
         // ON BUILD!
-        var lovedQ = quotesLoved.search(selectedQ + ",");
+        var lovedQ = quotesLoved.indexOf(selectedQ + ",");
         if (lovedQ != -1) {
             var deleteOne = localStorage.getItem("quoteLoved"),
                 findToDelete = deleteOne.search(selectedQ + ",");
@@ -153,10 +172,45 @@ function love() {
                 localStorage.setItem("quoteLoved", elToDelete);
                 console.warn(elToDelete);
             };*/
-        } else {
+        } else if (lovedQ === -1) {
             localStorage.setItem("quoteLoved", quotesLoved + selectedQ + ",");
-            console.info("Quote Loved.");
+            console.info("Loved quote: " + selectedQ);
             document.getElementById("love").setAttribute("class", "loving");
         };
     };
 };
+
+function updateInfo () {
+    var daHash = location.hash.substring(1),
+        wrapper = document.getElementById("wrapper");
+    if (daHash == "home" || daHash == "") {
+        wrapper.style.display = "block";
+    } else if (daHash == "about") {
+        wrapper.style.display = "none";
+    } else if (daHash.search("restore") != -1) {
+        var rest = location.hash.substring(9);
+        localStorage.setItem("quoteLoved", rest);
+    } else if (daHash.search("qr") != -1) {
+        var quotes = localStorage.getItem("quoteLoved"),
+            restoreEl = document.getElementById("restore");
+        restoreEl.style.display = "block";
+        if (quotes.length == 0) {
+            restoreEl.innerHTML = "  No tienes frases para recuperar :')";
+        } else {
+            restoreEl.innerHTML = " " + window.location.protocol + window.location.host + window.location.pathname + "#restore-" + quotes;
+        };
+    };
+
+};
+// Checks the url if has changes
+setInterval(function () {
+    updateInfo();
+}, 500);
+
+// When R key is pressed a random quote will be shown
+window.addEventListener("keydown", checkKeyPressed, false);
+function checkKeyPressed(e) {
+	if (e.keyCode == "82") {
+		randomQ();
+	}
+}

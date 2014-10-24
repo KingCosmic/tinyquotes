@@ -23,5 +23,10 @@ var quotes = [
     "Oh, no me importaría Hazel Grace. Sería un privilegio que me rompieras el coraz&oacute;n//Augustus Waters, Bajo la misma Estrella//toofartooblack//tumblr//fav",
     "Es una metafora. Te colocas el arma asesina entre los dientes, pero no le das el poder de matarte//Augustus Waters, Bajo la misma Estrella//toofartooblack//tumblr//fav",
     "Aceptamos el amor que creemos merecer//Profesor Bill, Ventajas de Ser un Marginado//toofartooblack//tumblr//fav",
-    "Yo no soy un monstruo... sólo voy un paso por delante//Joker, Batman//toofartooblack//tumblr//fav"
+    "Yo no soy un monstruo... sólo voy un paso por delante//Joker, Batman//toofartooblack//tumblr//fav",
+    "We are not good at everything, we are not good by ourselves//Simon Sinek//DaLancelotBruh//twitter//fav",
+    "Soy el tipo de persona que si no sabe una respuesta le diré que no la sé. Pero le apuesto a que sé cómo encontrar la respuesta, y la encontrar&eacute;.//En Busca de la Felicidad//DaLancelotBruh//twitter",
+    "Esta parte de mi vida, este pequeño momento de mi vida lo llamo Felicidad//En Busca de la Felicidad//toofartooblack//tumblr",
+    "Cuando se atisba un rato de felicidad siempre hay alguien que quiere destruirla//En Busca de la Felicidad//toofartooblack//tumblr//fav",
+    "Si tienes un sueño tienes que protegerlo. Las personas que no llegan alto te dirán que seas igual que ellas. Si quieres algo ve por ello y punto//En Busca de la Felicidad//toofartooblack//tumblr//fav"
 ];
