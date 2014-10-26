@@ -33,7 +33,7 @@ body div.wrapper {
 body div.wrapper cite:focus, p:focus {
     border: 0;
     outline: 0;
-    background-color: rgba(255, 255, 255, 1);
+    color: rgba(64, 80, 90, .8);
 }
 
 div.wrapper cite {
@@ -128,6 +128,19 @@ div.loving {
     bottom: 10px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+div.loving::before {
+    width: auto;
+    height: 20px;
+    content: 'Fav';
+    float: right;
+    margin-right: 30px;
+    font-weight: 700;
+    color: rgba(64, 80, 90, .7);
+    padding: 0;
+    -webkit-animation: loveBefore 2s linear;
+    opacity: 0;
 }
 
 div.toLove {
@@ -369,6 +382,15 @@ div.wrapper p#author span.dev_fav:hover {
     }
     100% {
         -webkit-transform: scale(1, 1);
+    }
+}
+
+@-webkit-keyframes loveBefore {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 

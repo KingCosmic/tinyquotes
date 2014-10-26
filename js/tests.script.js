@@ -62,19 +62,19 @@ function randomQ() {
         } else {
             switch (social) {
                     case "tumblr":
-                    authorNReferal = quoteB + " | " + '<a href="http://www.' + referal + refTu + '" target="_blank">' + referal + '</a>';
+                    authorNReferal = quoteB + " | " + '<a href="http://www.' + referal + refTu + '" target="_blank" title="tumblr de ' + referal + '">' + referal + '</a>';
                     break;
                     case "facebook":
-                    authorNReferal = quoteB + " | " + '<a href="' + refFb + referal + '" target="_blank">' + referal + '</a>';
+                    authorNReferal = quoteB + " | " + '<a href="' + refFb + referal + '" target="_blank" title="facebook de ' + referal + '">' + referal + '</a>';
                     break;
                     case "twitter":
-                    authorNReferal = quoteB + " | " + '<a href="' + refTw + referal + '" target="_blank">' + referal + '</a>';
+                    authorNReferal = quoteB + " | " + '<a href="' + refTw + referal + '" target="_blank" title="twitter de ' + referal + '">' + referal + '</a>';
                     break;
                     case "behance":
-                    authorNReferal = quoteB + " | " + '<a href="' + refBe + referal + '" target="_blank">' + referal + '</a>';
+                    authorNReferal = quoteB + " | " + '<a href="' + refBe + referal + '" target="_blank" title="behance de ' + referal + '">' + referal + '</a>';
                     break;
                     case "youtube":
-                    authorNReferal = quoteB + " | " + '<a href="' + refYt + referal + '" target="_blank">' + referal + '</a>';
+                    authorNReferal = quoteB + " | " + '<a href="' + refYt + referal + '" target="_blank" title="youtube de ' + referal + '">' + referal + '</a>';
                     break;
                     case undefined:
                     if (referal == "fav") {
@@ -96,13 +96,16 @@ function randomQ() {
     if (qChoosen.length > 140) {
         twitter.href = "";
         twitter.className = "disabled";
+        twitter.title = "Demasiado largo para compartir ;(";
         twitter.target = "";
     } else if (qChoosen.length <= 140) {
         twitter.href = "https://twitter.com/intent/tweet?text=" + quoteSharer + "%20-" + quoteB;
         twitter.className = "";
+        twitter.title = "Comparteme :)";
         twitter.target = "_blank";
     };
     tumblr.href = "http://www.tumblr.com/share/link?description=" + quoteSharer + "%20-" + quoteB;
+    tumblr.title = "Comparteme :)";
     
     var checkLove = localStorage.getItem("quoteLoved"),
         loving = document.getElementById("love");
@@ -212,5 +215,7 @@ window.addEventListener("keydown", checkKeyPressed, false);
 function checkKeyPressed(e) {
 	if (e.keyCode == "82") {
 		randomQ();
-	}
+	} else if (e.keyCode == "76"){
+        love();
+    };
 }
