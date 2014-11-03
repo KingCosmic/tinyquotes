@@ -19,7 +19,7 @@ Under MIT License :')
 
 Author
 =========
-- Paulo Nunes | [@DaLancelotBruh] []
+- Paulo Nunes | twitter: [DaLancelotBruh] facebbok: [SwagCokieMnstr] tumblr: [toofartooblack] dribbble: [PauloNunes] [PTheAnimal]
 
 **UPDATES**
 ==========
@@ -32,4 +32,8 @@ Some minor bug fixes, CSS improvement and compatibility with all browsers.
 + Added Social Links to share the quotes.
 
 
-[@dalancelotbruh]: http://twitter.com/DaLancelotBruh "Paulo Nunes"
+[dalancelotbruh]: http://twitter.com/DaLancelotBruh "Paulo Nunes"
+[swagcokiemnstr]: http://facebook.com/SwagCokieMnstr "Paulo Nunes"
+[toofartooblack]: http://toofartoblack.tumblr.com "Paulo Nunes"
+[paulonunes]: http://dribbble.com/PauloNunes "Paulo Nunes"
+[ptheanimal]: http://behance.net/PTheAnimal "Paulo Nunes"
