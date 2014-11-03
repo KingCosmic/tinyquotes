@@ -24,9 +24,20 @@ var quotes = [
     "Es una metafora. Te colocas el arma asesina entre los dientes, pero no le das el poder de matarte//Augustus Waters, Bajo la misma Estrella//toofartooblack//tumblr//fav",
     "Aceptamos el amor que creemos merecer//Profesor Bill, Ventajas de Ser un Marginado//toofartooblack//tumblr//fav",
     "Yo no soy un monstruo... sólo voy un paso por delante//Joker, Batman//toofartooblack//tumblr//fav",
-    "We are not good at everything, we are not good by ourselves//Simon Sinek//DaLancelotBruh//twitter//fav",
+    "No somos buenos en todo, no somos buenos por nosotros mismos//Simon Sinek//DaLancelotBruh//twitter//fav",
     "Soy el tipo de persona que si no sabe una respuesta le diré que no la sé. Pero le apuesto a que sé cómo encontrar la respuesta, y la encontrar&eacute;.//En Busca de la Felicidad//DaLancelotBruh//twitter",
     "Esta parte de mi vida, este pequeño momento de mi vida lo llamo Felicidad//En Busca de la Felicidad//toofartooblack//tumblr",
     "Cuando se atisba un rato de felicidad siempre hay alguien que quiere destruirla//En Busca de la Felicidad//toofartooblack//tumblr//fav",
-    "Si tienes un sueño tienes que protegerlo. Las personas que no llegan alto te dirán que seas igual que ellas. Si quieres algo ve por ello y punto//En Busca de la Felicidad//toofartooblack//tumblr//fav"
+    "Si tienes un sueño tienes que protegerlo. Las personas que no llegan alto te dirán que seas igual que ellas. Si quieres algo ve por ello y punto//En Busca de la Felicidad//toofartooblack//tumblr//fav",
+    "La vida es una partida y hay que vivirla de acuerdo con las reglas del juego//Guardi&aacute;n entre el Centeno//toofartooblack//tumblr//fav",
+    "Me alegro de que inventaran la bomba atómica: así si necesitan voluntarios para ponerse debajo cuando la lancen, puedo presentarme el primero//Guardi&aacute;n entre el Centeno//toofartooblack//tumblr//fav",
+    "No sé por qué hay que dejar de querer a una persona sólo porque se ha muerto. Sobre todo si era cien veces mejor que los que siguen viviendo//Guardi&aacute;n entre el Centeno//toofartooblack//tumblr",
+    "Si yo fuera pianista, tocaría dentro de un maldito armario//Guardi&aacute;n entre el Centeno//toofartooblack//tumblr//fav",
+    "No cuenten nunca nada a nadie. En el momento en que uno cuenta cualquier cosa, empieza a echar de menos a todo el mundo//Guardi&aacute;n entre el Centeno//toofartooblack//tumblr//fav",
+    "Tu puedes llorar, no hay ninguna verg&uuml;enza en eso//Will Smith//toofartooblack//tumblr",
+    "Vive el dia como si tú lo inventaras//Will Smith//toofartooblack//tumblr",
+    "Lo que para una persona puede ser una distancia prudencial, para otra puede ser un abismo//After Dark, Haruki Murakami//toofartooblack",
+    "La gente lo llama amor//Tokio Blues, Haruki Murakami//toofartooblack",
+    "&iexcl;Mi Madre!//Musculitos, Historias Corrientes//DaLancelotBruh//twitter//fav",
+    "Me gustaria decir que esto no es una autobiografia y que es una historia, pero si lo hiciese mentiria//Paulo Nunes, Mi autobiografia//SwagCokieMnstr//facebook"
 ];

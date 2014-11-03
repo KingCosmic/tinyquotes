@@ -28,6 +28,7 @@ body div.wrapper {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
+    margin-bottom: 100px;
 }
 
 body div.wrapper cite:focus, p:focus {
@@ -42,7 +43,6 @@ div.wrapper cite {
     float: left;
     padding: 1%;
     font-family: Georgia;
-    font-size: 2.5em;
     text-align: center;
     text-rendering: optimizeLegibility;
     font-style: normal;
@@ -80,54 +80,70 @@ div.wrapper p#author::before {
     content: '- ';
 }
 
-div.send {
-    float: right;
+footer {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(250, 250, 250, 1);
+    margin: 0;
+    padding: 0;
+}
+
+footer ul {
     width: auto;
     height: auto;
+    margin: 0;
+    padding: 0;
+    float: right;
+    list-style: none;
+}
+
+footer ul li {
+    float: left;
+}
+
+footer ul li.send {
+    width: auto;
+    height: 100%;
     font-family: Open Sans;
     padding: 10px;
     border-radius: 2px;
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
     cursor: pointer;
-    float: left;
     text-decoration: none;
     font-weight: 700;
     color: rgba(64, 80, 90, 5);
 }
 
-div.send:hover {
+li.send:hover {
     color: rgba(64, 80, 90, .8);
 }
 
 div.love {
-    float: right;
     width: 20px;
     height: 20px;
     font-family: Open Sans;
     padding: 10px;
-    border-radius: 2px;
     position: fixed;
-    right: 270px;
-    bottom: 10px;
-    border-radius: 4px;
+    bottom: 2px;
+    right: 250px;
+    border-radius: 2px;
 }
 
 div.loving {
     background: transparent url(../img/heart.png) no-repeat center;
     background-size: 25px;
-    float: right;
     width: 20px;
     height: 20px;
     font-family: Open Sans;
     padding: 10px;
     border-radius: 2px;
-    position: fixed;
-    right: 270px;
-    bottom: 10px;
     border-radius: 4px;
     cursor: pointer;
+    position: fixed;
+    bottom: 2px;
+    right: 250px;
 }
 
 div.loving::before {
@@ -146,28 +162,25 @@ div.loving::before {
 div.toLove {
     background: transparent url(../img/heart.png) no-repeat center;
     background-size: 25px;
-    float: right;
     width: 20px;
     height: 20px;
     font-family: Open Sans;
     padding: 10px;
-    border-radius: 2px;
-    position: fixed;
-    right: 270px;
-    bottom: 10px;
-    border-radius: 4px;
     cursor: pointer;
     -webkit-animation: toLove 2s ease-in-out infinite;
        -moz-animation: toLove 2s ease-in-out infinite;
          -o-animation: toLove 2s ease-in-out infinite;
             animation: toLove 2s ease-in-out infinite;
+    position: fixed;
+    bottom: 2px;
+    right: 250px;
 }
 
 div.toLove:hover {
     opacity: .9;
 }
 
-div.send a {
+li.send a {
     text-decoration: none;
     color: rgba(64, 80, 90, 1);
 }
@@ -178,26 +191,33 @@ div.wrapper p#author a {
     color: rgba(64, 80, 90, 1);
 }
 
-div.how_to {
-    float: right;
+footer ul li.how_to {
     width: auto;
     height: auto;
     font-family: Open Sans;
     padding: 10px;
     border-radius: 2px;
-    position: fixed;
-    right: 105px;
-    bottom: 10px;
     cursor: pointer;
 }
 
-div.how_to a {
-    float: left;
+li.how_to a {
     text-decoration: none;
     font-weight: 700;
     color: rgba(64, 80, 90, .9);
     margin: 0;
     padding: 0;
+}
+
+footer ul li.refresh {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 5px 0;
+    background: url(../img/refresh.png) no-repeat center;
+    background-color: transparent;
+    background-size: 80%;
+    border-radius: 2px;
+    cursor: pointer;
 }
 
 div.how_to:hover a {
@@ -237,22 +257,6 @@ div.wrapper code {
     float: left;
     font-size: 1.2em;
     color: rgba(64, 80, 90, .8);
-}
-
-div.refresh {
-    width: 30px;
-    height: 30px;
-    float: right;
-    padding: 0;
-    margin: 0;
-    position: fixed;
-    bottom: 15px;
-    right: 190px;
-    background: url(../img/refresh.png) no-repeat center;
-    background-color: transparent;
-    background-size: 80%;
-    border-radius: 2px;
-    cursor: pointer;
 }
 
 div.wrapper ul {
@@ -398,7 +402,7 @@ div.wrapper div.restore {
     width: auto;
     height: auto;
     position: absolute;
-    bottom: 10px;
+    bottom: 60px;
     left: 10px;
     font-family: Open Sans;
     font-size: .9em;

@@ -2,6 +2,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+    <meta name="“viewport”" content="initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
     <meta name="description" content="Motivational Quotes">
     <meta name="keywords" content="Quotes,Motivational,Free">
     <meta name="author" content="Paulo Nunes">
@@ -13,9 +15,7 @@
     <div class="wrapper" id="wrapper">
         <cite contenteditable="true" spellcheck="false" id="cite">
         </cite>
-        <div class="refresh" onclick="randomQ()" title="Cita Aleatoria, pressiona R para una nueva"></div>
-        <div id="love" onclick="love()" class="loving" title="A&ntilde;ade la cita a tus favoritos, tambien puedes pressionar L"></div>
-        <div class="restore" id="restore" contenteditable="true"></div>
+        <div class="restore" id="restore" contenteditable="true" spellcheck="false">Elements to restore.</div>
         <p id="author" contenteditable="false">
             <span class="dev_fav"></span>
         </p>
@@ -23,14 +23,21 @@
             <li>Comparte con:</li>
             <li><a href="#" target="_blank" id="twitter">Twitter</a></li>
             <li><a href="#" target="_blank" id="tumblr">Tumblr</a></li>
+            <li><a href="#" target="_blank" id="tinyQuotes">Tiny Quote</a></li>
         </ul>
     </div>
-    <div class="send">
-        <a href="mailto:amiguencio@icloud.com?subject=QUOTE%20TITLE&body=QUOTE%20TEXT">Sugerir</a>
-    </div>
-    <div class="how_to">
-        <a href="how_to.html">Ayuda</a>
-    </div>
+    <footer>
+        <ul>
+            <li class="refresh" onclick="randomQ()" title="Cita Aleatoria, pressiona R para una nueva"></li>
+            <li class="send">
+                <a href="mailto:amiguencio@icloud.com?subject=QUOTE%20TITLE&body=QUOTE%20TEXT">Sugerir</a>
+            </li>
+            <li class="how_to">
+                <a href="how_to.html">Ayuda</a>
+            </li>
+        </ul>
+    </footer>
+    <div id="love" onclick="love()" class="love" title="A&ntilde;ade la cita a tus favoritos, tambien puedes pressionar L"></div>
     <script src="js/quotes.js" type="text/javascript"></script>
     <script src="js/tests.script.js" type="text/javascript"></script>
 </body>
