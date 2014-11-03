@@ -23,6 +23,7 @@ Author
 
 **UPDATES**
 ==========
++ Added new feature letting you share the URL of the quote, search for it on "Tiny Quote" button.
 + Fixed bugs and Added some tiny elements for the user :')
 + Added a recovery option for the users who would like to add or change a new device and keep their favs on the new device.
 Some minor bug fixes, CSS improvement and compatibility with all browsers.
