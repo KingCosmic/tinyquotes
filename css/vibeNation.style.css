@@ -427,6 +427,108 @@ div.restore::before {
     content: 'Restore Code:';
 }
 
+a.lovedOnes {
+    position: fixed;
+    top: -60px;
+    left: 15px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, .1);
+    -webkit-animation: lovedOnes 2.5s 1s linear;
+       -moz-animation: lovedOnes 2.5s 1s linear;
+         -o-animation: lovedOnes 2.5s 1s linear;
+            animation: lovedOnes 2.5s 1s linear;
+}
+
+a.lovedOnes div {
+    width: auto;
+    height: auto;
+    float: left;
+    margin: 0;
+    padding: 5px 15px;
+}
+
+a.lovedOnes div img {
+    width: 25px;
+    height: 25px;
+    padding-top: 13px;
+}
+
+a.lovedOnes div div {
+    float: right;
+    margin: 0;
+    padding: 0 5px;
+}
+
+a.lovedOnes div div p {
+    font-family: Open Sans;
+    font-size: .9em;
+    color: rgba(64, 80, 90, 1);
+}
+
+
+@-webkit-keyframes lovedOnes {
+    0% {
+        top: -60px;
+    }
+    20% {
+        top: 10px;
+    }
+    80% {
+        top: 10px;
+    }
+    100% {
+        top: -60px;
+    }
+}
+
+@-moz-keyframes lovedOnes {
+    0% {
+        top: -60px;
+    }
+    20% {
+        top: 10px;
+    }
+    80% {
+        top: 10px;
+    }
+    100% {
+        top: -60px;
+    }
+}
+
+@-o-keyframes lovedOnes {
+    0% {
+        top: -60px;
+    }
+    20% {
+        top: 10px;
+    }
+    80% {
+        top: 10px;
+    }
+    100% {
+        top: -60px;
+    }
+}
+
+@keyframes lovedOnes {
+    0% {
+        top: -60px;
+    }
+    20% {
+        top: 10px;
+    }
+    80% {
+        top: 10px;
+    }
+    100% {
+        top: -60px;
+    }
+}
 
 
 

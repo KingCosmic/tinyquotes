@@ -145,11 +145,14 @@ function randomQ() {
     location.hash = "";
     // return the value of i (the random number) to use it on love()
     return selectedQ = i;
-}
+};
 
 // Set interval to show a new random quote every 60 seconds
 var msg = 0;
-var quoteInterval = setInterval(function () {
+var quoteInterval = setInterval(daInterval, 60000);
+
+// Every certain minutes the console will be cleared and will be printed a message
+function daInterval () {
     randomQ();
     msg++;
     switch (msg) {
@@ -170,7 +173,7 @@ var quoteInterval = setInterval(function () {
         console.info("¿DIEZ minutos? Eres de los nuestro :¡)");
         break;
     };
-}, 60000);
+}
 
 // Function to love/add a quote on your favourite(locally)
 function love() {
@@ -192,6 +195,7 @@ function love() {
     };
 };
 
+// If the hash on the URL has changed it will do different things
 function updateInfo() {
     var daHash = location.hash.substring(1),
         wrapper = document.getElementById("wrapper");
@@ -222,10 +226,30 @@ setInterval(function () {
 // When R key is pressed a random quote will be shown
 window.addEventListener("keydown", checkKeyPressed, false);
 
+// Event listener for total function
+window.addEventListener("load", total, false);
+
+// Clicking R will clear the interval and display another random quote
 function checkKeyPressed(e) {
     if (e.keyCode == "82") {
+        clearInterval(quoteInterval);
+        quoteInterval = setInterval(daInterval, 60000);
         randomQ();
-    } else if (e.keyCode == "76") {
+    } else if (e.keyCode == "76" || e.keyCode == "70") { // Clicking L or F will add the quote to your favourites.
         love();
     };
+}
+
+// Show a div with the number of quotes you loved
+function total () {
+    var totalL = localStorage.getItem("quoteLoved"),
+        totalA = totalL.split(","),
+        lenghtOf = totalA.length;
+    if (lenghtOf > 0) {
+        document.getElementById("total").innerHTML = "Total en Fav.: " + lenghtOf;
+    } else if (lenghtOf == 0) {
+        document.getElementById("total").innerHTML = "Aun no le has dado Fav. a una cita.";
+    } else if (lenghtOf == lenghtOf) {
+        document.getElementById("total").innerHTML = "Te han gustado todas, gracias :)";
+    }
 }

@@ -4,7 +4,7 @@ var quotes = [
     "¿Por qué enrolarse en la armada cuando puedes ser un pirata?//Steve Jobs",
     "La innovación distingue entre un líder y un seguidor//Steve Jobs",
     "La calidad es más importante que la cantidad. Un 'home run' es mucho mejor que dos dobles//Steve Jobs//DaLancelotBruh//twitter",
-    "Hay gente que lo único que quiere es ver arder el mundo//Alfred, Batman//DaLancelotBruh//twitter",
+    "Hay gente que lo único que quiere es ver arder el mundo//Alfred, Batman//DaLancelotBruh//twitter//fav",
     "Si se te da bien algo, nunca lo hagas gratis…//Joker, Batman//DaLancelotBruh//twitter",
     "Ya no puedes fiarte de nadie. Si quieres algo, tienes que hacerlo tú, ¿no crees?//Joker, Batman//DaLancelotBruh//twitter",
     "No es sino la sombra de una ilusion lo que amas, no puedo darte lo que anhelas//Aragorn, El Se&ntilde;or de los Anillos//lorenzo.v.matterhorn.948//facebook",
@@ -39,5 +39,9 @@ var quotes = [
     "Lo que para una persona puede ser una distancia prudencial, para otra puede ser un abismo//After Dark, Haruki Murakami//toofartooblack",
     "La gente lo llama amor//Tokio Blues, Haruki Murakami//toofartooblack",
     "&iexcl;Mi Madre!//Musculitos, Historias Corrientes//DaLancelotBruh//twitter//fav",
-    "Me gustaria decir que esto no es una autobiografia y que es una historia, pero si lo hiciese mentiria//Paulo Nunes, Mi autobiografia//SwagCokieMnstr//facebook"
+    "Me gustaria decir que esto no es una autobiografia y que es una historia, pero si lo hiciese mentiria//Paulo Nunes, Mi autobiografia//SwagCokieMnstr//facebook",
+    "El fracaso es una gran oportunidad para empezar otra vez con más inteligencia//Henry Ford//fluffypuffyunic//tumblr//fav",
+    "Nadie mas que uno puede liverar su mente de la esclavitud//Bob Marley//fluffypuffyunic//tumblr//fav",
+    "Algunas personas simplemente nacen siendo estrellas, lo tienes o no lo tienes y yo, definitivamente nací siendo una//Lady Gaga//fluffypuffyunic//tumblr",
+    "No puedes tener un mejor mañana si sigues pensando en el ayer//Taylor Swift//DaLancelotBruh//twitter//fav"
 ];
