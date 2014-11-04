@@ -23,7 +23,7 @@ Author
 
 **UPDATES**
 ==========
-+ UnLove a quote will not be added because I think if you like a quote you will like it for a long time and it is unnecessary to put an option if you are not going to use it. Also it can cause some trouble because you can double click it and Love-unLove it.
++ UnLove a quote will not be added because I think if you like a quote you will like it for a long time and it is unnecessary to put an option you won't use it. Also it can cause some trouble double clicking it and Love-unLove it.
 + Fixed major bug causing double quote change and added a new div showing the total quotes you loved.
 + Added new feature letting you share the URL of the quote, search for it on "Tiny Quote" button.
 + Fixed bugs and Added some tiny elements for the user :')
