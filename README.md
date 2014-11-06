@@ -2,7 +2,8 @@ Hipsterize
 ==========
 
 A Quotes Page with contributions. *Beautiful* and *Minimal*.
-Minimal single page website where a random quote is displayed. It can show the quote twice because you know... it is a RANDOM number and sometimes it can be the same in two tries or three.. BUT NOT FOR :)
+
+Minimal single page website where a random quote is displayed. The quote can be shown twice because you know... it is a RANDOM number and sometimes can be the same in two tries or three.. BUT NOT FOUR :)
 
 *No Database*, all happening *locally*. *Fast page load* and *no frameworks*, *pure* CSS and JS.
 
