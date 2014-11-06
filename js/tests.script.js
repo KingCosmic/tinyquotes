@@ -1,10 +1,11 @@
 /* Made by Paulo Nunes.
- * v1.4 2/10/2014
+ * v1.6 4/11/2014
  * made for Tiny Quotes webpage, use under MIT License rights.
  */
 
 var selectedQ,
     msg = 0,
+    allEl,
     // Social references to use
     refTw = "http://www.twitter.com/",
     refFb = "http://www.facebook.com/",
@@ -15,7 +16,7 @@ var selectedQ,
 // Used a function so now you don't have to refresh the page to display a random quote
 function randomQ() {
     "use strict";
-    // This codeline defines a random number from 1 to the length of the quotes array
+    // This line of code defines a random number from 1 to the length of the quotes array
     var i = Math.floor(Math.random() * quotes.length),
         uHash = location.hash.substring(1),
         hQuote = quotes[uHash],
@@ -109,10 +110,10 @@ function randomQ() {
         twitter.target = "_blank";
     };
     if (hQuote) {
-        tinyQuotes.href= "http://tinyquotes.com/#" + uHash;
+        tinyQuotes.href = "http://tinyquotes.com/#" + uHash;
         tinyQuotes.title = "Comparte esta frase :)";
     } else {
-        tinyQuotes.href= "http://tinyquotes.com/#" + i;
+        tinyQuotes.href = "http://tinyquotes.com/#" + i;
         tinyQuotes.title = "Comparte esta frase :)";
     };
     tumblr.href = "http://www.tumblr.com/share/link?description=" + quoteSharer + "%20-" + quoteB;
@@ -141,7 +142,7 @@ function randomQ() {
     } else {
         qCite.style.fontSize = "2.5em";
     };
-    
+
     location.hash = "";
     // return the value of i (the random number) to use it on love()
     return selectedQ = i;
@@ -152,7 +153,7 @@ var msg = 0;
 var quoteInterval = setInterval(daInterval, 60000);
 
 // Every certain minutes the console will be cleared and will be printed a message
-function daInterval () {
+function daInterval() {
     randomQ();
     msg++;
     switch (msg) {
@@ -198,7 +199,12 @@ function love() {
 // If the hash on the URL has changed it will do different things
 function updateInfo() {
     var daHash = location.hash.substring(1),
-        wrapper = document.getElementById("wrapper");
+        wrapper = document.getElementById("wrapper"),
+        favs = localStorage.getItem("quoteLoved"),
+        favA = favs.split(","),
+        modal = document.getElementById("modal"),
+        overlay = document.getElementById("overlay"),
+        seen = false;
     if (daHash == "home" || daHash == "") {
         wrapper.style.display = "block";
     } else if (daHash == "about") {
@@ -207,17 +213,31 @@ function updateInfo() {
         var rest = location.hash.substring(9);
         localStorage.setItem("quoteLoved", rest);
     } else if (daHash.search("qr") != -1) {
-        var quotes = localStorage.getItem("quoteLoved"),
+        var quote = localStorage.getItem("quoteLoved"),
             restoreEl = document.getElementById("restore");
         restoreEl.style.display = "block";
-        if (quotes.length == 0) {
+        if (quote.length == 0) {
             restoreEl.innerHTML = "  No tienes frases para recuperar :')";
         } else {
-            restoreEl.innerHTML = " " + window.location.protocol + window.location.host + window.location.pathname + "#restore-" + quotes;
+            restoreEl.innerHTML = " " + window.location.protocol + window.location.host + window.location.pathname + "#restore-" + quote;
         };
+    } else if (daHash == "fav") {
+        modal.style.display = "block";
+        overlay.style.display = "block";
+        modal.innerHTML = "";
+        for (var i = 0; i < (favA.length - 1); i++) {
+            var favQ = favA[i],
+                favQuotes = quotes[favQ],
+                s = favQuotes.split("//"),
+                t = s[0],
+                a = s[1];
+            modal.innerHTML = modal.innerHTML + "<section>" + "<cite contenteditable='true'>" + s[0] + "</cite>" + "<p><a onclick='location.reload()' href='#" + favQ + "'>" + s[1] + "<span class='dev_fav'></span>" + "</a></p>" + "</section>";
+        };
+        location.hash = "";
     };
 
 };
+
 // Checks the url if has changes
 setInterval(function () {
     updateInfo();
@@ -226,8 +246,16 @@ setInterval(function () {
 // When R key is pressed a random quote will be shown
 window.addEventListener("keydown", checkKeyPressed, false);
 
+// Event listener to catch a click on overlay
+document.getElementById("overlay").addEventListener("click", hide);
+
 // Event listener for total function
 window.addEventListener("load", total, false);
+
+function hide() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}
 
 // Clicking R will clear the interval and display another random quote
 function checkKeyPressed(e) {
@@ -241,7 +269,7 @@ function checkKeyPressed(e) {
 }
 
 // Show a div with the number of quotes you loved
-function total () {
+function total() {
     var totalL = localStorage.getItem("quoteLoved"),
         totalA = totalL.split(","),
         lenghtOf = totalA.length;
