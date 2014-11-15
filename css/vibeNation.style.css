@@ -35,6 +35,7 @@ body div.wrapper cite:focus, p:focus {
     border: 0;
     outline: 0;
     color: rgba(64, 80, 90, .8);
+    cursor: text;
 }
 
 div.wrapper cite {
@@ -47,6 +48,7 @@ div.wrapper cite {
     text-rendering: optimizeLegibility;
     font-style: normal;
     color: rgba(64, 80, 90, 1);
+    cursor: pointer;
 }
 
 div.wrapper cite::before {
@@ -114,7 +116,7 @@ footer ul li.send {
     cursor: pointer;
     text-decoration: none;
     font-weight: 700;
-    color: rgba(64, 80, 90, 5);
+    color: rgba(64, 80, 90, .5);
 }
 
 li.send:hover {
@@ -128,7 +130,7 @@ div.love {
     padding: 10px;
     position: fixed;
     bottom: 2px;
-    right: 250px;
+    right: 300px;
     border-radius: 2px;
     z-index: 10;
 }
@@ -145,7 +147,7 @@ div.loving {
     cursor: pointer;
     position: fixed;
     bottom: 2px;
-    right: 250px;
+    right: 300px;
     z-index: 10;
 }
 
@@ -176,7 +178,7 @@ div.toLove {
             animation: toLove 2s ease-in-out infinite;
     position: fixed;
     bottom: 2px;
-    right: 250px;
+    right: 300px;
     z-index: 10;
 }
 
@@ -186,7 +188,11 @@ div.toLove:hover {
 
 li.send a {
     text-decoration: none;
-    color: rgba(64, 80, 90, 1);
+    color: rgba(64, 80, 90, .5);
+}
+
+li.send a:hover {
+    color: rgba(64, 80, 90, .8);
 }
 
 div.wrapper p#author a {
@@ -207,9 +213,13 @@ footer ul li.how_to {
 li.how_to a {
     text-decoration: none;
     font-weight: 700;
-    color: rgba(64, 80, 90, .9);
+    color: rgba(64, 80, 90, .5);
     margin: 0;
     padding: 0;
+}
+
+li.how_to a:hover {
+    color: rgba(64, 80, 90, .8);
 }
 
 footer ul li.refresh {
@@ -222,6 +232,62 @@ footer ul li.refresh {
     background-size: 80%;
     border-radius: 2px;
     cursor: pointer;
+}
+
+footer ul.shortcuts {
+    float: left;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0 10px;
+    list-style: none;
+}
+
+footer ul.shortcuts li {
+    padding: 5px 10px;
+    margin: 5px 5px;
+    font-family: Open Sans;
+    font-weight: 300;
+    color: rgba(64, 80, 90, 1);
+    background-color: rgba(243, 243, 243, 1);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+footer ul.shortcuts li span {
+    margin-left: 8px;
+}
+
+footer ul.shortcuts li:first-child {
+    width: 54px;
+    height: 23px;
+    -webkit-transition: width .2s ease-in-out;
+       -moz-transition: width .2s ease-in-out;
+         -o-transition: width .2s ease-in-out;
+            transition: width .2s ease-in-out;
+    overflow: hidden;
+    text-align: left;
+}
+
+footer ul.shortcuts li:first-child:hover {
+    width: 190px;
+}
+
+footer ul.shortcuts li:last-child {
+    width: 52px;
+    height: 23px;
+    -webkit-transition: width .2s ease-in-out;
+       -moz-transition: width .2s ease-in-out;
+         -o-transition: width .2s ease-in-out;
+            transition: width .2s ease-in-out;
+    overflow: hidden;
+    text-align: left;
+}
+
+footer ul.shortcuts li:last-child:hover {
+    width: 195px;
 }
 
 div.how_to:hover a {
@@ -284,6 +350,21 @@ div.wrapper ul li {
 
 div.wrapper ul li a {
     color: rgba(64, 80, 90, 1);
+}
+
+div.wrapper ul li a#tinyQuotes {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+div.wrapper ul li a#tinyQuotes:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    cursor: text;
+    padding: 8px;
+    border-radius: 3px;
 }
 
 div.wrapper ul li a.disabled {
@@ -439,6 +520,7 @@ a.lovedOnes {
     height: auto;
     margin: 0;
     padding: 0;
+    cursor: pointer;
     border-radius: 3px;
     background-color: transparent;
     -webkit-animation: lovedOnes 2.5s 1s linear;
@@ -549,16 +631,32 @@ div.overlay {
 
 div.modal {
     width: 70%;
-    height: 85%;
+    height: 75%;
     position: fixed;
-    top: 5%;
+    top: 15%;
     left: 15%;
     border-radius: 4px;
-    background-color: rgba(250, 250, 250, 1);
-    display: none;
+    background-color: rgba(243, 243, 243, 1);
     z-index: 9;
     overflow-y: scroll;
     overflow-x: hidden;
+    display: none;
+}
+
+.modals {
+    -webkit-animation: modals .38s linear;
+       -moz-animation: modals .38s linear;
+         -o-animation: modals .38s linear;
+            animation: modals .38s linear;
+    display: block !important;
+}
+
+.modalh {
+    -webkit-animation: modalh .38s linear;
+       -moz-animation: modalh .38s linear;
+         -o-animation: modalh .38s linear;
+            animation: modalh .38s linear;
+    display: block !important;
 }
 
 div.modal section {
@@ -575,7 +673,7 @@ div.modal section cite {
     font-size: 2em;
     font-weight: 100;
     color: rgba(64, 80, 90, 1);
-    text-align: left;
+    text-align: center;
 }
 
 div.modal section cite:focus {
@@ -640,18 +738,373 @@ div.modal section p a {
     background-color: #aaa;
 }
 
+input[type=text].fav_search {
+    width: 68%;
+    height: auto;
+    position: fixed;
+    top: 5%;
+    left: 15%;
+    background-color: rgba(64, 80, 90, .6);
+    content: 'Search';
+    font-family: Georgia;
+    font-size: 1.1em;
+    color: rgba(250, 250, 250, .85);
+    padding: 1%;
+    border-radius: 4px;
+    border: 0;
+    outline: 0;
+    z-index: 9;
+    display: none;
+}
 
+input[type=text].searchd {
+    -webkit-animation: searchs .4s linear;
+       -moz-animation: searchs .4s linear;
+         -o-animation: searchs .4s linear;
+            animation: searchs .4s linear;
+    display: block;
+}
 
+input[type=text].searchHide {
+    -webkit-animation: searchHide .4s linear;
+       -moz-animation: searchHide .4s linear;
+         -o-animation: searchHide .4s linear;
+            animation: searchHide .4s linear;
+    display: block;
+}
 
+@-webkit-keyframes modals {
+    0% {
+        display: block;
+        -webkit-transform: scale(.2, .2);
+        background-color: rgba(243, 243, 243, .1);
+    }
+    60% {
+        display: block;
+        -webkit-transform: scale(1.08, 1.08);
+        background-color: rgba(243, 243, 243, .6);
+    }
+    100% {
+        display: block;
+        -webkit-transform: scale(1, 1);
+        background-color: rgba(243, 243, 243, 1);
+    }
+}
 
+@-moz-keyframes modals {
+    0% {
+        display: block;
+        -moz-transform: scale(.2, .2);
+        background-color: rgba(243, 243, 243, .1);
+    }
+    60% {
+        display: block;
+        -moz-transform: scale(1.08, 1.08);
+        background-color: rgba(243, 243, 243, .6);
+    }
+    100% {
+        display: block;
+        -moz-transform: scale(1, 1);
+        background-color: rgba(243, 243, 243, 1);
+    }
+}
 
+@-o-keyframes modals {
+    0% {
+        display: block;
+        -o-transform: scale(.2, .2);
+        background-color: rgba(243, 243, 243, .1);
+    }
+    60% {
+        display: block;
+        -o-transform: scale(1.08, 1.08);
+        background-color: rgba(243, 243, 243, .6);
+    }
+    100% {
+        display: block;
+        -o-transform: scale(1, 1);
+        background-color: rgba(243, 243, 243, 1);
+    }
+}
 
+@keyframes modals {
+    0% {
+        display: block;
+        transform: scale(.2, .2);
+        background-color: rgba(243, 243, 243, .1);
+    }
+    60% {
+        display: block;
+        transform: scale(1.08, 1.08);
+        background-color: rgba(243, 243, 243, .6);
+    }
+    100% {
+        display: block;
+        transform: scale(1, 1);
+        background-color: rgba(243, 243, 243, 1);
+    }
+}
 
+@-webkit-keyframes modalh {
+    0% {
+        display: block;
+        -webkit-transform: scale(1, 1);
+        background-color: rgba(243, 243, 243, 1);
+        color: rgba(64, 80, 90, 1);
+    }
+    60% {
+        display: block;
+        -webkit-transform: scale(1.08, 1.08);
+        background-color: rgba(243, 243, 243, .6);
+        color: rgba(64, 80, 90, .6);
+    }
+    90% {
+        display: block;
+        -webkit-transform: scale(.2, .2);
+        background-color: rgba(243, 243, 243, .1);
+        color: rgba(64, 80, 90, .1);
+    }
+    100% {
+        display: none;
+    }
+}
 
+@-moz-keyframes modalh {
+    0% {
+        display: block;
+        -moz-transform: scale(1, 1);
+        background-color: rgba(243, 243, 243, 1);
+        color: rgba(64, 80, 90, 1);
+    }
+    60% {
+        display: block;
+        -moz-transform: scale(1.08, 1.08);
+        background-color: rgba(243, 243, 243, .6);
+        color: rgba(64, 80, 90, .6);
+    }
+    90% {
+        display: block;
+        -moz-transform: scale(.2, .2);
+        background-color: rgba(243, 243, 243, .1);
+        color: rgba(64, 80, 90, .1);
+    }
+    100% {
+        display: none;
+    }
+}
 
+@-o-keyframes modalh {
+    0% {
+        display: block;
+        -o-transform: scale(1, 1);
+        background-color: rgba(243, 243, 243, 1);
+        color: rgba(64, 80, 90, 1);
+    }
+    60% {
+        display: block;
+        -o-transform: scale(1.08, 1.08);
+        background-color: rgba(243, 243, 243, .6);
+        color: rgba(64, 80, 90, .6);
+    }
+    90% {
+        display: block;
+        -o-transform: scale(.2, .2);
+        background-color: rgba(243, 243, 243, .1);
+        color: rgba(64, 80, 90, .1);
+    }
+    100% {
+        display: none;
+    }
+}
 
+@keyframes modalh {
+    0% {
+        display: block;
+        transform: scale(1, 1);
+        background-color: rgba(243, 243, 243, 1);
+        color: rgba(64, 80, 90, 1);
+    }
+    60% {
+        display: block;
+        transform: scale(1.08, 1.08);
+        background-color: rgba(243, 243, 243, .6);
+        color: rgba(64, 80, 90, .6);
+    }
+    90% {
+        display: block;
+        transform: scale(.2, .2);
+        background-color: rgba(243, 243, 243, .1);
+        color: rgba(64, 80, 90, .1);
+    }
+    100% {
+        display: none;
+    }
+}
 
+@-webkit-keyframes searchs {
+    0% {
+        display: block;
+        -webkit-transform: scale(.2, .2);
+        background-color: rgba(64, 80, 90, .1);
+    }
+    60% {
+        display: block;
+        -webkit-transform: scale(1.08, 1.08);
+        background-color: rgba(64, 80, 90, .3);
+    }
+    100% {
+        display: block;
+        -webkit-transform: scale(1, 1);
+        background-color: rgba(64, 80, 90, .6);
+    }
+}
 
+@-moz-keyframes searchs {
+    0% {
+        display: block;
+        -moz-transform: scale(.2, .2);
+        background-color: rgba(64, 80, 90, .1);
+    }
+    60% {
+        display: block;
+        -moz-transform: scale(1.08, 1.08);
+        background-color: rgba(64, 80, 90, .3);
+    }
+    100% {
+        display: block;
+        -moz-transform: scale(1, 1);
+        background-color: rgba(64, 80, 90, .6);
+    }
+}
 
+@-o-keyframes searchs {
+    0% {
+        display: block;
+        -o-transform: scale(.2, .2);
+        background-color: rgba(64, 80, 90, .1);
+    }
+    60% {
+        display: block;
+        -o-transform: scale(1.08, 1.08);
+        background-color: rgba(64, 80, 90, .3);
+    }
+    100% {
+        display: block;
+        -o-transform: scale(1, 1);
+        background-color: rgba(64, 80, 90, .6);
+    }
+}
 
+@-keyframes searchs {
+    0% {
+        display: block;
+        -transform: scale(.2, .2);
+        background-color: rgba(64, 80, 90, .1);
+    }
+    60% {
+        display: block;
+        -transform: scale(1.08, 1.08);
+        background-color: rgba(64, 80, 90, .3);
+    }
+    100% {
+        display: block;
+        -transform: scale(1, 1);
+        background-color: rgba(64, 80, 90, .6);
+    }
+}
 
+@-webkit-keyframes searchHide {
+    0% {
+        display: block;
+        -webkit-transform: scale(1, 1);
+        background-color: rgba(64, 80, 90, .6);
+        color: rgba(250, 250, 250, .85);
+    }
+    60% {
+        display: block;
+        -webkit-transform: scale(1.08, 1.08);
+        background-color: rgba(64, 80, 90, .3);
+        color: rgba(250, 250, 250, .3);
+    }
+    90% {
+        display: block;
+        -webkit-transform: scale(.2, .2);
+        background-color: rgba(64, 80, 90, .1);
+        color: rgba(250, 250, 250, .1);
+    }
+    100% {
+        display: none;
+    }
+}
+
+@-moz-keyframes searchHide {
+    0% {
+        display: block;
+        -moz-transform: scale(1, 1);
+        background-color: rgba(64, 80, 90, .6);
+        color: rgba(250, 250, 250, .85);
+    }
+    60% {
+        display: block;
+        -moz-transform: scale(1.08, 1.08);
+        background-color: rgba(64, 80, 90, .3);
+        color: rgba(250, 250, 250, .3);
+    }
+    90% {
+        display: block;
+        -moz-transform: scale(.2, .2);
+        background-color: rgba(64, 80, 90, .1);
+        color: rgba(250, 250, 250, .1);
+    }
+    100% {
+        display: none;
+    }
+}
+
+@-o-keyframes searchHide {
+    0% {
+        display: block;
+        -o-transform: scale(1, 1);
+        background-color: rgba(64, 80, 90, .6);
+        color: rgba(250, 250, 250, .85);
+    }
+    60% {
+        display: block;
+        -o-transform: scale(1.08, 1.08);
+        background-color: rgba(64, 80, 90, .3);
+        color: rgba(250, 250, 250, .3);
+    }
+    90% {
+        display: block;
+        -o-transform: scale(.2, .2);
+        background-color: rgba(64, 80, 90, .1);
+        color: rgba(250, 250, 250, .1);
+    }
+    100% {
+        display: none;
+    }
+}
+
+@keyframes searchHide {
+    0% {
+        display: block;
+        transform: scale(1, 1);
+        background-color: rgba(64, 80, 90, .6);
+        color: rgba(250, 250, 250, .85);
+    }
+    60% {
+        display: block;
+        transform: scale(1.08, 1.08);
+        background-color: rgba(64, 80, 90, .3);
+        color: rgba(250, 250, 250, .3);
+    }
+    90% {
+        display: block;
+        transform: scale(.2, .2);
+        background-color: rgba(64, 80, 90, .1);
+        color: rgba(250, 250, 250, .1);
+    }
+    100% {
+        display: none;
+    }
+}

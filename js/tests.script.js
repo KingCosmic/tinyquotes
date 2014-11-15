@@ -6,6 +6,7 @@
 var selectedQ,
     msg = 0,
     allEl,
+    search = document.getElementById("search"),
     // Social references to use
     refTw = "http://www.twitter.com/",
     refFb = "http://www.facebook.com/",
@@ -109,13 +110,16 @@ function randomQ() {
         twitter.title = "Comparteme :) | " + quoteT.length;
         twitter.target = "_blank";
     };
-    if (hQuote) {
-        tinyQuotes.href = "http://tinyquotes.com/#" + uHash;
-        tinyQuotes.title = "Comparte esta frase :)";
-    } else {
-        tinyQuotes.href = "http://tinyquotes.com/#" + i;
-        tinyQuotes.title = "Comparte esta frase :)";
-    };
+    tinyQuotes.innerHTML = "Tiny Quote";
+    tinyQuotes.addEventListener("click", function () {
+        if (hQuote) {
+            tinyQuotes.innerHTML = "http://tinyquotes.com/#" + uHash;
+            tinyQuotes.title = "Comparte esta frase :)";
+        } else {
+            tinyQuotes.innerHTML = "http://tinyquotes.com/#" + i;
+            tinyQuotes.title = "Comparte esta frase :)";
+        };
+    });
     tumblr.href = "http://www.tumblr.com/share/link?description=" + quoteSharer + "%20-" + quoteB;
     tumblr.title = "Comparteme :)";
 
@@ -222,8 +226,9 @@ function updateInfo() {
             restoreEl.innerHTML = " " + window.location.protocol + window.location.host + window.location.pathname + "#restore-" + quote;
         };
     } else if (daHash == "fav") {
-        modal.style.display = "block";
+        modal.className = "modal modals";
         overlay.style.display = "block";
+        search.className = "fav_search searchd";
         modal.innerHTML = "";
         for (var i = 0; i < (favA.length - 1); i++) {
             var favQ = favA[i],
@@ -231,7 +236,7 @@ function updateInfo() {
                 s = favQuotes.split("//"),
                 t = s[0],
                 a = s[1];
-            modal.innerHTML = modal.innerHTML + "<section>" + "<cite contenteditable='true'>" + s[0] + "</cite>" + "<p><a onclick='location.reload()' href='#" + favQ + "'>" + s[1] + "<span class='dev_fav'></span>" + "</a></p>" + "</section>";
+            modal.innerHTML = modal.innerHTML + "<section>" + "<cite contenteditable='true' spellcheck='false'>" + s[0] + "</cite>" + "<p><a onclick='location.reload()' href='#" + favQ + "'>" + s[1] + "<span class='dev_fav'></span>" + "</a></p>" + "</section>";
         };
         location.hash = "";
     };
@@ -246,6 +251,11 @@ setInterval(function () {
 // When R key is pressed a random quote will be shown
 window.addEventListener("keydown", checkKeyPressed, false);
 
+document.getElementById("search").addEventListener("keydown", searchFav, false);
+
+// When R key is pressed a random quote will be shown
+search.addEventListener("keydown", searchFav, false);
+
 // Event listener to catch a click on overlay
 document.getElementById("overlay").addEventListener("click", hide);
 
@@ -253,30 +263,60 @@ document.getElementById("overlay").addEventListener("click", hide);
 window.addEventListener("load", total, false);
 
 function hide() {
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("modal").className = "modal modalh";
     document.getElementById("overlay").style.display = "none";
+    search.className = "fav_search searchHide";
+    search.value = "";
+    setTimeout(function () {
+        search.className = "fav_search";
+        document.getElementById("modal").className = "modal";
+    }, 360);
 }
 
 // Clicking R will clear the interval and display another random quote
 function checkKeyPressed(e) {
-    if (e.keyCode == "82") {
+    // Random quote
+    if (e.altKey && e.keyCode == "82") {
         clearInterval(quoteInterval);
         quoteInterval = setInterval(daInterval, 60000);
         randomQ();
-    } else if (e.keyCode == "76" || e.keyCode == "70") { // Clicking L or F will add the quote to your favourites.
+    // Love quote
+    } else if (e.altKey && e.keyCode == "18") { 
+        // Clicking L or F will add the quote to your favourites.
         love();
     };
 }
+
+function searchFav() {
+    var search = document.getElementById("search"),
+        searchVal = search.value,
+        favs = localStorage.getItem("quoteLoved"),
+        favA = favs.split(","),
+        modal = document.getElementById("modal");
+    modal.innerHTML = "";
+    for (var i = 0; i < (favA.length - 1); i++) {
+        var favQ = favA[i],
+            favQuotes = quotes[favQ],
+            s = favQuotes.split("//"),
+            t = s[0],
+            tTL = t.toLowerCase(),
+            a = s[1];
+        if (tTL.indexOf(searchVal) != -1) {
+            modal.innerHTML = modal.innerHTML + "<section>" + "<cite contenteditable='true' spellcheck='false'>" + s[0] + "</cite>" + "<p><a onclick='location.reload()' href='#" + favQ + "'>" + s[1] + "<span class='dev_fav'></span>" + "</a></p>" + "</section>";
+        };
+    };
+
+};
 
 // Show a div with the number of quotes you loved
 function total() {
     var totalL = localStorage.getItem("quoteLoved"),
         totalA = totalL.split(","),
         lenghtOf = totalA.length;
-    if (lenghtOf > 0) {
-        document.getElementById("total").innerHTML = "Total en Fav.: " + lenghtOf;
-    } else if (lenghtOf == 0) {
+    if (totalL.length == 0) {
         document.getElementById("total").innerHTML = "Aun no le has dado Fav. a una cita.";
+    } else if (totalL.length > 0) {
+        document.getElementById("total").innerHTML = "Total en Fav.: " + (lenghtOf - 1);
     } else if (lenghtOf == lenghtOf) {
         document.getElementById("total").innerHTML = "Te han gustado todas, gracias :)";
     }
