@@ -26,6 +26,7 @@ Author
 
 **UPDATES**
 ==========
++ Added tiny things to the UI and made it easier to see the Favs Center(click on "Favoritas" to show it). Fixed tiny bugs and added shortcuts info.
 + Added feature letting you see all your favourite quotes, the only thing you have to do is put #fav at the end of the URL and enjoy:) Also included option that redirects to the quote if you click the author on #fav mode.
 + UnLove a quote will not be added because I think if you like a quote you will like it for a long time and it is unnecessary to put an option you won't use. Also it can cause some trouble by double clicking it.
 + Fixed major bug causing double quote change and added a new div showing the total quotes you loved.
