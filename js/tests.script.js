@@ -5,14 +5,15 @@
 
 var selectedQ,
     msg = 0,
-    allEl,
+    pressed,
     search = document.getElementById("search"),
     // Social references to use
     refTw = "http://www.twitter.com/",
     refFb = "http://www.facebook.com/",
     refYt = "http://www.youtube.com/user/",
     refBe = "http://www.behance.com/",
-    refTu = ".tumblr.com";
+    refTu = ".tumblr.com",
+    uHash = location.hash.substring(1);
 
 // Used a function so now you don't have to refresh the page to display a random quote
 function randomQ() {
@@ -22,6 +23,7 @@ function randomQ() {
         uHash = location.hash.substring(1),
         hQuote = quotes[uHash],
         qChoosen = hQuote ? hQuote : quotes[i],
+        whichO = uHash || i,
         quote = qChoosen.split("//"), // This line splits the quote in two on "//" to define the quote text and the author
         favourite = "fav",
         quoteT = quote[0], // Gets the Quote
@@ -111,7 +113,7 @@ function randomQ() {
         twitter.target = "_blank";
     };
     tinyQuotes.innerHTML = "Tiny Quote";
-    tinyQuotes.addEventListener("click", function () {
+    tinyQuotes.addEventListener("focus", function () {
         if (hQuote) {
             tinyQuotes.innerHTML = "http://tinyquotes.com/#" + uHash;
             tinyQuotes.title = "Comparte esta frase :)";
@@ -119,6 +121,9 @@ function randomQ() {
             tinyQuotes.innerHTML = "http://tinyquotes.com/#" + i;
             tinyQuotes.title = "Comparte esta frase :)";
         };
+    });
+    tinyQuotes.addEventListener("blur", function () {
+        tinyQuotes.innerHTML = "Tiny Quote";
     });
     tumblr.href = "http://www.tumblr.com/share/link?description=" + quoteSharer + "%20-" + quoteB;
     tumblr.title = "Comparteme :)";
@@ -129,13 +134,13 @@ function randomQ() {
         localStorage.setItem("quoteLoved", "");
         loving.setAttribute("class", "toLove");
     } else {
-        var searchLove = checkLove.indexOf(i + ",");
+        var searchLove = checkLove.indexOf(whichO + ",");
         if (searchLove === -1) {
             loving.setAttribute("class", "toLove");
-            console.warn("not loved. " + i);
-        } else if (searchLove != -1) {
+            console.warn("not loved. " + whichO);
+        } else if (searchLove != - whichO) {
             loving.setAttribute("class", "loving");
-            console.warn("loved " + i);
+            console.warn("loved " + whichO);
         };
     };
 
@@ -147,10 +152,13 @@ function randomQ() {
         qCite.style.fontSize = "2.5em";
     };
 
-    location.hash = "";
+    setTimeout(function () {
+        location.hash = "";
+    }, 100);
     // return the value of i (the random number) to use it on love()
     return selectedQ = i;
 };
+window.addEventListener("load", randomQ, false);
 
 // Set interval to show a new random quote every 60 seconds
 var msg = 0;
@@ -182,19 +190,20 @@ function daInterval() {
 
 // Function to love/add a quote on your favourite(locally)
 function love() {
-    var quotesLoved = localStorage.getItem("quoteLoved");
+    var quotesLoved = localStorage.getItem("quoteLoved"),
+        choose = selectedQ || uHash;
     if (quotesLoved === null) {
-        localStorage.setItem("quoteLoved", selectedQ + ",");
+        localStorage.setItem("quoteLoved", choose + ",");
     } else {
         // ON BUILD!
-        var lovedQ = quotesLoved.indexOf(selectedQ + ",");
+        var lovedQ = quotesLoved.indexOf(choose + ",");
         if (lovedQ != -1) {
             var deleteOne = localStorage.getItem("quoteLoved"),
-                findToDelete = deleteOne.search(selectedQ + ",");
-            console.warn("Already Loved");
+                findToDelete = deleteOne.search(choose + ",");
+            console.warn("Already Loved " + choose);
         } else if (lovedQ === -1) {
-            localStorage.setItem("quoteLoved", quotesLoved + selectedQ + ",");
-            console.info("Loved quote: " + selectedQ);
+            localStorage.setItem("quoteLoved", quotesLoved + choose + ",");
+            console.info("Loved quote: " + choose);
             document.getElementById("love").setAttribute("class", "loving");
         };
     };
@@ -229,6 +238,7 @@ function updateInfo() {
         modal.className = "modal modals";
         overlay.style.display = "block";
         search.className = "fav_search searchd";
+        document.getElementById("sharer").style.display = "block";
         modal.innerHTML = "";
         for (var i = 0; i < (favA.length - 1); i++) {
             var favQ = favA[i],
@@ -251,8 +261,6 @@ setInterval(function () {
 // When R key is pressed a random quote will be shown
 window.addEventListener("keydown", checkKeyPressed, false);
 
-document.getElementById("search").addEventListener("keydown", searchFav, false);
-
 // When R key is pressed a random quote will be shown
 search.addEventListener("keydown", searchFav, false);
 
@@ -265,25 +273,29 @@ window.addEventListener("load", total, false);
 function hide() {
     document.getElementById("modal").className = "modal modalh";
     document.getElementById("overlay").style.display = "none";
+    document.getElementById("sharer").style.display = "none";
     search.className = "fav_search searchHide";
     search.value = "";
     setTimeout(function () {
         search.className = "fav_search";
         document.getElementById("modal").className = "modal";
     }, 360);
+    return pressed = false;
 }
 
 // Clicking R will clear the interval and display another random quote
 function checkKeyPressed(e) {
     // Random quote
-    if (e.altKey && e.keyCode == "82") {
-        clearInterval(quoteInterval);
-        quoteInterval = setInterval(daInterval, 60000);
-        randomQ();
-    // Love quote
-    } else if (e.altKey && e.keyCode == "18") { 
-        // Clicking L or F will add the quote to your favourites.
-        love();
+    if (pressed === undefined || pressed === false) {
+        if (e.keyCode == "82") {
+            clearInterval(quoteInterval);
+            quoteInterval = setInterval(daInterval, 60000);
+            randomQ();
+            // Love quote
+        } else if (e.keyCode == "70") {
+            // Clicking L or F will add the quote to your favourites.
+            love();
+        };
     };
 }
 
@@ -305,6 +317,7 @@ function searchFav() {
             modal.innerHTML = modal.innerHTML + "<section>" + "<cite contenteditable='true' spellcheck='false'>" + s[0] + "</cite>" + "<p><a onclick='location.reload()' href='#" + favQ + "'>" + s[1] + "<span class='dev_fav'></span>" + "</a></p>" + "</section>";
         };
     };
+    return pressed = true;
 
 };
 
@@ -316,7 +329,7 @@ function total() {
     if (totalL.length == 0) {
         document.getElementById("total").innerHTML = "Aun no le has dado Fav. a una cita.";
     } else if (totalL.length > 0) {
-        document.getElementById("total").innerHTML = "Total en Fav.: " + (lenghtOf - 1);
+        document.getElementById("total").innerHTML = "Total en Fav.: " + (lenghtOf - 1) + " de " + (quotes.length - 1);
     } else if (lenghtOf == lenghtOf) {
         document.getElementById("total").innerHTML = "Te han gustado todas, gracias :)";
     }
