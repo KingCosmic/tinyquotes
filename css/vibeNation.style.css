@@ -171,6 +171,9 @@ div.loving::before {
     color: rgba(64, 80, 90, .7);
     padding: 0;
     -webkit-animation: loveBefore 2s linear;
+       -moz-animation: loveBefore 2s linear;
+         -o-animation: loveBefore 2s linear;
+            animation: loveBefore 2s linear;
     opacity: 0;
 }
 
@@ -462,41 +465,84 @@ div.wrapper p#author span.dev_fav:hover {
 
 @-moz-keyframes toLove {
      0% {
-        -webkit-transform: scale(.98, .98);
+        -moz-transform: scale(.95, .95);
+         opacity: .7;
     }
     20% {
-        -webkit-transform: scale(1.1, 1.1);
+        -moz-transform: scale(1.1, 1.1);
+        opacity: .9;
+    }
+    90% {
+        -moz-transform: scale(1, 1);
+        opacity: .7;
     }
     100% {
-        -webkit-transform: scale(1, 1);
+        opacity: .7;
     }
 }
 
 @-o-keyframes toLove {
      0% {
-        -webkit-transform: scale(.98, .98);
+        -o-transform: scale(.95, .95);
+         opacity: .7;
     }
     20% {
-        -webkit-transform: scale(1.1, 1.1);
+        -o-transform: scale(1.1, 1.1);
+        opacity: .9;
+    }
+    90% {
+        -o-transform: scale(1, 1);
+        opacity: .7;
     }
     100% {
-        -webkit-transform: scale(1, 1);
+        opacity: .7;
     }
 }
 
 @keyframes toLove {
      0% {
-        -webkit-transform: scale(.98, .98);
+         transform: scale(.95, .95);
+         opacity: .7;
     }
     20% {
-        -webkit-transform: scale(1.1, 1.1);
+        transform: scale(1.1, 1.1);
+        opacity: .9;
+    }
+    90% {
+        transform: scale(1, 1);
+        opacity: .7;
     }
     100% {
-        -webkit-transform: scale(1, 1);
+        opacity: .7;
     }
 }
 
 @-webkit-keyframes loveBefore {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes loveBefore {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@-o-keyframes loveBefore {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes loveBefore {
     0% {
         opacity: 1;
     }
@@ -745,9 +791,48 @@ div.modal section.pop {
     height: auto;
     padding: 1%;
     -webkit-animation: fade 2s linear;
+       -moz-animation: fade 2s linear;
+         -o-animation: fade 2s linear;
+            animation: fade 2s linear;
 }
 
 @-webkit-keyframes fade {
+    0% {
+      opacity: 1;  
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        1
+    }
+}
+
+@-moz-keyframes fade {
+    0% {
+      opacity: 1;  
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        1
+    }
+}
+
+@-o-keyframes fade {
+    0% {
+      opacity: 1;  
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        1
+    }
+}
+
+@keyframes fade {
     0% {
       opacity: 1;  
     }
@@ -823,6 +908,23 @@ div.modal section p a {
     color: rgba(64, 80, 90, 1);
 }
 
+::scrollbar {  
+    width: 8px;
+}
+
+::scrollbar-track {  
+    background-color: rgba(234, 234, 234, .1);
+}
+
+::scrollbar-thumb {  
+    background-color: #ccc;
+    border-radius: 15px;
+}
+
+::scrollbar-thumb:hover {  
+    background-color: #aaa;
+}
+
 ::-webkit-scrollbar {  
     width: 8px;
 }
@@ -837,6 +939,40 @@ div.modal section p a {
 }
 
 ::-webkit-scrollbar-thumb:hover {  
+    background-color: #aaa;
+}
+
+::-moz-scrollbar {  
+    width: 8px;
+}
+
+::-moz-scrollbar-track {  
+    background-color: rgba(234, 234, 234, .1);
+}
+
+::-moz-scrollbar-thumb {  
+    background-color: #ccc;
+    border-radius: 15px;
+}
+
+::-moz-scrollbar-thumb:hover {  
+    background-color: #aaa;
+}
+
+::-o-scrollbar {  
+    width: 8px;
+}
+
+::-o-scrollbar-track {  
+    background-color: rgba(234, 234, 234, .1);
+}
+
+::-o-scrollbar-thumb {  
+    background-color: #ccc;
+    border-radius: 15px;
+}
+
+::-o-scrollbar-thumb:hover {  
     background-color: #aaa;
 }
 
@@ -1236,7 +1372,7 @@ div.wr cite {
     height: auto;
     float: left;
     padding: 1%;
-    font-size: 2em;
+    font-size: 1em;
     font-family: Georgia;
     text-align: center;
     text-rendering: optimizeLegibility;
@@ -1291,4 +1427,187 @@ div.wr p#author::before {
 iframe {
     margin-left: auto;
     margin-right: auto;
+}
+
+div.beta {
+    position: fixed;
+    right: 0;
+    top: 20px;
+    font-family: Open Sans;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    padding: 0 .7%;
+    color: rgb(58, 135, 183);
+    font-weight: 400;
+    cursor: default;
+    z-index: 20;
+}
+
+header {
+    float: left;
+    position: fixed;
+    top: -97.5%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(64, 80, 90, .1);
+    z-index: 15;
+    display: block!important;
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+
+header:hover {
+    top: 0;
+    height: 93%;
+    background-color: rgba(255, 255, 255, .95);
+}
+
+header div.wr {
+    width: 70%;
+    height: 70%;
+    padding: 1%;
+    margin-left: 14%;
+    float: left;
+    display: inline-block;
+    overflow-y: scroll;
+}
+
+header div.wr p.alert {
+    width: 1px;
+    height: auto;
+    font-family: Open Sans;
+    font-size: .9em;
+    font-weight: 700;
+    color: rgba(255, 54, 85, .8);
+    padding-left: 1%;
+    border-left: 3px solid rgba(255, 54, 85, 1);
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-transition: all .3s linear;
+       -moz-transition: all .3s linear;
+         -o-transition: all .3s linear;
+            transition: all .3s linear;
+}
+
+header div.wr p.alert:hover {
+    width: 99%;
+    border-width: 2px;
+}
+
+header div.wr section {
+    width: 98%;
+    height: auto;
+    float: left;
+    margin: 1%;
+    -moz-animation : section 1s linear;
+}
+
+div.wr section cite {
+    font-family: Georgia;
+    font-size: 1.4em;
+    text-align: left;
+    background-color: transparent;
+    border-radius: 6px;
+    cursor: default;
+}
+
+div.wr section cite.added {
+    background-color: rgba(86, 255, 164, .7);
+    color: rgba(255, 255, 255, 1);
+}
+
+div.wr section cite.not {
+    background-color: rgba(64, 80, 90, .4);
+    color: rgba(255, 255, 255, 1);
+}
+
+div.wr section cite::after {
+    color: rgba(255, 255, 255, 1);
+}
+
+div.wr section cite::before {
+    color: rgba(255, 255, 255, 1);
+}
+
+div.wr section cite span.status {
+    float: right;
+    font-family: Open Sans;
+    font-size: .8em;
+    padding: 3px 20px;
+    opacity: .4;
+    text-transform: uppercase;
+}
+
+div.wr section:hover cite span.status {
+    opacity: .9;
+}
+
+header div.form {
+    width: 70%;
+    height: auto;
+    margin-left: 14%;
+    padding: 1%;
+}
+
+header div.form input[type=text] {
+    width: 98%;
+    padding: 1%;
+    font-family: Open Sans;
+    font-weight: 300;
+    color: rgba(64, 80, 90, 1);
+    font-size: .85em;
+    border: 1px solid rgba(64, 80, 90, .7);
+    border-radius: 6px;
+    margin: 5px 0;
+}
+
+input[type=text]:focus, select:focus {
+    outline: 0;
+    border: 1px solid rgb(84, 166, 217);
+}
+
+div.form input[type=text]#auth {
+    width: 50%;
+}
+
+div.form input[type=text]#referal {
+    width: 20%;
+}
+
+div.form select {
+    width: 24.75%;
+    height: auto;
+    font-family: Open Sans;
+    font-size: .85em;
+    padding: 1%;
+    border-radius: 6px;
+    border: 1px solid rgba(64, 80, 90, 1);
+}
+
+div.form div.post {
+    float: left;
+    width: auto;
+    height: auto;
+    padding: 1% 2%;
+    font-family: Open Sans;
+    font-size: 1em;
+    font-weight: 700;
+    background-color: rgba(64, 80, 90, .7);
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+
+@-moz-keyframes section {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

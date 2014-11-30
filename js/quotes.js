@@ -1,4 +1,4 @@
-var quotes = [
+var citas = [
     "Click. Boom. &iexcl;Asombroso!//Steve Jobs//fav",
     "El diseño no es sólo cómo se ve o cómo se siente. El Diseño es cómo funciona//Steve Jobs//Paulo Nunes",
     "¿Por qué enrolarse en la armada cuando puedes ser un pirata?//Steve Jobs//fav",
@@ -45,11 +45,14 @@ var quotes = [
     "Algunas personas simplemente nacen siendo estrellas, lo tienes o no lo tienes y yo, definitivamente nací siendo una//Lady Gaga//fluffypuffyunic//tumblr",
     "No puedes tener un mejor mañana si sigues pensando en el ayer//Taylor Swift//DaLancelotBruh//twitter//fav",
     "Si el plan A no funciona pasa al plan B y sino recuerda que hay mas letras en el abcdario//Anonimo",
-    "I am Shakespeare in the flesh//Kanye West, Interview with Sway Universe//toofartooblack//tumblr//fav",
-    "Cry as much as you want to, but make sure when you're finished, you never cry for the same reason again//Wiz Hhalifa//toofartooblack//tumblr",
-    "I kept taking shots because they burned my chest where I was trying to get you out//drinkt0forget, tumblr User//drinkt0forget//tumblr//fav",
     "Meu estilo de vida liberta minha mente, completamente louco mas un louco consciente//Chorao, Cantante//fav",
+];
+
+var quotes = [
+    "I kept taking shots because they burned my chest where I was trying to get you out//drinkt0forget, tumblr User//drinkt0forget//tumblr//fav",
     "Whatever makes you weird, is probably your greatest asset//Joss Whedon//DaLancelotBruh//twitter//fav",
     "Same rules apply//Bruce Robertson, Filth//toofartooblack//tumblr//fav",
-    "Homies. Help homies. Always.//Adventure Time (Hora de Aventuras)//toofartooblack//tumblr//fav"
+    "Homies. Help homies. Always.//Adventure Time (Hora de Aventuras)//toofartooblack//tumblr//fav",
+    "I am Shakespeare in the flesh//Kanye West, Interview with Sway Universe//toofartooblack//tumblr//fav",
+    "Cry as much as you want to, but make sure when you're finished, you never cry for the same reason again//Wiz Hhalifa//toofartooblack//tumblr"
 ];

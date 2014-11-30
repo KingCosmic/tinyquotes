@@ -138,7 +138,7 @@ function randomQ() {
         if (searchLove === -1) {
             loving.setAttribute("class", "toLove");
             console.warn("not loved. " + whichO);
-        } else if (searchLove != - whichO) {
+        } else if (searchLove != -whichO) {
             loving.setAttribute("class", "loving");
             console.warn("loved " + whichO);
         };
