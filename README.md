@@ -40,6 +40,12 @@ Some minor bug fixes, CSS improvement and compatibility with all browsers.
 + Added Social Links to share the quotes.
 
 
+**Future Updates**
+=========
++ Tag the quotes and search them easily.
++ When yo visit one of the two version languages the system will catch which one you choose and when you go to the main page you wil be redirected to your most visites version.
+
+
 [dalancelotbruh]: http://twitter.com/DaLancelotBruh "Paulo Nunes"
 [swagcokiemnstr]: http://facebook.com/SwagCokieMnstr "Paulo Nunes"
 [toofartooblack]: http://toofartoblack.tumblr.com "Paulo Nunes"
