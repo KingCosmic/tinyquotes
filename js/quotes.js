@@ -46,6 +46,11 @@ var citas = [
     "No puedes tener un mejor mañana si sigues pensando en el ayer//Taylor Swift//DaLancelotBruh//twitter//fav",
     "Si el plan A no funciona pasa al plan B y sino recuerda que hay mas letras en el abcdario//Anonimo",
     "Meu estilo de vida liberta minha mente, completamente louco mas un louco consciente//Chorao, Cantante//fav",
+    "La parte buena de hacer una autobiografia es que tienes toda una vida para hacerla y siempre tendras nuevos capitulos a hacer, eso si, centrate mas a que cada capitulo que hagas sea mas emocionante//Edgar Careta Cavagliani, El Pensador//edgar.careta//facebook//fav",
+    "Quiero morir de felicidad, no de vejez//Pau Escalé//edgar.careta//facebook//fav",
+    "Cuando un problema no tiene solución, no es un problema. Cuando un problema tiene solución, no es un problema//Edgar Careta Cavagliani, El Pensador//edgar.careta//facebbok",
+    "La dialetica es la Ciencia de las ideas//Platon//edgar.careta//facebbok//fav",
+    "El lunatico es quien mas sabe, y por eso lo esta//Edgar Careta Cavagliani, El Pensador//edgar.careta//facebook//fav"
 ];
 
 var quotes = [
@@ -54,5 +59,35 @@ var quotes = [
     "Same rules apply//Bruce Robertson, Filth//toofartooblack//tumblr//fav",
     "Homies. Help homies. Always.//Adventure Time (Hora de Aventuras)//toofartooblack//tumblr//fav",
     "I am Shakespeare in the flesh//Kanye West, Interview with Sway Universe//toofartooblack//tumblr//fav",
-    "Cry as much as you want to, but make sure when you're finished, you never cry for the same reason again//Wiz Hhalifa//toofartooblack//tumblr"
+    "Cry as much as you want to, but make sure when you're finished, you never cry for the same reason again//Wiz Hhalifa//toofartooblack//tumblr",
+    "If she's amazing, she won't be easy. If she's easy, she won't be amazing. If she's worth it, you wont give up. If you give up, you're not worthy. ... Truth is, everybody is going to hurt you; you just gotta find the ones worth suffering for//Bob Marley//hugsanddrugsssss//tumblr//fav",
+    "the things you own end up owning you//Tyler Durden, Fight Club//hugsanddrugsssss//tumblr//fav",
+    "We make up horrors to help us cope with the real ones//Stephen King//hugsanddrugsssss//tumblr//fav",
+    "I don't want to die without any scars//Chuck Palahniuk, Fight Club//hugsanddrugsssss//tumblr//fav",
+    "It's only after we've lost everything that we're free to do anything//Chuck Palahniuk, Fight Club//hugsanddrugsssss//tumblr//fav",
+    "You are not your job, you're not how much money you have in the bank. You are not the car you drive. You're not the contents of your wallet. You are not your fucking khakis. You are all singing, all dancing crap of the world//Chuck Palahniuk, Fight Club//hugsanddrugsssss//tumblr//fav",
+    "Everyone smiles with that invisible gun to their head//Chuck Palahniuk, Fight Club//hugsanddrugsssss//tumblr//fav",
+    "The lower you fall, the higher you'll fly//Chuck Palahniuk, Fight Club//hugsanddrugsssss//tumblr//fav",
+    "It's not love or anything, but I think I like you, too//Chuck Palahniuk, Fight Club//hugsanddrugsssss//tumblr//fav",
+    "Life's pretty good, and why wouldn't it be? I'm a pirate, after all//Johnny Depp//hugsanddrugsssss//tumblr//fav",
+    "I'm not sure I'm adult yet//Johnny Depp//hugsanddrugsssss//tumblr//fav",
+    "maybe this world is another planet's hell?//Aldous Huxley//hugsanddrugsssss//tumblr//fav",
+    "Silence is one of the hardest arguments to refute//Josh Billings//hugsanddrugsssss//tumblr//fav",
+    "I told my psychiatrist that everyone hates me. He said I was being ridiculous...//...Everyone hasn’t met me yet//hugsanddrugsssss//tumblr//fav",
+    "I don't judge, I only hate//Annie Dubaj//hugsanddrugsssss//tumblr//fav",
+    "I hate people, cause its free//Annie Dubaj//hugsanddrugsssss//tumblr//fav",
+    "They promised that dreams can come true, but forgot to mention that nightmares are dreams too//Oscar Wilde//hugsanddrugsssss//tumblr//fav",
+    "They judge me like a picture book, by the colours like they forgot to read//Lana Del Rey, Brooklyn Baby//hugsanddrugsssss//tumblr//fav",
+    "Live fast. Die young. Be wild. Have fun//Lana Del Rey//hugsanddrugsssss//tumblr//fav",
+    "Doing what you love is freedom. Loving what you do is happiness//Lana Del Rey//hugsanddrugsssss//tumblr//fav",
+    "Sometimes love is not enough and the road gets tough. I don’t know why//Lana Del Rey//hugsanddrugsssss//tumblr//fav",
+    "Don’t let people treat you like a cigarette, they only use you when theyre bored and step on you when theyre done. Be like drugs, let them die for you//Anonymous//hugsanddrugsssss//tumblr//fav",
+    "We're all mad here//Lewis Carroll, Alice in Wonderland//hugsanddrugsssss//tumblr//fav",
+    "Alice: How long is forever? White Rabbit: Sometimes, just one second//Lewis Carroll, Alice in Wonderland//hugsanddrugsssss//tumblr//fav",
+    "Imagination is the only weapon in the war against reality//Lewis Carroll, Alice in Wonderland//hugsanddrugsssss//tumblr//fav",
+    "People cry, not because they’re weak. It’s because they’ve been strong for too long//Johnny Depp//hugsanddrugsssss//tumblr//fav",
+    "Past is just waiting to fuck you up//James Cook, Skins//hugsanddrugsssss//tumblr//fav",
+    "James Cook: I fucking love you, man. I fucking love you to bits// James Cook, Skins//hugsanddrugsssss//tumblr//fav",
+    "JJ: Do you know what Naomi is spelled backwards? Cook: What? JJ: I moan.//Everyone Season 3, episode 1. Skins (2009) //hugsanddrugsssss//tumblr//fav",
+    "I'm James Cook!//James Cook, Skins//toofartooblack//tumblr//fav"
 ];
