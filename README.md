@@ -26,6 +26,7 @@ Author
 
 **UPDATES**
 ==========
++ Fixed some bugs with loving quotes, made a major improvement and added a new feature letting you search tags. *some hidden features added... let's see if you spot them* :D
 + Major bug found and getting ready to obliterate it with a code performance improvement.
 + Added tiny things to the UI and made it easier to see the Favs Center(click on "Favoritas" to show it). Fixed tiny bugs and added shortcuts info.
 + Added feature letting you see all your favourite quotes, the only thing you have to do is put #fav at the end of the URL and enjoy:) Also included option that redirects to the quote if you click the author on #fav mode.
@@ -42,8 +43,8 @@ Some minor bug fixes, CSS improvement and compatibility with all browsers.
 
 **Future Updates**
 =========
-+ Tag the quotes and search them easily.
 + When yo visit one of the two version languages the system will catch which one you choose and when you go to the main page you wil be redirected to your most visited version.
++ Launch the official version.
 
 
 [dalancelotbruh]: http://twitter.com/DaLancelotBruh "Paulo Nunes"
