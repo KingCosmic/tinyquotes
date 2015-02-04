@@ -10,6 +10,18 @@ body {
     height: auto;
     padding: 0;
     margin: 0;
+    -webkit-animation: body 1.2s ease-in-out;
+}
+
+body.dark {
+    background: url(../img/background.jpg) no-repeat center center;
+    background-size: 100%;
+    -webkit-animation: body 1.2s ease-in-out;
+}
+
+@-webkit-keyframes body {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 ::selection {
@@ -32,17 +44,34 @@ body {
     color: rgba(250, 250, 250, 1);
 }
 
-p, h1, h2, h3, h4, h5, a, cite, {
+p, h1, h2, h3, h4, h5, a, cite {
     text-rendering: optimizeLegibility;
 }
 
 body div.wrapper {
     width: 70%;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-top: 10%;
     margin-bottom: 100px;
+    opacity: 1;
+    -webkit-transition: all .2s .15s ease-in-out;
+       -moz-transition: all .2s .15s ease-in-out;
+         -o-transition: all .2s .15s ease-in-out;
+            transition: all .2s .15s ease-in-out;
+}
+
+body div.wr-open {
+    margin-left: 10%;
+    opacity: .5;
+    -webkit-animation: wr-open .30s ease-in-out !important;
+}
+
+@-webkit-keyframes wr-open {
+    0% {margin-left: 15%;}
+    30% {margin-left: 16%;}
+    100%{margin-left: 10% !important;}
 }
 
 body div.wrapper cite:focus, p:focus {
@@ -64,6 +93,11 @@ div.wrapper cite {
     color: rgba(64, 80, 90, 1);
     cursor: pointer;
 }
+
+body.dark div.wrapper cite {color: rgba(250, 250, 250, .8);}
+body.dark div.wrapper cite::before {color: rgba(250, 250, 250, .8);}
+body.dark div.wrapper cite::after {color: rgba(250, 250, 250, .8);}
+
 
 div.wrapper cite::before {
     font-family: Georgia;
@@ -94,6 +128,9 @@ div.wrapper p#author {
     user-select: none;
 }
 
+body.dark div.wrapper p#author {color: rgba(250, 250, 250, .8);}
+body.dark div.wrapper p#author::before {color: rgba(250, 250, 250, .8);}
+
 div.wrapper p#author::before {
     font-family: Georgia;
     font-size: 1.1em;
@@ -110,12 +147,16 @@ footer {
     background-color: rgba(250, 250, 250, 1);
     margin: 0;
     padding: 0;
-    z-index: 10;
+    z-index: 15;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
+}
+
+body.dark footer {
+    background-color: rgba(250, 250, 250, .1);
 }
 
 footer ul {
@@ -131,6 +172,8 @@ footer ul li {
     float: left;
 }
 
+body.dark footer ul li {color: rgba(250, 250, 250, .8);}
+
 footer ul li.send {
     width: auto;
     height: 100%;
@@ -143,6 +186,9 @@ footer ul li.send {
     color: rgba(64, 80, 90, .5);
 }
 
+body.dark ul li.send {color: rgba(250, 250, 250, .8);}
+body.dark ul li.send:hover {color: rgba(250, 250, 250, .9);}
+
 li.send:hover {
     color: rgba(64, 80, 90, .8);
 }
@@ -154,9 +200,9 @@ div.love {
     padding: 10px;
     position: fixed;
     bottom: 2px;
-    right: 300px;
+    right: 340px;
     border-radius: 2px;
-    z-index: 10;
+    z-index: 15;
 }
 
 div.loving {
@@ -171,8 +217,8 @@ div.loving {
     cursor: pointer;
     position: fixed;
     bottom: 2px;
-    right: 300px;
-    z-index: 10;
+    right: 340px;
+    z-index: 15;
 }
 
 div.loving::before {
@@ -205,8 +251,8 @@ div.toLove {
             animation: toLove 2s ease-in-out infinite;
     position: fixed;
     bottom: 2px;
-    right: 300px;
-    z-index: 10;
+    right: 340px;
+    z-index: 15;
 }
 
 div.toLove:hover {
@@ -223,6 +269,8 @@ li.send a {
          -o-transition: all .2s linear;
             transition: all .2s linear;
 }
+
+body.dark ul li.send a {color: rgba(250, 250, 250, .8);}
 
 li.send a:active {
     color: rgba(64, 80, 90, .8);
@@ -241,6 +289,8 @@ div.wrapper p#author a {
          -o-transition: all .2s linear;
             transition: all .2s linear;
 }
+
+body.dark div.wrapper p#author a {color: rgba(250, 250, 250, .8);}
 
 div.wrapper p#author a:active {
     -webkit-transform: scale(.85, .85);
@@ -263,6 +313,9 @@ li.how_to a {
     margin: 0;
     padding: 0;
 }
+
+body.dark ul li.how_to a {color: rgba(250, 250, 250, .8);}
+body.dark ul li.how_to a:hover {color: rgba(250, 250, 250, .9);}
 
 li.how_to a:hover {
     color: rgba(64, 80, 90, .8);
@@ -296,10 +349,15 @@ footer ul.shortcuts li {
     font-weight: 300;
     color: rgba(64, 80, 90, 1);
     background-color: rgba(243, 243, 243, 1);
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: default;
     display: inline-block;
     white-space: nowrap;
+}
+
+body.dark footer ul.shortcuts li {
+    color: rgba(250, 250, 250, .8);
+    background-color: rgba(250, 250, 250, .08);
 }
 
 footer ul.shortcuts li span {
@@ -321,6 +379,21 @@ footer ul.shortcuts li:first-child:hover {
     width: 145px;
 }
 
+footer ul.shortcuts li.us:first-child {
+    width: 10px;
+    height: 23px;
+    -webkit-transition: width .2s ease-in-out;
+       -moz-transition: width .2s ease-in-out;
+         -o-transition: width .2s ease-in-out;
+            transition: width .2s ease-in-out;
+    overflow: hidden;
+    text-align: left;
+}
+
+footer ul.shortcuts li.us:first-child:hover {
+    width: 105px;
+}
+
 footer ul.shortcuts li:last-child {
     width: 10px;
     height: 23px;
@@ -334,6 +407,21 @@ footer ul.shortcuts li:last-child {
 
 footer ul.shortcuts li:last-child:hover {
     width: 150px;
+}
+
+footer ul.shortcuts li.us:last-child {
+    width: 10px;
+    height: 23px;
+    -webkit-transition: width .2s ease-in-out;
+       -moz-transition: width .2s ease-in-out;
+         -o-transition: width .2s ease-in-out;
+            transition: width .2s ease-in-out;
+    overflow: hidden;
+    text-align: left;
+}
+
+footer ul.shortcuts li.us:last-child:hover {
+    width: 160px;
 }
 
 div.how_to:hover a {
@@ -390,6 +478,8 @@ div.wrapper ul {
     user-select: none;
 }
 
+body.dark div.wrapper ul li {color: rgba(250, 250, 250, .8);}
+
 div.wrapper ul li {
     float: left;
     padding: .5%;
@@ -407,6 +497,9 @@ div.wrapper ul li a#tinyQuotes {
     user-select: text;
 }
 
+body.dark div.wrapper ul li a {color: rgba(250, 250, 250, .8);}
+body.dark div.wrapper ul li a#tinyQuotes {color: rgba(250, 250, 250, .8);}
+
 div.wrapper ul li a {
     color: rgba(64, 80, 90, 1);
 }
@@ -420,6 +513,10 @@ div.wrapper ul li a#tinyQuotes {
     resize: none;
     font-family: Georgia;
     color: rgba(64, 80, 90, 1);
+}
+
+body.dark div.wrapper ul li a#tinyQuotes:focus {
+    background-color: rgba(250, 250, 250, .1);
 }
 
 div.wrapper ul li a#tinyQuotes:focus {
@@ -436,6 +533,7 @@ div.wrapper ul li a#tinyQuotes:focus {
 div.wrapper ul li a.disabled {
     text-decoration: none;
     cursor: default;
+    opacity: .4;
 }
 
 div.wrapper section {
@@ -486,17 +584,101 @@ div.wrapper p#author span.dev_fav:hover {
     opacity: .8;
 }
 
+div.theme {
+    width: auto;
+    height: auto;
+    float: left;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    padding: .4%;
+}
+
+div.theme ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    float: left;
+    text-decoration: none;
+    list-style: none;
+}
+
+body.dark div.theme ul li.active {
+    color: rgba(250, 250, 250, .78);
+    background-color: rgba(250, 250, 250, .24);
+}
+
+body.dark div.theme ul li {
+    color: rgba(250, 250, 250, .8);
+    background-color: rgba(250, 250, 250, .1);
+}
+
+body.dark div.theme ul li:hover {
+    color: rgba(250, 250, 250, .98);
+    background-color: rgba(250, 250, 250, .2);
+}
+
+div.theme ul li {
+    float: left;
+    padding: 5px 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-family: Open Sans;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(64, 80, 90, .2);
+    border-radius: 6px;
+    cursor: pointer;
+    -webkit-transition: all .15s ease-in-out;
+       -moz-transition: all .15s ease-in-out;
+         -o-transition: all .15s ease-in-out;
+            transition: all .15s ease-in-out;
+}
+
+div.theme ul li:hover {
+    background-color: rgba(64, 80, 90, .3);
+}
+
+body.dark div.wrapper div#tags {background-color: rgba(250, 250, 250, .1);}
+
 div.wrapper div#tags {
     float: left;
     width: 50%;
     height: auto;
     padding: .6% 1.2%;
     background-color: rgba(64, 80, 90, .02);
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
 }
+
+body.dark div.wrapper span.more {
+    width: 30px;
+    height: auto;
+    font-family: Open Sans;
+    font-weight: 300;
+    float: left;
+    padding: .5% 1px;
+    margin-left: -31px;
+    border-radius: 0 6px 6px 0;
+    color: rgba(250, 250, 250, .8);
+    background-color: rgba(250, 250, 250, .4);
+    cursor: pointer;
+    text-align: center;
+}
+
+body.dark div.wrapper span.active {
+    background-color: rgba(250, 250, 250, .5);
+    cursor: default;
+}
+
+body.dark div.wrapper span.more:hover {
+    background-color: rgba(250, 250, 250, .5);
+}
+
+body.dark div.wrapper div#tags span {color: rgba(250, 250, 250, .8);}
 
 div.wrapper div#tags span {
     padding: 1%;
@@ -506,10 +688,46 @@ div.wrapper div#tags span {
     font-size: .8em;
     cursor: pointer;
     margin: 3px;
+    border-radius: 4px;
+    background-position: -100%;
+    -webkit-transition: all .3s linear;
+}
+
+div.wrapper div#tags span:last-child {
+    margin-right: 28px;
+}
+
+div.wrapper div#tags span::before {
+    width: 5px;
+    height: 100%;
+    border-radius: 4px;
+    padding: 0 6px;
+    margin-right: 4px;
+    font-size: 1.2em;
+    background-color: rgba(108, 226, 194, .5);
+    color: rgba(255, 255, 255, 1);
+    content: '#';
+    -webkit-transition: all .3s linear;
+}
+
+body.dark div.wrapper div#tags span:hover {
+    color: rgba(250, 250, 250, 1);
 }
 
 div.wrapper div#tags span:hover {
     color: rgba(64, 80, 90, .75);
+}
+
+div.wrapper div#tags span:hover::before {
+    background-color: rgba(108, 226, 194, .9);
+}
+
+div.wrapper div#tags span.legends:before {
+    background-color: rgba(255, 232, 106, .5);
+}
+
+div.wrapper div#tags span.legends:hover::before {
+    background-color: rgba(255, 232, 106, .9);
 }
 
 @-webkit-keyframes toLove {
@@ -658,10 +876,10 @@ a.lovedOnes {
     cursor: pointer;
     border-radius: 3px;
     background-color: transparent;
-    -webkit-animation: lovedOnes 2.5s 5s linear;
+    /*-webkit-animation: lovedOnes 2.5s 5s linear;
        -moz-animation: lovedOnes 2.5s 5s linear;
          -o-animation: lovedOnes 2.5s 5s linear;
-            animation: lovedOnes 2.5s 5s linear;
+            animation: lovedOnes 2.5s 5s linear;*/
 }
 
 a.lovedOnes div {
@@ -751,6 +969,10 @@ a.lovedOnes div div p {
     }
 }
 
+body.dark div.overlay {
+    background-color: rgba(250, 250, 250, .14);
+}
+
 div.overlay {
     width: 100%;
     height: 100%;
@@ -762,6 +984,39 @@ div.overlay {
     background-color: rgba(255, 255, 255, .8);
     display: none;
     z-index: 2;
+    -webkit-transition: all .2s ease-in-out;
+       -moz-transition: all .2s ease-in-out;
+         -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+}
+
+body.dark div.tOverlay {
+    background-color: rgba(250, 250, 250, .14);
+}
+
+div.tOverlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 14;
+    background-color: rgba(255, 255, 255, .0);
+    -webkit-transition: all .15s ease-in-out;
+       -moz-transition: all .15s ease-in-out;
+         -o-transition: all .15s ease-in-out;
+            transition: all .15s ease-in-out;
+    display: none;
+}
+
+div.tol-open {
+    display: block !important;
+}
+
+div.tol-closed {
+    display: none !important;
 }
 
 div.sharer {
@@ -782,6 +1037,10 @@ div.sharer {
     display: none;
 }
 
+body.dark div.sharer p {
+    color: rgba(250, 250, 250, .8);
+}
+
 div.sharer p {
     font-family: Georgia;
     font-weight: 300;
@@ -799,30 +1058,50 @@ div.sharer hr {
     border: 0;
     outline: 0;
     height: 2px;
+    margin-bottom: 15px;
+}
+
+body.dark div.sharer a.tumblr {
+    color: rgba(250, 250, 250, .8);
+    background-color: rgba(250, 250, 250, .2);
+}
+
+body.dark div.sharer a.tumblr:hover {
+    color: rgba(250, 250, 250, .9);
+    background-color: rgba(250, 250, 250, .24);
+}
+
+body.dark div.sharer a.twitter {
+    color: rgba(250, 250, 250, .8);
+    background-color: rgba(250, 250, 250, .2);
+}
+
+body.dark div.sharer a.twitter:hover {
+    color: rgba(250, 250, 250, .9);
+    background-color: rgba(250, 250, 250, .24);
 }
 
 div.sharer a.tumblr, a.twitter {
     font-family: Open Sans;
-    font-size: 2em;
+    font-size: 1.6em;
     color: rgba(200, 200, 200, 1);
     background-color: rgba(240, 240, 240, 1);
     height: 100%;
     text-align: center;
     text-decoration: none;
+    border-radius: 6px;
 }
 
 div.sharer a.tumblr {
     float: left; 
     width: 70%;
     font-weight: 700;
-    border-radius: 4px;
 }
 
 div.sharer a.twitter {
     float: right;
     width: 25%;
     font-weight: 400;
-    border-radius: 4px;
 }
 
 div.modal {
@@ -992,6 +1271,32 @@ div.modal section p a {
     color: rgba(64, 80, 90, 1);
 }
 
+div.modal section div.tags {
+    float: left;
+    width: 50%;
+    height: auto;
+    padding: .6% 1.2%;
+    background-color: rgba(64, 80, 90, .02);
+    border-radius: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+div.modal section div.tags span {
+    padding: 1%;
+    color: rgba(64, 80, 90, .6);
+    font-family: Open Sans;
+    font-weight: 700;
+    font-size: .8em;
+    cursor: pointer;
+    margin: 3px;
+}
+
+div.modal section div.tags span:hover {
+    color: rgba(64, 80, 90, .75);
+}
+
 ::scrollbar {  
     width: 8px;
     height: 8px;
@@ -1062,6 +1367,11 @@ div.modal section p a {
 
 ::-o-scrollbar-thumb:hover {  
     background-color: #aaa;
+}
+
+body.dark input[tyope=text].fav_search {
+    color: rgba(250, 250, 250, .8);
+    background-color: rgba(250, 250, 250, .2);
 }
 
 input[type=text].fav_search {
@@ -1540,13 +1850,14 @@ div.beta {
 header {
     float: left;
     position: fixed;
-    top: -97.5%;
+    /*top: -97.5%; REAL MVP*/
+    top: 100%;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(64, 80, 90, .1);
-    z-index: 15;
-    display: block!important;
+    z-index: 11;
+    display: none !important;
     -webkit-transition: all .4s .15s ease-in-out;
        -moz-transition: all .4s .15s ease-in-out;
          -o-transition: all .4s .15s ease-in-out;
@@ -1760,3 +2071,240 @@ div.form div.post:hover {
         opacity: 1;
     }
 }
+
+div.daTag {
+    float: right;
+    width: 40%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(233, 237, 239, 1);
+    z-index: 16;
+    -webkit-transition: all .3s linear;
+       -moz-transition: all .3s linear;
+         -o-transition: all .3s linear;
+            transition: all .3s linear;
+}
+
+div.daTag-open {
+    right: 0;
+    -webkit-box-shadow: 0px 0px 55px 16px rgba(42, 42, 42, 0.1);
+}
+
+div.daTag-closed {
+    right: -40%;
+}
+
+div.daTag iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    float: left;
+}
+
+div.daTag div.tagsHead {
+    float: left;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(72, 74, 75);
+}
+
+.tagsEl {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+div.wr-tags {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+div.wr-tags section {
+    float: left;
+    width: 96%;
+    height: auto;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+    border-radius: 12px;
+    background-color: rgba(240, 240, 240, .5);
+}
+
+div.wr-tags section cite {
+    width: 98%;
+    height: auto;
+    float: left;
+    padding: 1%;
+    font-family: Georgia;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-size: 2em;
+    color: rgba(64, 80, 90, 1);
+    cursor: pointer;
+}
+
+div.wr-tags section cite::before {
+    font-family: Georgia;
+    font-size: 1em;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    color: rgba(64, 80, 90, 1);
+    content: '“';
+}
+
+div.wr-tags section cite::after {
+    font-family: Georgia;
+    font-size: 1em;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    color: rgba(64, 80, 90, 1);
+    content: '”';
+}
+
+div.wr-tags section p#author {
+    font-family: Georgia;
+    font-size: 1.1em;
+    color: rgba(64, 80, 90, 1);
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+div.wr-tags section p#author::before {
+    font-family: Georgia;
+    font-size: 1.1em;
+    color: rgba(64, 80, 90, 1);
+    content: '- ';
+}
+
+div.pop {
+    width: 20px;
+    height: 20px;
+    border-radius: 9px;
+    position: absolute;
+    padding: 1%;
+    top: 100px;
+    left: 20px;
+    font-family: Open Sans;
+    font-weight: 300;
+    background: rgba(108, 226, 194, 1) url(../img/quote.png) no-repeat center center;
+    background-size: 45%;
+}
+
+div#love-div {
+    width: 15%;
+    height: 40px;
+    border-radius: 9px;
+    position: absolute;
+    background-color: rgba(240, 240, 240, 1);
+    opacity: 0;
+    -webkit-transition: all .2s linear;
+       -moz-transition: all .2s linear;
+         -o-transition: all .2s linear;
+            transition: all .2s linear;
+}
+
+div#love-div.askToLove {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: rgba(108, 221, 226, 1);
+    border-radius: 10px;
+    opacity: 1;
+}
+
+div#love-div.showing {
+    opacity: 1;
+}
+
+div#love-div.hide {
+    opacity: 0;
+}
+
+div#love-div div {
+    height: 4px;
+    border-radius: 5px;
+    float: left;
+    padding: 1%;
+    margin-left: 9%;
+    margin-top: 17px;
+}
+
+div#love-div.progress div {
+    background-color: rgba(108, 226, 194, 1);
+    -webkit-animation: progress 1.01s linear;
+}
+
+@-webkit-keyframes progress {
+    from {width: 0%;}
+    to {width: 80%;}
+}
+
+div#love-div.done div {
+    background-color: rgba(108, 221, 226, 1);
+    width: 80%;
+}
+
+div#love-div.cancelled {
+    -webkit-animation: cancelled .5s linear;
+}
+
+@-webkit-keyframes cancelled {
+    0% {background-color: rgba(226, 108, 108, 1);}
+    99% {background-color: rgba(226, 108, 108, 1);}
+    100% {background-color: rgba(240, 240, 240, 1);}
+}
+
+div#love-div.cancelled div {
+    background-color: rgba(193, 93, 93, 1);
+    width: 80%;
+}
+
+div#love-pop {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 100px;
+    margin: auto;
+    left: 0; right: 0; top: 100px;
+    background: url(../img/heart.png) no-repeat center center;
+    background-size: 30px;
+    opacity: 0;
+}
+
+div#love-pop.l-pop {
+    -webkit-animation: lpop .8s ease-in-out;
+}
+
+@-webkit-keyframes lpop {
+    from {
+        opacity: 1;
+        -webkit-transform: scale(.9, .9);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: scale(1.8, 1.8);
+    }
+}
+
+
+
+
+
+
+
+
+
+

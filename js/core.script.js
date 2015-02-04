@@ -13,6 +13,7 @@ var selectedQ,
     modal = document.getElementById("modal"),
     mQT = document.getElementById("modalQT"),
     overlay = document.getElementById("overlay"),
+    tOverlay = document.getElementById("tOverlay"),
     search = document.getElementById("search"),
     sQT = document.getElementById("searchQT"),
     loving = document.getElementById("love"),
@@ -25,6 +26,11 @@ var selectedQ,
     uHash = location.hash.substring(1),
     title = document.getElementsByTagName("title")[0],
     tags = document.getElementById("tags"),
+    mTags = document.getElementById("mTags"),
+    daTag = document.getElementById("da_tag"),
+    iframe = document.getElementById("tags_iframe"),
+    toggleTheme = document.getElementById("toggleTheme"),
+    more = document.getElementById("more"),
     quo,
     lang;
 
@@ -55,6 +61,7 @@ function randomQ() {
         referal = quote[2], // Gets the referral
         authorNReferal,
         quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
+        quoteLovedArray = quoteLoved.split(","),
         social = quote[3], // Gets the social network will be used
         fav = quote[4], // Gets if the quote is one of the Developers Favourite
         pFav = lang ? '<span class="dev_fav" title="Favorite of the Developer"></span>' : '<span class="dev_fav" title="Favorita del Desarrollador"></span>'; // Element to add to all favorite quotes
@@ -122,24 +129,24 @@ function randomQ() {
     author.innerHTML = authorNReferal;
     var quoteSharer = quoteT,
         quoteSharer = encodeURIComponent(quoteSharer.trim()),
-        tN = lang ? ("To long to share ;( | " + quoteT.length) : ("Demasiado largo para compartir ;( | " + quoteT.length),
+        tN = lang ? ("Too long to share ;( | " + quoteT.length) : ("Demasiado largo para compartir ;( | " + quoteT.length),
         tY = lang ? ("Share me :) | " + quoteT.length) : ("Comparteme :) | " + quoteT.length),
         slash = " -",
         l = " @";
-    if (social == "twitter") {
-        if ((quoteT.length + slash.length + quoteB.length) > 140 || (quoteT.length + slash.length + quoteB.length + l.length + referal.length) > 140) {
+    /*if (social == "twitter") {
+        if ((quoteT.length + slash.length + quoteB.length) > 140 || (quoteT.length + slash.length + quoteB.length + l.length + referal.length) > 141) {
             twitter.href = "";
             twitter.className = "disabled";
             twitter.title = tN;
             twitter.target = "";
-        } else if ((quoteT.length + slash.length + quoteB.length) < 140 || (quoteT.length + slash.length + quoteB.length + l.length + referal.length) > 140) {
+        } else if ((quoteT.length + slash.length + quoteB.length) <= 140 || (quoteT.length + slash.length + quoteB.length + l.length + referal.length) <= 140) {
             twitter.href = "https://twitter.com/intent/tweet?text=" + quoteSharer + slash + quoteB + l + referal;
             twitter.className = "";
             twitter.title = tY;
             twitter.target = "_blank";
         };
     } else {
-        if ((qChoosen.length + " @" + referal) > 140) {
+        if ((qChoosen.length + " @" + referal) > 141) {
             twitter.href = "";
             twitter.className = "disabled";
             twitter.title = tN;
@@ -150,6 +157,17 @@ function randomQ() {
             twitter.title = tY;
             twitter.target = "_blank";
         };
+    };*/
+    if ((quoteT.length + slash.length + quoteB.length) >= 141) {
+        twitter.href = "";
+        twitter.className = "disabled";
+        twitter.title = tN;
+        twitter.target = "";
+    } else if ((quoteT.length + slash.length + quoteB.length) <= 140) {
+        twitter.href = "https://twitter.com/intent/tweet?text=" + quoteSharer + "%20-" + quoteB;
+        twitter.className = "";
+        twitter.title = tY;
+        twitter.target = "_blank";
     }
     tinyQuotes.innerHTML = "tiny Quote";
     tinyQuotes.addEventListener("focus", function () {
@@ -165,24 +183,31 @@ function randomQ() {
 
     tags.innerHTML = "";
     var tsplited = st.split(","),
-        z = 0;
-    do {
-        tags.innerHTML += "<span id =z" + z + ">" + tsplited[z] + "</span>";
-        document.getElementById(("z" + z)).setAttribute("onclick", "searchQT('" + tsplited[z] + "')")
-        z += 1;
-    } while (z <= (tsplited.length - 1));
+        z = 0,
+        o = 0;
+    if (st > "" || st.length > 0) {
+        do {
+            tags.innerHTML += "<span id =z" + z + ">" + tsplited[z] + "</span>";
+            if (legends.indexOf(tsplited[z]) != -1) {
+                document.getElementById(("z" + z)).setAttribute("class", "legends");
+                document.getElementById(("z" + z)).title = "tag on the Legendarium.";
+            };
+            document.getElementById(("z" + z)).setAttribute("onclick", "tag('" + tsplited[z] + "')");
+            z += 1;
+        } while (z <= (tsplited.length - 1));
+    };
 
     if (quoteLoved === null) {
         lang ? localStorage.setItem("lovedUS", "") : localStorage.setItem("lovedES", "");
         loving.setAttribute("class", "toLove");
     } else {
-        var searchLove = quoteLoved.indexOf(whichO + ",");
-        if (searchLove === -1) {
-            loving.setAttribute("class", "toLove");
-            console.warn("not loved. " + whichO);
-        } else if (searchLove != -whichO) {
+        var searchLove = quoteLovedArray.indexOf(whichO + ",");
+        if (searchLove != -1) {
             loving.setAttribute("class", "loving");
             console.warn("loved " + whichO);
+        } else if (searchLove == -1) {
+            loving.setAttribute("class", "toLove");
+            console.warn("not loved. " + whichO);
         };
     };
 
@@ -196,6 +221,7 @@ function randomQ() {
         };
     };
 
+    aClass("more", "more");
     setTimeout(function () {
         location.hash = "";
     }, 100);
@@ -237,7 +263,6 @@ function love() {
     if (quoteLoved === null) {
         lang ? localStorage.setItem("lovedUS", choose + ",") : localStorage.setItem("lovedES", choose + ",");
     } else {
-        // ON BUILD!
         var lovedQ = quoteLoved.indexOf(choose + ",");
         if (lovedQ != -1) {
             var deleteOne = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
@@ -293,10 +318,10 @@ search.addEventListener("keydown", searchFav, false);
 document.getElementById("overlay").addEventListener("click", hide);
 
 // Event listener for total function
-window.addEventListener("load", total, false);
+/*window.addEventListener("load", total, false);*/
 
 window.addEventListener("load", function () {
-    var pending = localStorage.getItem("pending"),
+    /*var pending = localStorage.getItem("pending"),
         a = pending.split("|"),
         div = document.getElementById("pendingC");
     var i = 0,
@@ -314,9 +339,13 @@ window.addEventListener("load", function () {
             } else if (e.indexOf(d) == -1) {
                 div.innerHTML += "<section><cite class='not'>" + d + "<span class='status'>pendiente o cancelada</span></cite></section>";
             }
-        } while (o < quotes.length);*/
+        } while (o < quotes.length);**
         div.innerHTML += "<section><cite class='not'>" + d.substr(0, 60) + "</cite></section>";
-    } while (i < (a.length - 1));
+    } while (i < (a.length - 1));*/
+    if (localStorage.getItem("themePreference") == "dark") {
+        document.body.setAttribute("class", "dark");
+        aClass("toggleTheme", "active");
+    };
 
 }, false);
 
@@ -356,16 +385,30 @@ favs.addEventListener("click", function () {
     search.className = "fav_search searchd";
     sharer.style.display = "block";
     modal.innerHTML = "";
+
     var quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
-        favA = quoteLoved.split(",");
-    for (var i = 0; i < (favA.length - 1); i++) {
-        var favQ = favA[i],
-            favQuotes = quo[favQ],
-            s = favQuotes.split("//"),
-            t = s[0],
-            a = s[1];
-        modal.innerHTML = modal.innerHTML + "<section>" + "<cite contenteditable='true' spellcheck='false'>" + s[0] + "</cite>" + "<p><a onclick='location.reload()' href='#" + favQ + "'>" + s[1] + "<span class='dev_fav'></span>" + "</a></p>" + "</section>";
-    };
+        onFavs = quoteLoved.split(",");
+    var i = 0;
+    do {
+        var getFromQuotesDB,
+            zero;
+        if (onFavs[i] == "") {
+            getFromQuotesDB = quo[0];
+        } else {
+            getFromQuotesDB = quo[onFavs[i]];
+        };
+        var separateTheQuote = getFromQuotesDB.split("|"),
+            getTheTextFromSeparation = separateTheQuote[0],
+            getTheTagsFromSeparation = separateTheQuote[1],
+            splitTheText = getTheTextFromSeparation.split("//"),
+            splitedQuote = splitTheText[0],
+            splitedAuthor = splitTheText[1],
+            splitTheTags = getTheTagsFromSeparation.split(","),
+            splitedTagsWithElement,
+            y = 0;
+        modal.innerHTML = modal.innerHTML + "<section>" + "<cite contenteditable='true' spellcheck='false'>" + splitedQuote + "</cite>" + "<p><a onclick='location.reload()' href='#" + onFavs[i] + "'>" + splitedAuthor + "</a></p>" + "</section>";
+        i++;
+    } while (i <= (onFavs.length - 1));
 });
 
 function hide() {
@@ -429,7 +472,7 @@ function searchFav() {
 };
 
 // Show a div with the number of quotes you loved
-function total() {
+/*function total() {
     var quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
         totalA = quoteLoved.split(","),
         lenghtOf = totalA.length;
@@ -440,10 +483,11 @@ function total() {
     } else if (lenghtOf == lenghtOf) {
         document.getElementById("total").innerHTML = lang ? "You loved all our quotes, thanks :)" : "Te han gustado todas, gracias :)";
     }
-};
+};*/
 
 sQT.addEventListener("keydown", find, false);
-function find(b) {
+
+function find() {
     // Añadir un if para diferenciar de # a texto
     mQT.innerHTML = "";
     for (var i = 0; i < quo.length; i++) {
@@ -451,11 +495,18 @@ function find(b) {
             q = qsplit[0],
             qa = q.split("//"),
             qtext = qa[0],
+            qTextToLowerCase = qtext.toLowerCase(),
             qauthor = qa[1],
             tags = qsplit[1],
             ta = tags.split(",");
-        if (tags.indexOf(b) != -1 || tags.indexOf(sQT.value) != -1) {
-            mQT.innerHTML += "<section>" + "<cite contenteditable='true' spellcheck='false'>" + qtext + "</cite>" + "<p>" + qauthor + "</p>" + "</section>";
+        if (sQT.value.indexOf("#") != -1) {
+            if (tags.indexOf(sQT.value.substring(1, (sQT.value.length))) != -1) {
+                mQT.innerHTML += "<section>" + "<cite contenteditable='true' spellcheck='false'>" + qtext + "</cite>" + "<p>" + qauthor + "</p>" + "</section>";
+            };
+        } else {
+            if (qTextToLowerCase.indexOf(sQT.value.toLowerCase()) != -1) {
+                mQT.innerHTML += "<section>" + "<cite contenteditable='true' spellcheck='false'>" + qtext + "</cite>" + "<p>" + qauthor + "</p>" + "</section>";
+            };
         };
     };
     return pressed = true;
@@ -481,3 +532,89 @@ function searchQT(a) {
     };
     return searchOn = true;
 };
+
+function tag(a) {
+    var tag = a;
+    daTag.setAttribute("class", "daTag daTag-open");
+    wrapper.setAttribute("class", "wrapper wr-open");
+    tOverlay.setAttribute("class", "tOverlay tol-open");
+    iframe.setAttribute("src", ("../tags/tags.html#" + a));
+    tOverlay.addEventListener("click", function () {
+        wrapper.setAttribute("class", "wrapper");
+        this.setAttribute("class", "tOverlay tol-closed");
+        daTag.setAttribute("class", "daTag daTag-closed");
+    });
+};
+
+function aClass(e, c) {
+    var el = document.getElementById(e);
+    el.setAttribute("class", c);
+};
+
+var longLove,
+    loveDiv = document.getElementById("love-div"),
+    x,
+    y,
+    coorTO;
+
+function lovePop(e) {
+    x = e.pageX;
+    y = e.pageY;
+    loveDiv.style.left = (x + 10) + "px";
+    loveDiv.style.top = (y + 10) + "px";
+};
+
+/*function askToLove (e) {
+    clearTimeout(coorTO);
+    x = e.pageX;
+    y = e.pageY;
+    aClass("love-div", "askToLove");
+    loveDiv.style.left = (x + 10) + "px";
+    loveDiv.style.top = (y + 10) + "px";
+    coorTO = setTimeout(function () {
+        aClass("love-div", "");
+    }, 400);
+};*/
+
+cite.addEventListener("mousedown", function () {
+    aClass("love-div", "showing progress");
+    loveDiv.addEventListener("mousemove", lovePop(event));
+    clearTimeout(coorTO);
+    longLove = window.setTimeout(function () {
+        aClass("love-div", "hide done");
+        aClass("love-pop", "l-pop");
+        setTimeout(function () {
+            aClass("love-pop", "");
+        }, 800);
+        love();
+    }, 1000);
+    return false;
+});
+
+cite.addEventListener("mouseup", function () {
+    clearTimeout(longLove);
+    aClass("love-div", "hide cancelled");
+    return false;
+});
+
+more.addEventListener("click", function () {
+    tags.scrollLeft = tags.scrollWidth;
+    aClass("more", "more active");
+});
+
+toggleTheme.addEventListener("click", function () {
+    if (localStorage.getItem("themePreference") == undefined) {
+        localStorage.setItem("themePreference", "light");
+        aClass("toggleTheme", "");
+    } else {
+        if (localStorage.getItem("themePreference") == "light") {
+            document.body.setAttribute("class", "dark");
+            localStorage.setItem("themePreference", "dark");
+            aClass("toggleTheme", "active");
+        } else if (localStorage.getItem("themePreference") == "dark") {
+            document.body.setAttribute("class", "");
+            localStorage.setItem("themePreference", "light");
+            aClass("toggleTheme", "");
+        };
+    };
+});
