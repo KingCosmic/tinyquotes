@@ -1,20 +1,30 @@
 Hipsterize
 ==========
 
-A Quotes Page with contributions. *Beautiful* and *Minimal*.
+Hey, I'm Paulo Nunes and here you have the repo of tinyQuotes.
+tinyQuotes is a website where you can explore, love and share quotes with others on twitter or tumblr. Here on tinyQuotes HQ we make sure you have a lovely experience with our website and so we try with our hearts to keep things easy and attractive with our unique, minimal and fresh design. We make sure you find what you like and share it when possible.
 
-Minimal single page website where a random quote is displayed. The quote can be shown twice because you know... it is a RANDOM number and sometimes can be the same in two tries or three.. BUT NOT FOUR :)
+##Why?
+tinyQuotes idea comes from a lack of creativity and originality on quote related websites which focus on staying on top and we don't really like that so we focus mainly on our visitor experience, highlighting what is important and keeping white space so you don't get lost and bored. We maintain what's important at the front and, most important, we don't advertise just because we feel it's annoying(if we did advertise you would block them :p).
+
+##how?
+We focus our minimal design in a combination of formality and user-friendly design. We make things serious but we also keep them funny(only true quoters can spot them AHAA!)
+
+##What?
+We offer you a gooood range of quotes to explore, love and share with others with only a *click*. We also offer two language versions(spanish and english), we add quotes weekly and make sure they have a core meaning, and finally we offer you the posibility to send us your fav quotes. 
+
+
 
 *No Database*, all happening *locally*. *Fast page load* and *no frameworks*, *pure* CSS and JS.
+Send us your quotes at: amiguencio@icloud.com
 
-You can send a quote with the author( not optional ) and add one of your social networks profile ( optional ) to be referred.
-
-Send some feedback if you want to help and you will be reffered on about ( page able soon ) and here.
-
-
-Goal
+Our Goal
 =========
-Improve skills and help people find nice quotes.
+Offer a user friendly ecosystem.
+Explore, love and share.
+Improve our skills.
+Make our internet better.
+Be part of the 1% who creates beautiful content on internet.
 
 License
 =========
