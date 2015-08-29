@@ -1,4 +1,4 @@
-Hipsterize
+TinyQuotes "Quoters"
 ==========
 
 Hey, I'm Paulo Nunes and here you have the repo of tinyQuotes.
