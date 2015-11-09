@@ -1,3 +1,7 @@
+We are moving the project from JS to Rails so major changes will be applied to this rpository
+==========
+we have plans to make a micro game card inside the app and all client side process will be added to this repository while all server side will remain unknown till we release an API(if we ever need to do so) however the core will not be published due to privacy and security.
+
 TinyQuotes "Quoters"
 ==========
 
