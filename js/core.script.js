@@ -31,16 +31,8 @@ var selectedQ,
     iframe = document.getElementById("tags_iframe"),
     toggleTheme = document.getElementById("toggleTheme"),
     more = document.getElementById("more"),
-    quo,
-    lang;
-
-if (title.innerHTML.indexOf("US") != -1) {
-    quo = quotes;
+    quo = quotes,
     lang = true;
-} else if (title.innerHTML.indexOf("ES") != -1) {
-    quo = citas;
-    lang = false;
-};
 
 // Used a function so now you don't have to refresh the page to display a random quote
 function randomQ() {
@@ -60,11 +52,11 @@ function randomQ() {
         quoteB = quote[1], // Gets the Author
         referal = quote[2], // Gets the referral
         authorNReferal,
-        quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
+        quoteLoved = localStorage.getItem("lovedUS"),
         quoteLovedArray = quoteLoved.split(","),
         social = quote[3], // Gets the social network will be used
         fav = quote[4], // Gets if the quote is one of the Developers Favourite
-        pFav = lang ? '<span class="dev_fav" title="Favorite of the Developer"></span>' : '<span class="dev_fav" title="Favorita del Desarrollador"></span>'; // Element to add to all favorite quotes
+        pFav = '<span class="dev_fav" title="Favorite of the Developer"></span>'; // Element to add to all favorite quotes
     // If the referral is not defined only the quote and the author will be outputed
     if (referal === undefined) {
         authorNReferal = quoteB;
@@ -198,7 +190,7 @@ function randomQ() {
     };
 
     if (quoteLoved === null) {
-        lang ? localStorage.setItem("lovedUS", "") : localStorage.setItem("lovedES", "");
+        localStorage.setItem("lovedUS", "");
         loving.setAttribute("class", "toLove");
     } else {
         var searchLove = quoteLovedArray.indexOf(whichO + ",");
@@ -239,19 +231,19 @@ function daInterval() {
     switch (msg) {
     case 1:
         console.clear();
-        console.info(lang ? "Thanks for staying 1 minute with us :')" : "Gracias por passarte 1 minuto con nosotros :')");
+        console.info("Thanks for staying 1 minute with us :')");
         break;
     case 2:
         console.clear();
-        console.info(lang ? "TWO minutes. You like our quotes." : "DOS minutos. Te gustan nuestras frases.");
+        console.info("TWO minutes. You like our quotes.");
         break;
     case 3:
         console.clear();
-        console.info(lang ? "THREE? Are you a bot?" : "¿TRES minutos? ¿No seras un bot?");
+        console.info("THREE? Are you a bot?");
         break;
     case 10:
         console.clear();
-        console.info(lang ? "TEN minutes? You are one of us :)" : "¿DIEZ minutos? Eres de los nuestro :)");
+        console.info("TEN minutes? You are one of us :)");
         break;
     };
 }
@@ -259,17 +251,17 @@ function daInterval() {
 // Function to love/add a quote on your favourite(locally)
 function love() {
     var choose = selectedQ || uHash,
-        quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES");
+        quoteLoved = localStorage.getItem("lovedUS");
     if (quoteLoved === null) {
-        lang ? localStorage.setItem("lovedUS", choose + ",") : localStorage.setItem("lovedES", choose + ",");
+        localStorage.setItem("lovedUS", choose + ",");
     } else {
         var lovedQ = quoteLoved.indexOf(choose + ",");
         if (lovedQ != -1) {
-            var deleteOne = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
+            var deleteOne = localStorage.getItem("lovedUS"),
                 findToDelete = deleteOne.search(choose + ",");
             console.warn("Already Loved " + choose);
         } else if (lovedQ === -1) {
-            lang ? localStorage.setItem("lovedUS", quoteLoved + choose + ",") : localStorage.setItem("lovedES", quoteLoved + choose + ",");
+            localStorage.setItem("lovedUS", quoteLoved + choose + ",");
             console.info("Loved quote: " + selectedQ);
             document.getElementById("love").setAttribute("class", "loving");
         };
@@ -279,7 +271,7 @@ function love() {
 // If the hash on the URL has changed it will do different things
 function updateInfo() {
     var daHash = location.hash.substring(1),
-        quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
+        quoteLoved = localStorage.getItem("lovedUS"),
         favA = quoteLoved.split(",");
     if (daHash == "home" || daHash == "") {
         wrapper.style.display = "block";
@@ -293,7 +285,7 @@ function updateInfo() {
             restoreEl = document.getElementById("restore");
         restoreEl.style.display = "block";
         if (quote.length == 0) {
-            restoreEl.innerHTML = lang ? "  You don't have quotes to restore :')" : "  No tienes frases para recuperar :')";
+            restoreEl.innerHTML = "You don't have quotes to restore :'";
         } else {
             restoreEl.innerHTML = " " + window.location.protocol + window.location.host + window.location.pathname + "#restore-" + quote;
         };
@@ -538,7 +530,7 @@ function tag(a) {
     daTag.setAttribute("class", "daTag daTag-open");
     wrapper.setAttribute("class", "wrapper wr-open");
     tOverlay.setAttribute("class", "tOverlay tol-open");
-    iframe.setAttribute("src", ("../tags/tags.html#" + a));
+    iframe.setAttribute("src", ("./tags/tags.html#" + a));
     tOverlay.addEventListener("click", function () {
         wrapper.setAttribute("class", "wrapper");
         this.setAttribute("class", "tOverlay tol-closed");
