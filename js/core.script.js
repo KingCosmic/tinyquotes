@@ -239,19 +239,19 @@ function daInterval() {
     switch (msg) {
     case 1:
         console.clear();
-        console.info(lang ? "Thanks for staying 1 minute with us :')" : "Gracias por passarte 1 minuto con nosotros :')");
+        console.info("Thanks for staying 1 minute with us :')");
         break;
     case 2:
         console.clear();
-        console.info(lang ? "TWO minutes. You like our quotes." : "DOS minutos. Te gustan nuestras frases.");
+        console.info("TWO minutes. You like our quotes.");
         break;
     case 3:
         console.clear();
-        console.info(lang ? "THREE? Are you a bot?" : "¿TRES minutos? ¿No seras un bot?");
+        console.info("THREE? Are you a bot?");
         break;
     case 10:
         console.clear();
-        console.info(lang ? "TEN minutes? You are one of us :)" : "¿DIEZ minutos? Eres de los nuestro :)");
+        console.info("TEN minutes? You are one of us :)");
         break;
     };
 }
@@ -259,17 +259,17 @@ function daInterval() {
 // Function to love/add a quote on your favourite(locally)
 function love() {
     var choose = selectedQ || uHash,
-        quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES");
+        quoteLoved = localStorage.getItem("lovedUS");
     if (quoteLoved === null) {
-        lang ? localStorage.setItem("lovedUS", choose + ",") : localStorage.setItem("lovedES", choose + ",");
+        localStorage.setItem("lovedUS", choose + ",");
     } else {
         var lovedQ = quoteLoved.indexOf(choose + ",");
         if (lovedQ != -1) {
-            var deleteOne = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
+            var deleteOne = localStorage.getItem("lovedUS"),
                 findToDelete = deleteOne.search(choose + ",");
             console.warn("Already Loved " + choose);
         } else if (lovedQ === -1) {
-            lang ? localStorage.setItem("lovedUS", quoteLoved + choose + ",") : localStorage.setItem("lovedES", quoteLoved + choose + ",");
+            localStorage.setItem("lovedUS", quoteLoved + choose + ",");
             console.info("Loved quote: " + selectedQ);
             document.getElementById("love").setAttribute("class", "loving");
         };
@@ -293,7 +293,7 @@ function updateInfo() {
             restoreEl = document.getElementById("restore");
         restoreEl.style.display = "block";
         if (quote.length == 0) {
-            restoreEl.innerHTML = lang ? "  You don't have quotes to restore :')" : "  No tienes frases para recuperar :')";
+            restoreEl.innerHTML = "  You don't have quotes to restore :'");
         } else {
             restoreEl.innerHTML = " " + window.location.protocol + window.location.host + window.location.pathname + "#restore-" + quote;
         };
