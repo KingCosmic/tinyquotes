@@ -31,7 +31,7 @@ var selectedQ,
     iframe = document.getElementById("tags_iframe"),
     toggleTheme = document.getElementById("toggleTheme"),
     more = document.getElementById("more"),
-    quo,
+    quo = quotes,
     lang = true;
 
 // Used a function so now you don't have to refresh the page to display a random quote
