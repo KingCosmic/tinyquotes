@@ -530,7 +530,7 @@ function tag(a) {
     daTag.setAttribute("class", "daTag daTag-open");
     wrapper.setAttribute("class", "wrapper wr-open");
     tOverlay.setAttribute("class", "tOverlay tol-open");
-    iframe.setAttribute("src", ("../tags/tags.html#" + a));
+    iframe.setAttribute("src", ("./tags/tags.html#" + a));
     tOverlay.addEventListener("click", function () {
         wrapper.setAttribute("class", "wrapper");
         this.setAttribute("class", "tOverlay tol-closed");
