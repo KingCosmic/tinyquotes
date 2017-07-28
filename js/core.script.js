@@ -32,15 +32,7 @@ var selectedQ,
     toggleTheme = document.getElementById("toggleTheme"),
     more = document.getElementById("more"),
     quo,
-    lang;
-
-if (title.innerHTML.indexOf("US") != -1) {
-    quo = quotes;
     lang = true;
-} else if (title.innerHTML.indexOf("ES") != -1) {
-    quo = citas;
-    lang = false;
-};
 
 // Used a function so now you don't have to refresh the page to display a random quote
 function randomQ() {
@@ -64,7 +56,7 @@ function randomQ() {
         quoteLovedArray = quoteLoved.split(","),
         social = quote[3], // Gets the social network will be used
         fav = quote[4], // Gets if the quote is one of the Developers Favourite
-        pFav = lang ? '<span class="dev_fav" title="Favorite of the Developer"></span>' : '<span class="dev_fav" title="Favorita del Desarrollador"></span>'; // Element to add to all favorite quotes
+        pFav = '<span class="dev_fav" title="Favorite of the Developer"></span>'; // Element to add to all favorite quotes
     // If the referral is not defined only the quote and the author will be outputed
     if (referal === undefined) {
         authorNReferal = quoteB;
