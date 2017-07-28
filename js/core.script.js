@@ -285,7 +285,7 @@ function updateInfo() {
             restoreEl = document.getElementById("restore");
         restoreEl.style.display = "block";
         if (quote.length == 0) {
-            restoreEl.innerHTML = "  You don't have quotes to restore :'");
+            restoreEl.innerHTML = "You don't have quotes to restore :'";
         } else {
             restoreEl.innerHTML = " " + window.location.protocol + window.location.host + window.location.pathname + "#restore-" + quote;
         };
