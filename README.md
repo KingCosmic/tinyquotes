@@ -57,4 +57,4 @@ Some minor bug fixes, CSS improvement and compatibility with all browsers.
 + Launch the official version.
 
 
-[dalancelotbruh]: http://twitter.com/KingCosm1c "AustynStuddard"
+[KingCosmic]: http://twitter.com/KingCosm1c "AustynStuddard"
