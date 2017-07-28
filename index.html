@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="“viewport”" content="initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="description" content="Motivational Quotes">
+    <meta name="keywords" content="Quotes,Motivational,Free">
+    <meta name="author" content="Paulo Nunes">
+    <title>Tiny Quotes US :)</title>
+    <link rel="stylesheet" media="only screen and (min-width: 480px)" href="./css/core.480.css">
+	<link rel="stylesheet" media="only screen and (max-width: 960px)" href="./css/core.m.css">
+	<link rel="stylesheet" media="only screen and (min-width: 1200px)" href="./css/core.d.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+</head>
+<body class="">
+    <div class="daTag daTag-closed" id="da_tag">
+        <div class="tagsHead"></div>
+        <iframe id="tags_iframe" src=""></iframe>
+    </div>
+    <div id="love-div"><div></div></div>
+    <div id="love-pop"></div>
+    <header id="pendingQ">
+        <div class="form" id="form">
+            <input type="text" id="text" placeholder="Quote text">
+            <input type="text" id="auth" placeholder="Quote author">
+            <input type="text" id="referal" placeholder="@username">
+            <select>
+                <option>Facebook</option>
+                <option>Twitter</option>
+                <option>Tumblr</option>
+                <option>Youtube</option>
+                <option>Behance</option>
+            </select>
+            <div class="post" id="post">Send</div>
+        </div>
+        <div class="wr" id="pendingC">
+            <p class="alert">
+                There is a possibility that quotes with a grey background will not be posted in concequence of its theme.
+            </p>
+            <section></section>
+        </div>
+    </header>
+    <a class="lovedOnes">
+        <div>
+            <img src="../img/heart.png">
+            <div>
+                <p id="total"></p>
+            </div>
+        </div>
+    </a>
+    <div class="wrapper" id="wrapper">
+        <cite contenteditable="false" spellcheck="false" id="cite">
+        </cite>
+        <div class="restore" id="restore" contenteditable="true" spellcheck="false">Elements to restore.</div>
+        <p id="author" contenteditable="false">
+            <span class="dev_fav"></span>
+        </p>
+        <ul>
+            <li>Share with:</li>
+            <li><a href="#" target="_blank" id="twitter">Twitter</a>
+            </li>
+            <li><a href="#" target="_blank" id="tumblr">Tumblr</a>
+            </li>
+            <li><a target="_blank" id="tinyQuotes" contenteditable="true" spellcheck="false">tiny Quote</a>
+            </li>
+        </ul>
+        <div id="tags"></div>
+        <span class="more" id="more">+</span>
+    </div>
+    <input type="text" class="fav_search" id="search" spellcheck="false"></input>
+    <div class="modal" id="modal"></div>
+    <input type="text" class="fav_search" id="searchQT" spellcheck="false"></input>
+    <div class="modal" id="modalQT"></div>
+    <div class="sharer" id="sharer">
+        <p>Find me on:</p>
+        <hr>
+        <a href="http://twitter.com/KingCosm1c" target="_blank" class="twitter">twitter</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="tOverlay" id="tOverlay"></div>
+    <footer>
+        <ul>
+            <li class="refresh" onclick="randomQ()" title="Random quote, press R if you want"></li>
+            <li class="send">
+                <a href="mailto:amiguencio@icloud.com?subject=QUOTE%20TITLE&body=QUOTE%20TEXT">Suggest</a>
+            </li>
+            <li class="how_to">
+                <a href="how_to.html">Help</a>
+            </li>
+            <li class="send" id="favs" title="Look and search trhought your fav quotes">Favorites</li>
+            <li class="send" id="tag_search" title="Search quotes by text or tag" onclick="searchQT()">Search</li>
+        </ul>
+        <ul class="shortcuts">
+            <li class="us">R<span> Next quote.</span>
+            </li>
+            <li class="us">L<span> To add on favorites.</span>
+            </li>
+        </ul>
+    </footer>
+    <div id="love" onclick="love()" class="love" title="Add this quote in your fav list, you can also press F"></div>
+    <div class="theme">
+        <ul>
+            <li title="Toggle Day/Night theme." id="toggleTheme">D/N</li>
+        </ul>
+    </div>
+    <script src="./js/quotes.test.js" type="text/javascript"></script>
+    <script src="./js/core.script.js" type="text/javascript"></script>
+</body>
+</html>
