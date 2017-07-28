@@ -198,7 +198,7 @@ function randomQ() {
     };
 
     if (quoteLoved === null) {
-        lang ? localStorage.setItem("lovedUS", "") : localStorage.setItem("lovedES", "");
+        localStorage.setItem("lovedUS", "");
         loving.setAttribute("class", "toLove");
     } else {
         var searchLove = quoteLovedArray.indexOf(whichO + ",");
