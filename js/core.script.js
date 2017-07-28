@@ -60,7 +60,7 @@ function randomQ() {
         quoteB = quote[1], // Gets the Author
         referal = quote[2], // Gets the referral
         authorNReferal,
-        quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
+        quoteLoved = localStorage.getItem("lovedUS"),
         quoteLovedArray = quoteLoved.split(","),
         social = quote[3], // Gets the social network will be used
         fav = quote[4], // Gets if the quote is one of the Developers Favourite
@@ -279,7 +279,7 @@ function love() {
 // If the hash on the URL has changed it will do different things
 function updateInfo() {
     var daHash = location.hash.substring(1),
-        quoteLoved = lang ? localStorage.getItem("lovedUS") : localStorage.getItem("lovedES"),
+        quoteLoved = localStorage.getItem("lovedUS"),
         favA = quoteLoved.split(",");
     if (daHash == "home" || daHash == "") {
         wrapper.style.display = "block";
