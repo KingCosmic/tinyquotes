@@ -16,7 +16,7 @@ var selectedQ,
   modal = document.getElementById('modal'),
   mQT = document.getElementById('modalQT'),
   overlay = document.getElementById('overlay'),
-  // tOverlay = document.getElementById('tOverlay'),
+  tOverlay = document.getElementById('tOverlay'),
   search = document.getElementById('search'),
   sQT = document.getElementById('searchQT'),
   loving = document.getElementById('love'),
@@ -28,8 +28,8 @@ var selectedQ,
   sharer = document.getElementById('sharer'),
   uHash = location.hash.substring(1),
   tags = document.getElementById('tags'),
-  // daTag = document.getElementById('da_tag'),
-  // iframe = document.getElementById('tags_iframe'),
+  daTag = document.getElementById('da_tag'),
+  iframe = document.getElementById('tags_iframe'),
   toggleTheme = document.getElementById('toggleTheme'),
   more = document.getElementById('more');
 
@@ -380,7 +380,7 @@ function find() {
     return pressed = true;
   }
 }
-/*
+
 function searchQT(a) {
   mQT.innerHTML = '';
   if (a == undefined || a == null) {
@@ -412,7 +412,7 @@ function tag(a) {
     daTag.setAttribute('class', 'daTag daTag-closed');
   });
 }
-*/
+
 function aClass(e, c) {
   var el = document.getElementById(e);
   el.setAttribute('class', c);
