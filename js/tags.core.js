@@ -1,6 +1,6 @@
 var uHash = location.hash.substring(1);
 var i = 0,
-    fusion = quotes.concat(citas);
+  fusion = quotes.concat(citas);
 do {
     var quoSplited = quotes[i],
         quoQTS = quoSplited.split("|"),
@@ -15,7 +15,3 @@ do {
     };
     i++;
 } while (i <= quotes.length);
-
-for (var i = 0; i < fusion.length; i++) {
-    
-};
