@@ -32,5 +32,4 @@ var selectedQ,
   iframe = document.getElementById("tags_iframe"),
   toggleTheme = document.getElementById("toggleTheme"),
   more = document.getElementById("more"),
-  quo = quotes,
   lang = true;

@@ -37,6 +37,7 @@ var selectedQ,
 // Used a function so now you don't have to refresh the page to display a random quote
 function randomQ() {
     "use strict";
+
     // This line of code defines a random number from 1 to the length of the quotes array
     var i = Math.floor(Math.random() * quo.length),
         uHash = location.hash.substring(1),
