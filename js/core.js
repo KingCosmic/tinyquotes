@@ -1,3 +1,5 @@
+/* global quotes global legends*/
+
 var selectedQ,
   msg = 0,
   pressed,
@@ -14,7 +16,7 @@ var selectedQ,
   modal = document.getElementById('modal'),
   mQT = document.getElementById('modalQT'),
   overlay = document.getElementById('overlay'),
-  tOverlay = document.getElementById('tOverlay'),
+  // tOverlay = document.getElementById('tOverlay'),
   search = document.getElementById('search'),
   sQT = document.getElementById('searchQT'),
   loving = document.getElementById('love'),
@@ -26,8 +28,8 @@ var selectedQ,
   sharer = document.getElementById('sharer'),
   uHash = location.hash.substring(1),
   tags = document.getElementById('tags'),
-  daTag = document.getElementById('da_tag'),
-  iframe = document.getElementById('tags_iframe'),
+  // daTag = document.getElementById('da_tag'),
+  // iframe = document.getElementById('tags_iframe'),
   toggleTheme = document.getElementById('toggleTheme'),
   more = document.getElementById('more');
 
@@ -75,16 +77,13 @@ function randomQ() {
     case undefined:
       authorNReferal = quoteB + ' | ' + referal;
       break;
-    };
+    }
 
   }
   // This two lines define the elements where the quote will be written
   cite.innerHTML = quote[0];
   author.innerHTML = authorNReferal;
-  quote[0] = quote[0];
   quote[0] = encodeURIComponent(quote[0].trim());
-
-  var l = ' @';
 
   if ((quote[0].length + ' -'.length + quoteB.length) >= 141) {
     twitter.href = '';
@@ -110,18 +109,17 @@ function randomQ() {
   tumblr.title = 'Share me :)';
 
   tags.innerHTML = '';
-  var tsplited = st.split(','),
-    o = 0;
+  var tsplited = st.split(',');
   if (st > '' || st.length > 0) {
-    for (z = 0; z <= (tsplited.length - 1); z++) {
+    for (var z = 0; z <= (tsplited.length - 1); z++) {
       tags.innerHTML += '<span id =z' + z + '>' + tsplited[z] + '</span>';
       if (legends.indexOf(tsplited[z]) != -1) {
         document.getElementById(('z' + z)).setAttribute('class', 'legends');
         document.getElementById(('z' + z)).title = 'tag on the Legendarium.';
-      };
+      }
       document.getElementById(('z' + z)).setAttribute('onclick', 'tag("'+ tsplited[z] + '")');
     }
-  };
+  }
 
   if (quoteLoved === null) {
     localStorage.setItem('lovedUS', '');
@@ -134,8 +132,8 @@ function randomQ() {
     } else if (searchLove == -1) {
       loving.setAttribute('class', 'toLove');
       console.warn('not loved. ' + uHash || i);
-    };
-  };
+    }
+  }
 
   if (screen.width >= 961) {
     if (quote[0].length >= 140) {
@@ -144,8 +142,8 @@ function randomQ() {
       cite.style.fontSize = '1.7em';
     } else {
       cite.style.fontSize = '2.5em';
-    };
-  };
+    }
+  }
 
   aClass('more', 'more');
   setTimeout(function () {
@@ -153,7 +151,7 @@ function randomQ() {
   }, 100);
   // return the value of i (the random number) to use it on love()
   return selectedQ = (uHash || i);
-};
+}
 
 // Set interval to show a new random quote every 60 seconds
 var quoteInterval = setInterval(daInterval, 60000);
@@ -179,7 +177,7 @@ function daInterval() {
     console.clear();
     console.info('TEN minutes? You are one of us :)');
     break;
-  };
+  }
 }
 
 // Function to love/add a quote on your favorite(locally)
@@ -191,22 +189,18 @@ function love() {
   } else {
     var lovedQ = quoteLoved.indexOf(choose + ',');
     if (lovedQ != -1) {
-      var deleteOne = localStorage.getItem('lovedUS'),
-      findToDelete = deleteOne.search(choose + ',');
       console.warn('Already Loved ' + choose);
     } else if (lovedQ === -1) {
       localStorage.setItem('lovedUS', quoteLoved + choose + ',');
       console.info('Loved quote: ' + selectedQ);
       document.getElementById('love').setAttribute('class', 'loving');
-    };
-  };
-};
+    }
+  }
+}
 
 // If the hash on the URL has changed it will do different things
 function updateInfo() {
-  var daHash = location.hash.substring(1),
-  quoteLoved = localStorage.getItem('lovedUS'),
-  favA = quoteLoved.split(',');
+  var daHash = location.hash.substring(1);
   if (daHash == 'home' || daHash == '') {
     wrapper.style.display = 'block';
   } else if (daHash == 'about') {
@@ -216,17 +210,17 @@ function updateInfo() {
     localStorage.setItem('quoteLoved', rest);
   } else if (daHash.search('qr') != -1) {
     var quote = localStorage.getItem('lovedUS'),
-    restoreEl = document.getElementById('restore');
+      restoreEl = document.getElementById('restore');
     restoreEl.style.display = 'block';
     if (quote.length == 0) {
       restoreEl.innerHTML = 'You don\'t have quotes to restore :';
     } else {
       restoreEl.innerHTML = ' ' + window.location.protocol + window.location.host + window.location.pathname + '#restore-' + quote;
-    };
+    }
     location.hash = '';
-  };
+  }
 
-};
+}
 
 
 // Checks the url if has changes
@@ -248,22 +242,21 @@ window.addEventListener('load', function () {
   if (localStorage.getItem('themePreference') == 'dark') {
     document.body.setAttribute('class', 'dark');
     aClass('toggleTheme', 'active');
-  };
+  }
 
 }, false);
 
 document.getElementById('post').addEventListener('click', function () {
   var ins = document.createElement('section'),
-  form = document.getElementById('form'),
-  text = form.getElementsByTagName('input')[0],
-  daAuth = form.getElementsByTagName('input')[1],
-  mention = form.getElementsByTagName('input')[2],
-  social = form.getElementsByTagName('select')[0],
-  current = document.getElementById('pendingC'),
-  section = document.getElementsByTagName('section')[0],
-  pending = localStorage.pending,
-  toAdd = text.value + '//' + daAuth.value + '//' + mention.value + '//' + social.value.toLowerCase(),
-  toOpen = 'mailto:amiguencio@icloud.com?subject=' + daAuth.value + '[quote]&body=' + text.value;
+    form = document.getElementById('form'),
+    text = form.getElementsByTagName('input')[0],
+    daAuth = form.getElementsByTagName('input')[1],
+    mention = form.getElementsByTagName('input')[2],
+    social = form.getElementsByTagName('select')[0],
+    current = document.getElementById('pendingC'),
+    section = document.getElementsByTagName('section')[0],
+    toAdd = text.value + '//' + daAuth.value + '//' + mention.value + '//' + social.value.toLowerCase(),
+    toOpen = 'mailto:amiguencio@icloud.com?subject=' + daAuth.value + '[quote]&body=' + text.value;
   ins.innerHTML = '<cite class="added">' + text.value.substr(0, 60) + '</cite>';
   if (text.value.length >= 6 && daAuth.value.length >= 6 && mention.value.length >= 6) {
     if (localStorage.getItem('pending') === null) {
@@ -276,10 +269,10 @@ document.getElementById('post').addEventListener('click', function () {
       mention.value = '';
       current.insertBefore(ins, section);
       window.location.href = toOpen;
-    };
+    }
   } else {
     alert('fill all the form');
-  };
+  }
 });
 
 favs.addEventListener('click', function () {
@@ -291,25 +284,20 @@ favs.addEventListener('click', function () {
 
   var quoteLoved = localStorage.getItem('lovedUS'),
     onFavs = quoteLoved.split(',');
-  for (i = 0; i <= (onFavs.length - 1); i++) {
-    var getFromQuotesDB,
-      zero;
+  for (var i = 0; i <= (onFavs.length - 1); i++) {
+    var getFromQuotesDB;
     if (onFavs[i] == '') {
-      getFromQuotesDB = quo[0];
+      getFromQuotesDB = quotes[0];
     } else {
-      getFromQuotesDB = quo[onFavs[i]];
-    };
+      getFromQuotesDB = quotes[onFavs[i]];
+    }
     var separateTheQuote = getFromQuotesDB.split('|'),
       getTheTextFromSeparation = separateTheQuote[0],
-      getTheTagsFromSeparation = separateTheQuote[1],
       splitTheText = getTheTextFromSeparation.split('//'),
       splitedQuote = splitTheText[0],
-      splitedAuthor = splitTheText[1],
-      splitTheTags = getTheTagsFromSeparation.split(','),
-      splitedTagsWithElement,
-      y = 0;
-      modal.innerHTML = modal.innerHTML + '<section>' + '<cite contenteditable="true" spellcheck="false">' + splitedQuote + '</cite>' + '<p><a onclick="location.reload()" href="#' + onFavs[i] + '>' + splitedAuthor + '</a></p>' + '</section>';
-    }
+      splitedAuthor = splitTheText[1];
+    modal.innerHTML = modal.innerHTML + '<section>' + '<cite contenteditable="true" spellcheck="false">' + splitedQuote + '</cite>' + '<p><a onclick="location.reload()" href="#' + onFavs[i] + '>' + splitedAuthor + '</a></p>' + '</section>';
+  }
 });
 
 function hide() {
@@ -328,7 +316,7 @@ function hide() {
       search.className = 'fav_search';
       modal.className = 'modal';
     }, 360);
-  };
+  }
   overlay.style.display = 'none';
   sharer.style.display = 'none';
   search.value = '';
@@ -348,8 +336,8 @@ function checkKeyPressed(e) {
     } else if (e.keyCode == '70') {
       // Clicking L or F will add the quote to your favourites.
       love();
-    };
-  };
+    }
+  }
 }
 
 function searchFav() {
@@ -359,43 +347,41 @@ function searchFav() {
   modal.innerHTML = '';
   for (var i = 0; i < (favA.length - 1); i++) {
     var favQ = favA[i],
-      favQuotes = quo[favQ],
+      favQuotes = quotes[favQ],
       s = favQuotes.split('//'),
       t = s[0],
-      tTL = t.toLowerCase(),
-      a = s[1];
+      tTL = t.toLowerCase();
     if (tTL.indexOf(searchVal) != -1) {
       modal.innerHTML = modal.innerHTML + '<section>' + '<cite contenteditable="true" spellcheck="false">' + s[0] + '</cite>' + '<p><a onclick="location.reload()" href="#' + favQ + '">' + s[1] + '<span class="dev_fav"></span>' + '</a></p>' + '</section>';
-    };
-  };
+    }
+  }
   return pressed = true;
-};
+}
 
 sQT.addEventListener('keydown', find, false);
 
 function find() {
   mQT.innerHTML = '';
-  for (var i = 0; i < quo.length; i++) {
-    var qsplit = quo[i].split('|'),
+  for (var i = 0; i < quotes.length; i++) {
+    var qsplit = quotes[i].split('|'),
       q = qsplit[0],
       qa = q.split('//'),
       qtext = qa[0],
       qTextToLowerCase = qtext.toLowerCase(),
       qauthor = qa[1],
-      tags = qsplit[1],
-      ta = tags.split(',');
+      tags = qsplit[1];
     if (sQT.value.indexOf('#') != -1) {
       if (tags.indexOf(sQT.value.substring(1, (sQT.value.length))) != -1) {
         mQT.innerHTML += '<section>' + '<cite contenteditable="true" spellcheck="false">' + qtext + '</cite>' + '<p>' + qauthor + '</p>' + '</section>';
-      };
+      }
     } else if (qTextToLowerCase.indexOf(sQT.value.toLowerCase()) != -1) {
       mQT.innerHTML += '<section>' + '<cite contenteditable="true" spellcheck="false">' + qtext + '</cite>' + '<p>' + qauthor + '</p>' + '</section>';
-    };
-  return pressed = true;
-};
-
+    }
+    return pressed = true;
+  }
+}
+/*
 function searchQT(a) {
-  var a = a;
   mQT.innerHTML = '';
   if (a == undefined || a == null) {
     mQT.className = 'modal modals';
@@ -410,13 +396,12 @@ function searchQT(a) {
       sQT.className = 'fav_search searchd';
       sQT.value = a;
       find(a);
-    };
-  };
+    }
+  }
   return searchOn = true;
-};
+}
 
 function tag(a) {
-  var tag = a;
   daTag.setAttribute('class', 'daTag daTag-open');
   wrapper.setAttribute('class', 'wrapper wr-open');
   tOverlay.setAttribute('class', 'tOverlay tol-open');
@@ -426,12 +411,12 @@ function tag(a) {
     this.setAttribute('class', 'tOverlay tol-closed');
     daTag.setAttribute('class', 'daTag daTag-closed');
   });
-};
-
+}
+*/
 function aClass(e, c) {
   var el = document.getElementById(e);
   el.setAttribute('class', c);
-};
+}
 
 var longLove,
   loveDiv = document.getElementById('love-div'),
@@ -444,7 +429,7 @@ function lovePop(e) {
   y = e.pageY;
   loveDiv.style.left = (x + 10) + 'px';
   loveDiv.style.top = (y + 10) + 'px';
-};
+}
 
 cite.addEventListener('mousedown', function () {
   aClass('love-div', 'showing progress');
@@ -484,5 +469,5 @@ toggleTheme.addEventListener('click', function () {
     document.body.setAttribute('class', '');
     localStorage.setItem('themePreference', 'light');
     aClass('toggleTheme', '');
-  };
+  }
 });
