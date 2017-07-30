@@ -101,13 +101,13 @@ function randomQ() {
     localStorage.setItem('lovedUS', '');
     DLoving.setAttribute('class', 'toLove');
   } else {
-    var searchLove = quoteLovedArray.indexOf(i + ',');
+    var searchLove = quoteLovedArray.indexOf(selectedQ + ',');
     if (searchLove != -1) {
       DLoving.setAttribute('class', 'loving');
-      console.warn('loved ' + i);
+      console.warn('loved ' + selectedQ);
     } else if (searchLove == -1) {
       DLoving.setAttribute('class', 'toLove');
-      console.warn('not loved. ' + i);
+      console.warn('not loved. ' + selectedQ);
     }
   }
 
@@ -133,7 +133,7 @@ var quoteInterval = setInterval(randomQ, 60000);
 
 // Function to love/add a quote on your favorite(locally)
 function love() {
-  lovedQuotes = localStorage.getItem('lovedUS');
+  var lovedQuotes = localStorage.getItem('lovedUS');
   if (lovedQuotes === null) {
     localStorage.setItem('lovedUS', selectedQ + ',');
   } else {
