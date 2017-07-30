@@ -38,7 +38,7 @@ function randomQ() {
 
   // Put the referral of the quote
   // If the referral is not defined only the quote and the author will be outputed
-  if (qreferer === undefined) {
+  if (qReferer === undefined) {
     authorNReferal = qAuthor;
   } else {
     // If it is will output the refferal and the social network link
