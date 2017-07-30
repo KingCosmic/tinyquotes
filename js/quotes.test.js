@@ -64,6 +64,7 @@ var citas = [
 ];
 
 var quotes = [
+  "With great power comes great responsibility.//Uncle Ben//Cros//|pure,",
     "I kept taking shots because they burned my chest where I was trying to get you out//drinkt0forget, tumblr User//drinkt0forget//tumblr|tumblr,sadness",
     "Whatever makes you weird, is probably your greatest asset//Joss Whedon//DaLancelotBruh//twitterquote[0]|tumblr",
     "Same rules apply//Bruce Robertson, Filth//toofartooblack//tumblr|tumblr,legend,filth",
