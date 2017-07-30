@@ -67,7 +67,7 @@ function randomQ() {
 
   // This two lines define the elements where the quote will be written
   DCite.innerHTML = quote[0];
-  document.getElementById('author'),.innerHTML = authorNReferal;
+  document.getElementById('author').innerHTML = authorNReferal;
   quote[0] = encodeURIComponent(quote[0].trim());
 
   if ((quote[0].length + ' -'.length + qAuthor.length) >= 141) {
