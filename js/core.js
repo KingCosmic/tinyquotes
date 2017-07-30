@@ -24,7 +24,7 @@ function randomQ() {
   // This line of code defines a random number from 1 to the length of the quotes array
   selectedQ = Math.floor(Math.random() * quotes.length);
 
-  var separate = quotes[i].split('|'), // splits the quote and the tags
+  var separate = quotes[selectedQ].split('|'), // splits the quote and the tags
     // separate[0] is the quote with tags, author, referral etc etc
     tags = separate[1], // tags
     quote = separate[0].split('//'), // splits the quote in sections
