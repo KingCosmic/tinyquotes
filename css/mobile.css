@@ -17,3 +17,7 @@ body {
 cite {
     text-rendering: optimizeLegibility;
 }
+
+#form, iframe, p.alert, div.restore, ul, .search, footer, div#theme {
+  display: none;
+}
