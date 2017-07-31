@@ -1,7 +1,8 @@
-/* global quotes global legends*/
+qArray/* global quotes global legends*/
 
 var selectedQ,
   searchOn,
+  longLove,
   // All document variables are prefixed with D
   DCite = document.getElementById('cite'),
   DModal = document.getElementById('modal'),
@@ -14,7 +15,8 @@ var selectedQ,
   DTwit = document.getElementById('twitter'),
   DTumblr = document.getElementById('tumblr'),
   DWrapper = document.getElementById('wrapper'),
-  DTags = document.getElementById('tags');
+  DTags = document.getElementById('tags'),
+  DLDiv = document.getElementById('love-div');
 
 
 // Used a function so now you don't have to refresh the page to display a random quote
@@ -26,7 +28,7 @@ function randomQ() {
 
   var separate = quotes[selectedQ].split('|'), // splits the quote and the tags
     // separate[0] is the quote with tags, author, referral etc etc
-    tags = separate[1], // tags
+    qTags = separate[1], // tags
     quote = separate[0].split('//'), // splits the quote in sections
     // quote[0] is the quote itself
     qAuthor = quote[1], // Gets the Author
@@ -34,7 +36,7 @@ function randomQ() {
     authorNReferal, // used to store the Author and link to the referer
     lovedQuotes = localStorage.getItem('lovedUS'), // Gets the quotes you have loved
     quoteLovedArray = lovedQuotes.split(','), // Splits the quotes into each individual quote
-    social = quote[3]; // Gets the social network will be used
+    social = quote[3]; // Gets the social network of the referer
 
   // Put the referral of the quote
   // If the referral is not defined only the quote and the author will be outputed
@@ -66,51 +68,77 @@ function randomQ() {
   }
 
   // This two lines define the elements where the quote will be written
-  DCite.innerHTML = quote[0];
-  document.getElementById('author').innerHTML = authorNReferal;
-  quote[0] = encodeURIComponent(quote[0].trim());
+  DCite.innerHTML = quote[0]; // set the Cite value to the quote
+  document.getElementById('author').innerHTML = authorNReferal; // sets the author value to the author and referer of the quote
+  quote[0] = encodeURIComponent(quote[0].trim()); // encode so we can share
 
+  //check if its too long to share on twitter
   if ((quote[0].length + ' -'.length + qAuthor.length) >= 141) {
+    // if it is remove its link
     DTwit.href = '';
+    // set its classname to disabled
     DTwit.className = 'disabled';
+    // and set the hover text
     DTwit.title = 'Too long to share ;( | ' + quote[0].length;
     DTwit.target = '';
   } else if ((quote[0].length + ' -'.length + qAuthor.length) <= 140) {
+    // if it is long enough to tweet set the link to share
     DTwit.href = 'https://twitter.com/intent/tweet?text=' + quote[0] + '%20-' + qAuthor;
+    // remove ant class name it has
     DTwit.className = '';
+    // set the hover text
     DTwit.title = 'Share me :) | ' + quote[0].length;
     DTwit.target = '_blank';
   }
+  // set the link to share on tumbler
   DTumblr.href = 'http://www.tumblr.com/share/link?description=' + quote[0] + '%20-' + qAuthor + ' | @' + qReferer;
+  // set the hover text :P
   DTumblr.title = 'Share me :)';
 
+  // clear the tags
   DTags.innerHTML = '';
-  var tagsArray= tags.split(',');
-  if (tags > '' || tags.length > 0) {
+
+  // split the tags into an array
+  var tagsArray = qTags.split(',');
+
+  // check if there is some tags
+  if (qTags > '' || qTags.length > 0) {
+    // if there is loop through them
     for (var z = 0; z <= (tagsArray.length - 1); z++) {
+      // add a span with each id and tag into the tags document
       DTags.innerHTML += '<span id =z' + z + '>' + tagsArray[z] + '</span>';
+
+      // check if the tag is a legend tag (gold)
       if (legends.indexOf(tagsArray[z]) != -1) {
+        // if it is give it the `legends` class
         document.getElementById(('z' + z)).setAttribute('class', 'legends');
+        // set the hover text for legendary tags
         document.getElementById(('z' + z)).title = 'tag on the Legendarium.';
       }
+      // add a click eveent for the tags
       document.getElementById(('z' + z)).setAttribute('onclick', 'tag("'+ tagsArray[z] + '")');
     }
   }
 
+  // check if there isn't any lovedQuotes
   if (lovedQuotes === null) {
+    // if there isnt set it to a empty string
     localStorage.setItem('lovedUS', '');
+    // cant remember what this does o.o
     DLoving.setAttribute('class', 'toLove');
   } else {
+    // if there are loved quotes we check if the current quote is loved
     var searchLove = quoteLovedArray.indexOf(selectedQ + ',');
     if (searchLove != -1) {
+      // if it is we set the class to `loving`
       DLoving.setAttribute('class', 'loving');
-      console.warn('loved ' + selectedQ);
     } else if (searchLove == -1) {
+      // if it hasn't we set its class to `toLove`
       DLoving.setAttribute('class', 'toLove');
-      console.warn('not loved. ' + selectedQ);
     }
   }
 
+  // check screen size and change fontSize accordingly
   if (screen.width >= 961) {
     if (quote[0].length >= 140) {
       DCite.style.fontSize = '2em';
@@ -121,10 +149,9 @@ function randomQ() {
     }
   }
 
+  // sets the element with the id `more`
+  // and gives it the class `more`
   aClass('more', 'more');
-  setTimeout(function () {
-    location.hash = '';
-  }, 100);
 
 }
 
@@ -133,21 +160,28 @@ var quoteInterval = setInterval(randomQ, 60000);
 
 // Function to love/add a quote on your favorite(locally)
 function love() {
+  // grab the loved quotes from storage
   var lovedQuotes = localStorage.getItem('lovedUS');
+
+  // Check if the user hasnt loved any quotes
   if (lovedQuotes === null) {
+    // if there isnt any set it to the loved quote
     localStorage.setItem('lovedUS', selectedQ + ',');
   } else {
     var lovedQ = lovedQuotes.indexOf(selectedQ + ',');
     if (lovedQ != -1) {
-      console.warn('Already Loved ' + selectedQ);
+      // Already Loved selectedQ so return
+      return;
     } else if (lovedQ === -1) {
+      // set the loved quotes to lovedquotes plus the new loved quote
       localStorage.setItem('lovedUS', lovedQuotes + selectedQ + ',');
-      console.info('Loved quote: ' + selectedQ);
+      // set the class of DLoving to `loving`
       DLoving.setAttribute('class', 'loving');
     }
   }
 }
 
+// give us a random quote when the site loads
 window.addEventListener('load', randomQ, false);
 
 // When R key is pressed a random quote will be shown
@@ -159,6 +193,7 @@ DSearch.addEventListener('keydown', searchFav, false);
 // Event listener to catch a click on overlay
 DOverlay.addEventListener('click', hide);
 
+// This still needs to be cleaned and commented o.o
 document.getElementById('post').addEventListener('click', function () {
   var ins = document.createElement('section'),
     form = document.getElementById('form'),
@@ -251,47 +286,43 @@ function checkKeyPressed(e) {
   }
 }
 
+// search you're loved quotes
 function searchFav() {
-  var searchVal = DSearch.value,
-    lovedQuotes = localStorage.getItem('lovedUS'),
-    favA = lovedQuotes.split(',');
-  DModal.innerHTML = '';
-  for (var i = 0; i < (favA.length - 1); i++) {
-    var favQ = favA[i],
-      favQuotes = quotes[favQ],
-      s = favQuotes.split('//'),
-      t = s[0],
-      tTL = t.toLowerCase();
-    if (tTL.indexOf(searchVal) != -1) {
-      DModal.innerHTML = DModal.innerHTML + '<section>' + '<cite contenteditable="true" spellcheck="false">' + s[0] + '</cite>' + '<p><a onclick="location.reload()" href="#' + favQ + '">' + s[1] + '<span class="dev_fav"></span>' + '</a></p>' + '</section>';
+
+  // DSearch.value is the value to search for
+  var lovedQuotes = localStorage.getItem('lovedUS'), // get the lovedQuotes of the user
+    LQArray = lovedQuotes.split(','); // split the quote's index
+  DModal.innerHTML = ''; // set the value to '' so the old search doesnt show up with the new one
+  for (var i = 0; i < (lQArray.length - 1); i++) {
+    var q = quotes[LQArray[i]].split('//'), // splits the quote by index
+      qValueLower = q[0].toLowerCase(); // lower cases the quote so
+    if (ValueLower.indexOf(DSearch.value.toLowerCase()) != -1) {
+      // this sets the value to all the quotes that are in the search criteria
+      DModal.innerHTML = DModal.innerHTML + '<section>' + '<cite contenteditable="false" spellcheck="false">' + q[0] + '</cite>' + '<p><a onclick="location.reload()" href="#' + LQArray[i] + '">' + q[1] + '<span class="dev_fav"></span>' + '</a></p>' + '</section>';
     }
   }
 }
 
+// set a keydown event so it refreshes with every keystroke
 DSQT.addEventListener('keydown', find, false);
 
+// find any and all quotes
 function find() {
-  DMQT.innerHTML = '';
+  DMQT.innerHTML = ''; // make it empty so last searches dont showup with the new ones
   for (var i = 0; i < quotes.length; i++) {
-    var qsplit = quotes[i].split('|'),
-      q = qsplit[0],
-      qa = q.split('//'),
-      qtext = qa[0],
-      qTextToLowerCase = qtext.toLowerCase(),
-      qauthor = qa[1],
-      tags = qsplit[1];
-    if (DSQT.value.indexOf('#') != -1) {
-      if (tags.indexOf(DSQT.value.substring(1, (DSQT.value.length))) != -1) {
-        DMQT.innerHTML += '<section>' + '<cite contenteditable="true" spellcheck="false">' + qtext + '</cite>' + '<p>' + qauthor + '</p>' + '</section>';
-      }
-    } else if (qTextToLowerCase.indexOf(DSQT.value.toLowerCase()) != -1) {
-      DMQT.innerHTML += '<section>' + '<cite contenteditable="true" spellcheck="false">' + qtext + '</cite>' + '<p>' + qauthor + '</p>' + '</section>';
+    var qArray = quotes[i].split('|'), // split all the quotes
+      qInfo = qArray[0].split('//'); // split the quote itself
+
+    // if the quote fits in the search add it to the results
+    if (qInfo[0].toLowerCase().indexOf(DSQT.value.toLowerCase()) != -1) {
+      DMQT.innerHTML += '<section>' + '<cite contenteditable="false" spellcheck="false">' + qInfo[0] + '</cite>' + '<p>' + qInfo[1] + '</p>' + '</section>';
     }
   }
 }
 
+// TODO find what this does :eyes:
 function searchQT(a) {
-  DMQT.innerHTML = '';
+  DMQT.innerHTML = ''; // sets the
   if (a == undefined || a == null) {
     DMQT.className = 'modal modals';
     DOverlay.style.display = 'block';
@@ -322,28 +353,20 @@ function tag(a) {
   });
 }
 
+// adds a class to a element
 function aClass(e, c) {
-  var el = document.getElementById(e);
-  el.setAttribute('class', c);
+  var el = document.getElementById(e); // grabs the element
+  el.setAttribute('class', c); // adds the class to the element
 }
 
-var longLove,
-  loveDiv = document.getElementById('love-div'),
-  x,
-  y,
-  coorTO;
-
 function lovePop(e) {
-  x = e.pageX;
-  y = e.pageY;
-  loveDiv.style.left = (x + 10) + 'px';
-  loveDiv.style.top = (y + 10) + 'px';
+  DLDiv.style.left = (e.pageX + 10) + 'px';
+  DLDiv.style.top = (e.pageY + 10) + 'px';
 }
 
 DCite.addEventListener('mousedown', function () {
   aClass('love-div', 'showing progress');
-  loveDiv.addEventListener('mousemove', lovePop(event));
-  clearTimeout(coorTO);
+  DLDiv.addEventListener('mousemove', lovePop(event));
   longLove = setTimeout(function () {
     aClass('love-div', 'hide done');
     aClass('love-pop', 'l-pop');
