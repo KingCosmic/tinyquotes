@@ -34,9 +34,9 @@ function randomQ() {
     qAuthor = quote[1], // Gets the Author
     qReferer = quote[2], // Gets the referral
     authorNReferal, // used to store the Author and link to the referer
-    lovedQuotes = localStorage.getItem('lovedUS'), // Gets the quotes you have loved
-    quoteLovedArray = lovedQuotes.split(','), // Splits the quotes into each individual quote
-    social = quote[3]; // Gets the social network of the referer
+    lovedQuotes = localStorage.getItem('lovedUS'); // Gets the quotes you have loved
+    if (lovedQuotes > '') var quoteLovedArray = lovedQuotes.split(','); // Splits the quotes into each individual quote
+    var social = quote[3]; // Gets the social network of the referer
 
   // Put the referral of the quote
   // If the referral is not defined only the quote and the author will be outputed
