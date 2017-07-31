@@ -1,4 +1,4 @@
-qArray/* global quotes global legends*/
+/* global quotes global legends*/
 
 var selectedQ,
   searchOn,
@@ -293,10 +293,10 @@ function searchFav() {
   var lovedQuotes = localStorage.getItem('lovedUS'), // get the lovedQuotes of the user
     LQArray = lovedQuotes.split(','); // split the quote's index
   DModal.innerHTML = ''; // set the value to '' so the old search doesnt show up with the new one
-  for (var i = 0; i < (lQArray.length - 1); i++) {
-    var q = quotes[LQArray[i]].split('//'), // splits the quote by index
-      qValueLower = q[0].toLowerCase(); // lower cases the quote so
-    if (ValueLower.indexOf(DSearch.value.toLowerCase()) != -1) {
+  for (var i = 0; i < (LQArray.length - 1); i++) {
+    var q = quotes[LQArray[i]].split('//'); // splits the quote by index
+
+    if (q[0].toLowerCase().indexOf(DSearch.value.toLowerCase()) != -1) {
       // this sets the value to all the quotes that are in the search criteria
       DModal.innerHTML = DModal.innerHTML + '<section>' + '<cite contenteditable="false" spellcheck="false">' + q[0] + '</cite>' + '<p><a onclick="location.reload()" href="#' + LQArray[i] + '">' + q[1] + '<span class="dev_fav"></span>' + '</a></p>' + '</section>';
     }
@@ -321,6 +321,7 @@ function find() {
 }
 
 // TODO find what this does :eyes:
+/*
 function searchQT(a) {
   DMQT.innerHTML = ''; // sets the
   if (a == undefined || a == null) {
@@ -340,7 +341,7 @@ function searchQT(a) {
   }
   searchOn = true;
 }
-
+*/
 function tag(a) {
   document.getElementById('da_tag').setAttribute('class', 'daTag daTag-open');
   DWrapper.setAttribute('class', 'wrapper wr-open');
