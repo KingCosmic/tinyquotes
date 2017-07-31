@@ -24,7 +24,6 @@ div.wrapper cite {
     text-rendering: optimizeLegibility;
     font-style: normal;
     color: rgba(64, 80, 90, 1);
-    cursor: pointer;
 }
 
 #form, iframe, p.alert, div.restore, ul, .search, footer, div#theme, .fav_search, div.sharer {
