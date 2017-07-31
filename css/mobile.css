@@ -24,7 +24,7 @@ div.wrapper cite {
     text-align: center;
     text-rendering: optimizeLegibility;
     font-style: normal;
-    color: rgba(64, 80, 90, 1);
+    color: rgba(0, 0, 0, 1);
 }
 
 #form, iframe, p.alert, div.restore, ul, .search, footer, div#theme, .fav_search, div.sharer {
