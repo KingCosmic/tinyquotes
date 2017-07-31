@@ -21,13 +21,13 @@ p.author {
   text-align: center;
   text-rendering: optimizeLegibility;
   font-style: normal;
-  font-size: 1em;
+  font-size: 3em;
 }
 
 div.wrapper cite {
     width: 98%;
     height: auto;
-    font-size: 2em;
+    font-size: 4.5em;
     float: left;
     padding: 1%;
     font-family: Georgia;
