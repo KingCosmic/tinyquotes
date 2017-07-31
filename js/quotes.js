@@ -66,7 +66,7 @@ var citas = [
 var quotes = [
   "With great power comes great responsibility.//Uncle Ben|pure",
   "I kept taking shots because they burned my chest where I was trying to get you out//drinkt0forget, tumblr User//drinkt0forget//tumblr|tumblr,sadness",
-  "Whatever makes you weird, is probably your greatest asset//Joss Whedon//DaLancelotBruh//twitterquote[0]|tumblr",
+  "Whatever makes you weird, is probably your greatest asset//Joss Whedon|tumblr",
   "Same rules apply//Bruce Robertson, Filth//toofartooblack//tumblr|tumblr,legend,filth",
   "Homies. Help homies. Always.//Adventure Time (Hora de Aventuras)//toofartooblack//tumblr|Adventure Time,funny",
   "I am Shakespeare in the flesh//Kanye West, Interview with Sway Universe//toofartooblack//tumblr|Kanye legend, shakespeare",
