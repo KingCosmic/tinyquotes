@@ -14,8 +14,17 @@ body {
     background-size: 100%;
 }
 
-cite {
+div.wrapper cite {
+    width: 98%;
+    height: auto;
+    float: left;
+    padding: 1%;
+    font-family: Georgia;
+    text-align: center;
     text-rendering: optimizeLegibility;
+    font-style: normal;
+    color: rgba(64, 80, 90, 1);
+    cursor: pointer;
 }
 
 #form, iframe, p.alert, div.restore, ul, .search, footer, div#theme, .fav_search, div.sharer {
