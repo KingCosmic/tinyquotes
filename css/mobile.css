@@ -55,6 +55,6 @@ li.MLove {
     z-index: 15;
 }
 
-#form, iframe, p.alert, div.restore, ul, .search, footer, div#theme, .fav_search, div.sharer, a.lovedOnes {
+#form, iframe, p.alert, div.restore, .HideOnMobile, .search, footer, div#theme, .fav_search, div.sharer, a.lovedOnes {
   display: none;
 }
