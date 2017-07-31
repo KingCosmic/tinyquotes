@@ -255,6 +255,10 @@ div.toLove {
     z-index: 15;
 }
 
+ul#MControls {
+  display: none;
+}
+
 div.toLove:hover {
     opacity: .9;
 }
@@ -1093,7 +1097,7 @@ div.sharer a.tumblr, a.twitter {
 }
 
 div.sharer a.tumblr {
-    float: left; 
+    float: left;
     width: 70%;
     font-weight: 700;
 }
@@ -1161,7 +1165,7 @@ div.modal section.pop {
 
 @-webkit-keyframes fade {
     0% {
-      opacity: 1;  
+      opacity: 1;
     }
     50% {
         opacity: 0;
@@ -1173,7 +1177,7 @@ div.modal section.pop {
 
 @-moz-keyframes fade {
     0% {
-      opacity: 1;  
+      opacity: 1;
     }
     50% {
         opacity: 0;
@@ -1185,7 +1189,7 @@ div.modal section.pop {
 
 @-o-keyframes fade {
     0% {
-      opacity: 1;  
+      opacity: 1;
     }
     50% {
         opacity: 0;
@@ -1197,7 +1201,7 @@ div.modal section.pop {
 
 @keyframes fade {
     0% {
-      opacity: 1;  
+      opacity: 1;
     }
     50% {
         opacity: 0;
@@ -1297,75 +1301,75 @@ div.modal section div.tags span:hover {
     color: rgba(64, 80, 90, .75);
 }
 
-::scrollbar {  
+::scrollbar {
     width: 8px;
     height: 8px;
 }
 
-::scrollbar-track {  
+::scrollbar-track {
     background-color: rgba(234, 234, 234, .1);
 }
 
-::scrollbar-thumb {  
+::scrollbar-thumb {
     background-color: #ccc;
     border-radius: 15px;
 }
 
-::scrollbar-thumb:hover {  
+::scrollbar-thumb:hover {
     background-color: #aaa;
 }
 
-::-webkit-scrollbar {  
+::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 
-::-webkit-scrollbar-track {  
+::-webkit-scrollbar-track {
     background-color: rgba(234, 234, 234, .1);
 }
 
-::-webkit-scrollbar-thumb {  
+::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 15px;
 }
 
-::-webkit-scrollbar-thumb:hover {  
+::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
 }
 
-::-moz-scrollbar {  
+::-moz-scrollbar {
     width: 8px;
     height: 8px;
 }
 
-::-moz-scrollbar-track {  
+::-moz-scrollbar-track {
     background-color: rgba(234, 234, 234, .1);
 }
 
-::-moz-scrollbar-thumb {  
+::-moz-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 15px;
 }
 
-::-moz-scrollbar-thumb:hover {  
+::-moz-scrollbar-thumb:hover {
     background-color: #aaa;
 }
 
-::-o-scrollbar {  
+::-o-scrollbar {
     width: 8px;
     height: 8px;
 }
 
-::-o-scrollbar-track {  
+::-o-scrollbar-track {
     background-color: rgba(234, 234, 234, .1);
 }
 
-::-o-scrollbar-thumb {  
+::-o-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 15px;
 }
 
-::-o-scrollbar-thumb:hover {  
+::-o-scrollbar-thumb:hover {
     background-color: #aaa;
 }
 
@@ -2298,13 +2302,3 @@ div#love-pop.l-pop {
         -webkit-transform: scale(1.8, 1.8);
     }
 }
-
-
-
-
-
-
-
-
-
-
