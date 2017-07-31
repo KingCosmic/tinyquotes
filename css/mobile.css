@@ -17,6 +17,7 @@ body {
 div.wrapper cite {
     width: 98%;
     height: auto;
+    font-size: .9em;
     float: left;
     padding: 1%;
     font-family: Georgia;
