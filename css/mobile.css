@@ -18,6 +18,6 @@ cite {
     text-rendering: optimizeLegibility;
 }
 
-#form, iframe, p.alert, div.restore, ul, .search, footer, div#theme {
+#form, iframe, p.alert, div.restore, ul, .search, footer, div#theme, #fav_search, div.sharer {
   display: none;
 }
