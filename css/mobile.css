@@ -45,13 +45,10 @@ li.MLove {
     font-family: Open Sans;
     padding: 10px;
     cursor: pointer;
-    -webkit-animation: toLove 2s ease-in-out infinite;
-       -moz-animation: toLove 2s ease-in-out infinite;
-         -o-animation: toLove 2s ease-in-out infinite;
-            animation: toLove 2s ease-in-out infinite;
-    position: fixed;
-    bottom: 2px;
-    right: 340px;
+    -webkit-animation: MLove 2s ease-in-out infinite;
+       -moz-animation: MLove 2s ease-in-out infinite;
+         -o-animation: MLove 2s ease-in-out infinite;
+            animation: MLove 2s ease-in-out infinite;
     z-index: 15;
 }
 
