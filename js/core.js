@@ -393,17 +393,22 @@ document.getElementById('more').addEventListener('click', function () {
 
 
 // Change theme on click
-document.getElementById('toggleTheme').addEventListener('click', function () {
+var toggleTheme = document.getElementById('toggleTheme');
+localStorage.getItem('themePreference') === 'dark' ? toggleTheme.innerHTML = 'NIGHT' : toggleTheme.innerHTML = 'DAY';
+toggleTheme.addEventListener('click', function () {
   if (localStorage.getItem('themePreference') == undefined) {
     localStorage.setItem('themePreference', 'light');
     aClass('toggleTheme', '');
+    toggleTheme.innerHTML = 'DAY';
   } else if (localStorage.getItem('themePreference') == 'light') {
     document.body.setAttribute('class', 'dark');
     localStorage.setItem('themePreference', 'dark');
     aClass('toggleTheme', 'active');
+    toggleTheme.innerHTML = 'NIGHT';
   } else if (localStorage.getItem('themePreference') == 'dark') {
     document.body.setAttribute('class', '');
     localStorage.setItem('themePreference', 'light');
     aClass('toggleTheme', '');
+    toggleTheme.innerHTML = 'DAY';
   }
 });
