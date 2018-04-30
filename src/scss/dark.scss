@@ -1,0 +1,81 @@
+
+.dark {
+  background: url(../img/background.jpg) no-repeat center center;
+  background-size: 100%;
+
+  header {
+    .theme {
+      p {
+        color: rgba(250, 250, 250, .8);
+        background-color: rgba(250, 250, 250, .1);
+      }
+
+      p.active {
+        color: rgba(250, 250, 250, .78);
+        background-color: rgba(250, 250, 250, .24);
+      }
+
+      p:hover {
+        color: rgba(250, 250, 250, .98);
+        background-color: rgba(250, 250, 250, .2);
+      }
+    }
+  }
+
+  .quoteContainer {
+    cite::before {color: rgba(250, 250, 250, .8);}
+    cite {color: rgba(250, 250, 250, .8);}
+    cite::after {color: rgba(250, 250, 250, .8);}
+
+    .author::before {color: rgba(250, 250, 250, .8);}
+    .author {color: rgba(250, 250, 250, .8);}
+    .author a {color: rgba(250, 250, 250, .8);}
+
+    ul li {
+      color: rgba(250, 250, 250, .8);
+
+      a {
+        color: rgba(250, 250, 250, .8);
+      }
+    }
+
+    .tags {
+      background-color: rgba(250, 250, 250, .1);
+
+      span {color: rgba(250, 250, 250, .8);}
+      span:hover {
+        color: rgba(250, 250, 250, 1);
+      }
+    }
+
+  }
+
+  footer {
+    background-color: rgba(250, 250, 250, .1);
+
+    .shortcuts p {
+      color: rgba(250, 250, 250, .8);
+      background-color: rgba(250, 250, 250, .08);
+    }
+
+    div {
+      p {color: rgba(250, 250, 250, .8);}
+
+      .send {
+        color: rgba(250, 250, 250, .8);
+
+        a {color: rgba(250, 250, 250, .8);}
+      }
+      .send:hover {color: rgba(250, 250, 250, .9);}
+
+      .how_to {
+        a {color: rgba(250, 250, 250, .8);}
+        a:hover {color: rgba(250, 250, 250, .9);}
+      }
+    }
+  }
+
+  .favoritesOverlay {
+    background-color: rgba(250, 250, 250, .14);
+  }
+}

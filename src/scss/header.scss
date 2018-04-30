@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 5px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  
+  .theme {
+    width: auto;
+    height: auto;
+    padding: .4%;
+
+    p {
+      text-decoration: none;
+      padding: 5px 10px;
+      margin: 0 4px;
+      font-family: Open Sans;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 1);
+      background-color: rgba(64, 80, 90, .2);
+      border-radius: 6px;
+      cursor: pointer;
+      -webkit-transition: all .15s ease-in-out;
+        -moz-transition: all .15s ease-in-out;
+          -o-transition: all .15s ease-in-out;
+              transition: all .15s ease-in-out;
+
+    }
+
+    p:hover {
+      background-color: rgba(64, 80, 90, .3);
+    }
+  }
+}

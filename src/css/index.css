@@ -1,0 +1,567 @@
+@charset "UTF-8";
+body, html {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root, #container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+::selection {
+  background-color: rgba(64, 80, 90, 0.4);
+  color: #fafafa;
+}
+
+::-moz-selection {
+  background-color: rgba(64, 80, 90, 0.4);
+  color: #fafafa;
+}
+
+p, h1, h2, h3, h4, h5, a, cite {
+  text-rendering: optimizeLegibility;
+}
+
+/* import our actual css */
+header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 5px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+header .theme {
+  width: auto;
+  height: auto;
+  padding: 0.4%;
+}
+header .theme p {
+  text-decoration: none;
+  padding: 5px 10px;
+  margin: 0 4px;
+  font-family: Open Sans;
+  font-weight: 300;
+  color: white;
+  background-color: rgba(64, 80, 90, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+header .theme p:hover {
+  background-color: rgba(64, 80, 90, 0.3);
+}
+
+.quoteContainer {
+  width: 70%;
+  height: auto;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 10%;
+  margin-bottom: 100px;
+  opacity: 1;
+  -webkit-transition: all 0.2s 0.15s ease-in-out;
+  -moz-transition: all 0.2s 0.15s ease-in-out;
+  -o-transition: all 0.2s 0.15s ease-in-out;
+  transition: all 0.2s 0.15s ease-in-out;
+}
+.quoteContainer cite::before {
+  font-family: Georgia;
+  font-size: 1em;
+  text-rendering: optimizeLegibility;
+  font-style: normal;
+  color: #40505a;
+  content: "“";
+}
+.quoteContainer cite {
+  width: 98%;
+  height: auto;
+  float: left;
+  padding: 1%;
+  font-family: Georgia;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+  font-style: normal;
+  color: #40505a;
+  cursor: pointer;
+}
+.quoteContainer cite::after {
+  font-family: Georgia;
+  font-size: 1em;
+  text-rendering: optimizeLegibility;
+  font-style: normal;
+  color: #40505a;
+  content: "”";
+}
+.quoteContainer p {
+  font-size: 1.3em;
+  color: #40505a;
+}
+.quoteContainer .author::before {
+  font-family: Georgia;
+  font-size: 1.1em;
+  color: #40505a;
+  content: "- ";
+}
+.quoteContainer .author {
+  font-family: Georgia;
+  font-size: 1.1em;
+  color: #40505a;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.quoteContainer .author a {
+  font-family: Georgia;
+  font-size: 1.1em;
+  color: #40505a;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transition: transform 0.2s linear;
+  -moz-transition: transform 0.2s linear;
+  -o-transition: transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+.quoteContainer .author a:active {
+  -webkit-transform: scale(0.85, 0.85);
+  transform: scale(0.85, 0.85);
+}
+.quoteContainer ul {
+  width: 100%;
+  height: auto;
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #40505a;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.quoteContainer ul li {
+  float: left;
+  padding: 0.5%;
+  font-family: Georgia;
+  font-size: 0.9em;
+  margin: 0;
+  color: #40505a;
+}
+.quoteContainer ul li a {
+  color: #40505a;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.quoteContainer ul li a.disabled {
+  text-decoration: none;
+  cursor: default;
+  opacity: 0.4;
+}
+.quoteContainer .tags {
+  float: left;
+  width: 50%;
+  height: auto;
+  padding: 0.6% 1.2%;
+  background-color: rgba(64, 80, 90, 0.02);
+  border-radius: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+}
+.quoteContainer .tags span::before {
+  width: 5px;
+  height: 100%;
+  border-radius: 4px;
+  padding: 0 6px;
+  margin-right: 4px;
+  font-size: 1.2em;
+  background-color: rgba(108, 226, 194, 0.5);
+  color: white;
+  content: "#";
+}
+.quoteContainer .tags span {
+  padding: 1%;
+  color: rgba(64, 80, 90, 0.6);
+  font-family: Open Sans;
+  font-weight: 700;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin: 3px;
+  border-radius: 4px;
+  background-position: -100%;
+}
+.quoteContainer .tags span:last-child {
+  margin-right: 28px;
+}
+.quoteContainer .tags span:hover::before {
+  background-color: rgba(108, 226, 194, 0.9);
+}
+.quoteContainer .tags span:hover {
+  color: rgba(64, 80, 90, 0.75);
+}
+.quoteContainer .tags span.legends:before {
+  background-color: rgba(255, 232, 106, 0.5);
+}
+.quoteContainer .tags span.legends:hover::before {
+  background-color: rgba(255, 232, 106, 0.9);
+}
+.quoteContainer .more {
+  width: 30px;
+  height: auto;
+  font-family: Open Sans;
+  font-weight: 300;
+  float: left;
+  padding: 0.5% 1px;
+  margin-left: -31px;
+  border-radius: 0 6px 6px 0;
+  color: rgba(250, 250, 250, 0.8);
+  background-color: rgba(64, 80, 90, 0.2);
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.quoteContainer .more {
+  background-color: rgba(64, 80, 90, 0.6);
+}
+.quoteContainer .more:hover {
+  background-color: rgba(64, 80, 90, 0.4);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  /* dont let them select text */
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+footer .shortcuts {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0 5px;
+}
+footer .shortcuts p {
+  padding: 5px 10px;
+  margin: 5px 5px;
+  font-family: Open Sans;
+  font-weight: 300;
+  color: #40505a;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+footer .shortcuts p span {
+  margin-left: 8px;
+}
+footer .shortcuts p.us:first-child {
+  width: 10px;
+  height: 23px;
+  -webkit-transition: width 0.2s ease-in-out;
+  -moz-transition: width 0.2s ease-in-out;
+  -o-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+  overflow: hidden;
+  text-align: left;
+}
+footer .shortcuts p.us:first-child:hover {
+  width: 105px;
+}
+footer .shortcuts p.us:last-child {
+  width: 10px;
+  height: 23px;
+  -webkit-transition: width 0.2s ease-in-out;
+  -moz-transition: width 0.2s ease-in-out;
+  -o-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+  overflow: hidden;
+  text-align: left;
+}
+footer .shortcuts p.us:last-child:hover {
+  width: 160px;
+}
+footer .controls {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+footer .controls p {
+  margin: 0;
+}
+footer .controls .how_to {
+  width: auto;
+  height: auto;
+  font-family: Open Sans;
+  border-radius: 2px;
+  cursor: pointer;
+}
+footer .controls .how_to a {
+  text-decoration: none;
+  font-weight: 700;
+  color: rgba(64, 80, 90, 0.5);
+  margin: 0;
+  padding: 0;
+}
+footer .controls .how_to a:hover {
+  color: rgba(64, 80, 90, 0.8);
+}
+footer .controls .love {
+  background: transparent url(../img/heart.png) no-repeat center;
+  background-size: 25px;
+  width: 20px;
+  height: 20px;
+  font-family: Open Sans;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-animation: toLove 2s ease-in-out infinite;
+  -moz-animation: toLove 2s ease-in-out infinite;
+  -o-animation: toLove 2s ease-in-out infinite;
+  animation: toLove 2s ease-in-out infinite;
+}
+footer .controls .refresh {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 5px 0;
+  background: url(../img/refresh.png) no-repeat center;
+  background-color: transparent;
+  background-size: 80%;
+  border-radius: 2px;
+  cursor: pointer;
+}
+footer .controls .send {
+  width: auto;
+  height: 100%;
+  font-family: Open Sans;
+  padding: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+  color: rgba(64, 80, 90, 0.5);
+}
+footer .controls .send a {
+  text-decoration: none;
+  color: rgba(64, 80, 90, 0.5);
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transition: transform 0.2s linear;
+  -moz-transition: transform 0.2s linear;
+  -o-transition: transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+footer .controls .send a:active {
+  color: rgba(64, 80, 90, 0.8);
+  -webkit-transform: scale(0.85, 0.85);
+  transform: scale(0.85, 0.85);
+}
+footer .controls .send:hover {
+  color: rgba(64, 80, 90, 0.8);
+}
+
+@-webkit-keyframes toLove {
+  0% {
+    -webkit-transform: scale(0.95, 0.95);
+    opacity: 0.7;
+  }
+  20% {
+    -webkit-transform: scale(1.1, 1.1);
+    opacity: 0.9;
+  }
+  90% {
+    -webkit-transform: scale(1, 1);
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+@-moz-keyframes toLove {
+  0% {
+    -moz-transform: scale(0.95, 0.95);
+    opacity: 0.7;
+  }
+  20% {
+    -moz-transform: scale(1.1, 1.1);
+    opacity: 0.9;
+  }
+  90% {
+    -moz-transform: scale(1, 1);
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+@-o-keyframes toLove {
+  0% {
+    -o-transform: scale(0.95, 0.95);
+    opacity: 0.7;
+  }
+  20% {
+    -o-transform: scale(1.1, 1.1);
+    opacity: 0.9;
+  }
+  90% {
+    -o-transform: scale(1, 1);
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+@keyframes toLove {
+  0% {
+    transform: scale(0.95, 0.95);
+    opacity: 0.7;
+  }
+  20% {
+    transform: scale(1.1, 1.1);
+    opacity: 0.9;
+  }
+  90% {
+    transform: scale(1, 1);
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+.favoritesOverlay {
+  z-index: 15;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+}
+.favoritesOverlay .favoritesContainer {
+  width: 68%;
+}
+.favoritesOverlay .favoritesContainer .favSearch {
+  width: 100%;
+  height: auto;
+  background-color: rgba(64, 80, 90, 0.6);
+  content: "Search";
+  font-family: Georgia;
+  font-size: 1.1em;
+  color: rgba(250, 250, 250, 0.85);
+  padding: 1%;
+  border-radius: 4px;
+  border: 0;
+  outline: 0;
+  z-index: 16;
+}
+
+.favoritesOverlay.open {
+  display: flex;
+}
+
+/* import our theme colors */
+.dark {
+  background: url(../img/background.jpg) no-repeat center center;
+  background-size: 100%;
+}
+.dark header .theme p {
+  color: rgba(250, 250, 250, 0.8);
+  background-color: rgba(250, 250, 250, 0.1);
+}
+.dark header .theme p.active {
+  color: rgba(250, 250, 250, 0.78);
+  background-color: rgba(250, 250, 250, 0.24);
+}
+.dark header .theme p:hover {
+  color: rgba(250, 250, 250, 0.98);
+  background-color: rgba(250, 250, 250, 0.2);
+}
+.dark .quoteContainer cite::before {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer cite {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer cite::after {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer .author::before {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer .author {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer .author a {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer ul li {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer ul li a {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer .tags {
+  background-color: rgba(250, 250, 250, 0.1);
+}
+.dark .quoteContainer .tags span {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark .quoteContainer .tags span:hover {
+  color: #fafafa;
+}
+.dark footer {
+  background-color: rgba(250, 250, 250, 0.1);
+}
+.dark footer .shortcuts p {
+  color: rgba(250, 250, 250, 0.8);
+  background-color: rgba(250, 250, 250, 0.08);
+}
+.dark footer div p {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark footer div .send {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark footer div .send a {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark footer div .send:hover {
+  color: rgba(250, 250, 250, 0.9);
+}
+.dark footer div .how_to a {
+  color: rgba(250, 250, 250, 0.8);
+}
+.dark footer div .how_to a:hover {
+  color: rgba(250, 250, 250, 0.9);
+}
+.dark .favoritesOverlay {
+  background-color: rgba(250, 250, 250, 0.14);
+}
