@@ -14,7 +14,7 @@ export const renderTags = (tags) => {
 
     return (<span className={legend ? 'legends' : ''}
       title={legend ? 'tag on the Legendarium' : ''}
-      id={`t${i}`}>{tag}</span>)
+      key={i} id={`t${i}`}>{tag}</span>)
   })
 
   // add a click event for the tags

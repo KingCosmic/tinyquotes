@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
-export default class Header extends Component {
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as Actions from '../redux/actions';
+
+class Header extends Component {
   render() {
     const { toggleTheme } = this.props;
     return (
@@ -12,3 +17,8 @@ export default class Header extends Component {
     );
   }
 }
+
+const mapStateToProps = (state, props) => ({})
+const mapDispatchToProps = (dispatch) => 
+  bindActionCreators(Actions, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
