@@ -6,7 +6,7 @@ import { renderTags } from '../helpers';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as Actions from '../redux/actions';
+import * as Actions from '../../../redux/actions';
 
 class Quote extends Component {
   render() {

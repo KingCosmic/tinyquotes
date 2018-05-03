@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as Actions from '../redux/actions';
+import * as Actions from '../../../redux/actions';
 
 class Favorites extends Component {
   constructor(props) {
@@ -14,8 +14,8 @@ class Favorites extends Component {
       if (favorites.length === 0) return undefined;
           
       return favorites.map((fav, i) =>
-        <section>
-          <cite>{fav.quote}</cite>
+        <section className='favorite'>
+          <cite>{fav.cite}</cite>
           <p className='favauthor'>
             {fav.author}
           </p>
@@ -34,9 +34,9 @@ class Favorites extends Component {
       >
 
         <div className='favoritesContainer'
-          onClick={(e) => {e.stopPropagation();}}
+          onClick={(e) => {e.stopPropagation()}}
         >
-          <input className='favSearch' type='text' placeholder='search...'/>
+          <input className='favSearch' type='text' placeholder='Search...'/>
           <div className='favorites'>
             {this.renderFavorites()}
           </div>

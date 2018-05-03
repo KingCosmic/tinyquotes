@@ -1,8 +1,8 @@
 import { RANDOM_QUOTE } from '../actions';
 import { dataState } from './index';
 
-import { quotes } from '../../quotes';
-import { networkLink, checkTwitter } from '../../helpers';
+import { quotes } from '../../views/main/quotes';
+import { networkLink, checkTwitter } from '../../views/main/helpers';
 
 export default (state = dataState.quote, action) => {
   switch (action.type) {

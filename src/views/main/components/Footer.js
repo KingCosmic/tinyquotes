@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as Actions from '../redux/actions';
+import * as Actions from '../../../redux/actions';
 
 class Footer extends Component {
   render() {
@@ -23,7 +23,7 @@ class Footer extends Component {
             <a href="mailto:KingCosmicDev@gail.com?subject=QUOTE%20TITLE&body=QUOTE%20TEXT">Suggest</a>
           </p>
           <p className="send">
-            <a href="how_to.html">Help</a>
+            <a href="how_to">Help</a>
           </p>
           <p className="send" onClick={toggleFavorites} id="favs" title="Look and search through your fav quotes">Favorites</p>
           <p className="send" id="tag_search" title="Search quotes by text or tag" onClick={this.searchQT}>Search</p>
