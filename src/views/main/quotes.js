@@ -42,7 +42,7 @@ export const quotes = [
     author: 'Bob Marley',
     referer: 'toofartooblack',
     social: 'tumblr',
-    tags: ['Bob Marley, legend']
+    tags: ['Bob Marley, legend', 'kataomoi']
   },
   {
     cite: 'The things you own end up owning you.',
@@ -119,7 +119,7 @@ export const quotes = [
     author: 'Lana Del Ray',
     referer: 'toofartooblack',
     social: 'tumblr',
-    tags: ['pure']
+    tags: ['pure', 'kataomoi']
   },
   {
     cite: 'Don’t let people treat you like a cigarette, they only use you when theyre bored and step on you when theyre done. Be like drugs, let them die for you',
@@ -168,12 +168,13 @@ export const quotes = [
     author: 'Liana Radulescu',
     referer: 'KingCosm1c',
     social: 'twitter',
-    tags: ['love']
+    tags: ['love','kataomoi']
   }
 ];
 
 
 export const legends = [
+  'kataomoi',
   'legend',
   'james cook',
   'pure',
