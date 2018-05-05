@@ -479,33 +479,66 @@ footer {
   .dark .favoritesOverlay {
     background-color: rgba(250, 250, 250, 0.14); }
 
-div.wrapper {
+.container .howto {
   width: 70%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
   margin-bottom: 100px; }
+  .container .howto h1 {
+    font-family: Georgia;
+    font-size: 3em;
+    text-align: center;
+    color: #40505a; }
+    .container .howto h1 i {
+      font-size: .7em;
+      font-style: normal;
+      padding: .25em;
+      margin-left: .5em;
+      color: #fafafa;
+      background-color: rgba(64, 80, 90, 0.4);
+      border-radius: 3px;
+      cursor: default; }
+  .container .howto h1:hover i {
+    background-color: rgba(64, 80, 90, 0.5); }
+  .container .howto p {
+    font-size: 1.3em;
+    color: #40505a; }
 
-div.wrapper h1 {
-  font-family: Georgia;
-  font-size: 3em;
-  text-align: center;
-  color: #40505a; }
-
-div.wrapper h1 i {
-  font-size: .7em;
-  font-style: normal;
-  padding: .25em;
-  margin-left: .5em;
-  color: #fafafa;
-  background-color: rgba(64, 80, 90, 0.4);
-  border-radius: 3px;
-  cursor: default; }
-
-div.wrapper h1:hover i {
-  background-color: rgba(64, 80, 90, 0.5); }
-
-div.wrapper p {
-  font-size: 1.3em;
-  color: #40505a; }
+.container footer {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+  .container footer ul {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    float: right;
+    list-style: none; }
+    .container footer ul li {
+      float: left; }
+    .container footer ul li.send {
+      width: auto;
+      height: 100%;
+      font-family: Open Sans;
+      padding: 10px;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 700;
+      color: rgba(64, 80, 90, 0.5); }
+    .container footer ul li.send:hover {
+      color: rgba(64, 80, 90, 0.8); }
