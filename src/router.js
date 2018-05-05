@@ -12,8 +12,8 @@ export default () => (
   <Provider store={store}>
     <Router>
       <div id='container'>
-        <Route exact path='/' component={Main} />
-        <Route path='/how_to' component={HowTo} />
+        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Main} />
+        <Route path={`${process.env.PUBLIC_URL}/how_to`} component={HowTo} />
       </div>
     </Router>
   </Provider>
