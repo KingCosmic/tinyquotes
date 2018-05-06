@@ -13,6 +13,7 @@ export default () => (
     <Router>
       <div id='container'>
         <Route exact path={`${process.env.PUBLIC_URL}/`} component={Main} />
+        <Route path={`${process.env.PUBLIC_URL}/:quote`} component={Main} />
         <Route path={`${process.env.PUBLIC_URL}/how_to`} component={HowTo} />
       </div>
     </Router>

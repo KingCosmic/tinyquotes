@@ -6,6 +6,7 @@ import favorites from './favorites';
 
 export let dataState = {
   quote: {
+    id: '',
     cite: '',
     author: '',
     referer: '',

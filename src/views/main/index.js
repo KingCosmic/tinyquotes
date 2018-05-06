@@ -11,38 +11,19 @@ import { connect } from 'react-redux';
 import * as Actions from '../../redux/actions';
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-
-    /*this.love = () => {
-      let { quote } = this.props;
-
-      if (!lovedQuotes) {
-        localStorage.setItem('loved', JSON.stringify([quote]));
-      } else if (this.indexOf(lovedQuotes, quote) === -1) {
-        lovedQuotes.push(quote);
-        localStorage.setItem('loved', JSON.stringify(lovedQuotes));
-        console.info(`Loved quote: ${quote}`);
-      }
-    }*/
-
-    this.indexOf = (arr, quote) => {
-      for (let i = 0; i < arr.length; i++) {
-        if(arr[i].quote === quote) {
-          return i;
-        }
-      }
-      return -1;
-    }
-    
-    // this.love.bind(this);
-  }
 
   componentWillMount() {
-    const { randomQuote, setFavs } = this.props;
+    const { randomQuote, setQuote, setFavs, match: { params: { quote } } } = this.props;
 
-    setFavs(localStorage.getItem('loved') || []);
-    randomQuote();
+    let lovedQuotes = localStorage.getItem('loved');
+
+    setFavs((lovedQuotes) ? JSON.parse(lovedQuotes) : []);
+    if (quote) {
+      setQuote(quote)
+    } else {
+      randomQuote();
+    }
+
     // Set interval to show a new random quote every 60 seconds
     this.quoteInterval = setInterval(randomQuote, 60000);
   }
@@ -51,7 +32,7 @@ class Main extends Component {
     const { theme } = this.props;
     return (
       <div id='container' className={(theme) ? 'dark' : 'light'} >
-        <Header/>
+        <Header />
         <Quote />
         <Footer />
         <Favorites />

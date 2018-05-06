@@ -1,4 +1,4 @@
-import { RANDOM_QUOTE } from '../actions';
+import { RANDOM_QUOTE, SET_QUOTE } from '../actions';
 import { dataState } from './index';
 
 import { quotes } from '../../views/main/quotes';
@@ -9,17 +9,30 @@ export default (state = dataState.quote, action) => {
     case RANDOM_QUOTE:
       state = Object.assign({}, state, randomQuote());
       return state
+    case SET_QUOTE:
+      state = Object.assign({}, state, findQuote(action.quote));
+      return state;
     default:
       return state;
   }
 };
 
+const findQuote = (id) => {
+  let quote = quotes.filter((quote) => quote.id === id)[0];
+
+  return getQuoteInfo(quote);
+}
+
 const randomQuote = () => {
   // This line of code defines a random number from 1 to the length of the quotes array
   let quote = quotes[Math.floor(Math.random() * quotes.length)];
 
+  return getQuoteInfo(quote);
+}
+
+const getQuoteInfo = (quote) => {
   // get us the info from the quote object
-  let { cite, author, referer, social, tags } = quote;
+  let { cite, author, referer, social } = quote;
 
   let referal = (referer === undefined) ? undefined : networkLink(social, referer);
   let encoded = encodeURIComponent(cite.trim());
@@ -35,12 +48,7 @@ const randomQuote = () => {
     }
   }
 
-  return ({
-    cite,
-    author,
-    referer,
-    social,
-    tags,
+  return Object.assign({}, quote, {
     meta: {
       size,
       referal,

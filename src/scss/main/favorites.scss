@@ -40,8 +40,65 @@
       margin-top: 2%;
       width: 100%;
       height: 83%;
+      overflow-y: scroll;
 
-      background-color: red;
+      section {
+        width: 90%;
+        height: auto;
+        padding: 5%;
+        background-color: rgba(243, 243, 243, 1);
+        border-radius: 4px;
+
+        cite::before {
+          font-family: Georgia;
+          font-size: 1em;
+          text-rendering: optimizeLegibility;
+          font-style: normal;
+          color: rgba(64, 80, 90, 1);
+          content: '“';
+          padding: .5%;
+        }
+
+        cite {
+          width: 98%;
+          float: left;
+          padding: 1%;
+          font-family: Georgia;
+          font-size: 2em;
+          font-weight: 100;
+          color: rgba(64, 80, 90, 1);
+          text-align: center;
+        }
+
+        cite::after {
+          font-family: Georgia;
+          font-size: 1em;
+          text-rendering: optimizeLegibility;
+          font-style: normal;
+          color: rgba(64, 80, 90, 1);
+          content: '”';
+          padding: 1%;
+        }
+
+        p::before {
+          font-family: Georgia;
+          font-size: 1.1em;
+          color: rgba(64, 80, 90, 1);
+          content: '- ';
+        }
+
+        p {
+          font-family: Georgia;
+          font-weight: 200;
+          color: rgba(64, 80, 90, 1);
+
+          a {
+            font-family: Georgia;
+            font-size: 1.1em;
+            color: rgba(64, 80, 90, 1);
+          }
+        }
+      }
     }
   }
 }
