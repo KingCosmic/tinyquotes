@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import * as Actions from '../../../redux/actions';
-
-class Favorites extends Component {
+@inject('ui', 'favorites')
+@observer
+export default class Favorites extends Component {
   constructor(props) {
     super(props);
 
@@ -14,11 +12,11 @@ class Favorites extends Component {
     }
 
     this.renderFavorites = () => {
-      let { favorites } = this.props;
+      let { favs } = this.props.favorites;
       let { favSearch } = this.state;
-      if (favorites.length === 0) return undefined;
+      if (favs.length === 0) return undefined;
 
-      let matched = favorites.filter((fav) => fav.cite.toLowerCase().includes(favSearch.toLowerCase()));
+      let matched = favs.filter((fav) => fav.cite.toLowerCase().includes(favSearch.toLowerCase()));
           
       return matched.map((fav) =>
         <section className='favorite' key={fav.id}>
@@ -41,10 +39,10 @@ class Favorites extends Component {
     this.renderFavorites.bind(this);
   }
   render() {
-    const { open, toggleFavorites } = this.props;
+    const { showFavorites, toggleFavorites } = this.props.ui;
     return (
       <div
-        className={`favoritesOverlay ${(open) ? 'open' : ''}`}
+        className={`favoritesOverlay ${(showFavorites) ? 'open' : ''}`}
         onClick={toggleFavorites}
       >
 
@@ -60,11 +58,3 @@ class Favorites extends Component {
     );
   }
 }
-
-const mapStateToProps = (state, props) => ({
-  open: state.toggle.showFavorites,
-  favorites: state.favorites
-})
-const mapDispatchToProps = (dispatch) => 
-  bindActionCreators(Actions, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

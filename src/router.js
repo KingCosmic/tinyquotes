@@ -5,11 +5,11 @@ import HowTo from './views/howto';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import { Provider } from 'mobx-react';
+import { Quote, Favorites, Ui } from './stores';
 
 export default () => (
-  <Provider store={store}>
+  <Provider quote={new Quote()} favorites={new Favorites()} ui={new Ui()}>
     <Router>
       <div id='container'>
         <Route exact path={`${process.env.PUBLIC_URL}/`} component={Main} />

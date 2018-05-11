@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { renderTags } from '../helpers';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import * as Actions from '../../../redux/actions';
-
-class Quote extends Component {
+@inject('quote')
+@observer
+export default class Quote extends Component {
   render() {
     const {
       cite, author, referer, tags,
       meta: { encoded, twitter, size, referal }
-    } = this.props.quote;
+    } = this.props.quote.info;
     return (
       <div className='quoteContainer' id='quoteContainer'>
         <cite id='quote' style={{ fontSize: size }}>{cite}</cite>
@@ -47,10 +45,3 @@ class Quote extends Component {
     );
   }
 }
-
-const mapStateToProps = (state, props) => ({
-  quote: state.quote
-})
-const mapDispatchToProps = (dispatch) => 
-  bindActionCreators(Actions, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(Quote);

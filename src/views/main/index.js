@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 
 import Header from './components/Header';
 import Quote from './components/Quote';
 import Footer from './components/Footer';
 import Favorites from './components/Favorites';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import * as Actions from '../../redux/actions';
-
-class Main extends Component {
-
+@inject('quote', 'ui', 'favorites')
+@observer
+export default class Main extends Component {
   componentWillMount() {
-    const { randomQuote, setQuote, setFavs, match: { params: { quote } } } = this.props;
+    const { quote, favorites, match } = this.props;
+    const { setQuote, randomQuote } = quote;
+    const { setFavs } = favorites;
 
     let lovedQuotes = localStorage.getItem('loved');
 
     setFavs((lovedQuotes) ? JSON.parse(lovedQuotes) : []);
-    if (quote) {
-      setQuote(quote)
+    if (match.params.quote) {
+      setQuote(match.params.quote)
     } else {
       randomQuote();
     }
@@ -29,7 +28,7 @@ class Main extends Component {
   }
 
   render() {
-    const { theme } = this.props;
+    const { ui: { theme } } = this.props;
     return (
       <div id='container' className={(theme) ? 'dark' : 'light'} >
         <Header />
@@ -40,10 +39,3 @@ class Main extends Component {
     );
   }
 }
-
-const mapStateToProps = (state, props) => ({
-  theme: state.toggle.theme
-})
-const mapDispatchToProps = (dispatch) => 
-  bindActionCreators(Actions, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(Main);

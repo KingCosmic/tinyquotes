@@ -1,36 +1,33 @@
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 
 import { loveQuote } from '../helpers';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import * as Actions from '../../../redux/actions';
-
-class Footer extends Component {
+@inject ('quote', 'favorites', 'ui')
+@observer
+export default class Footer extends Component {
   constructor(props) {
     super(props);
 
-    const {
-      addFav
-    } = props;
-
     this.loveQuote = () => {
       const {
-        quote
+        quote: { info },
+        favorites: { addFav }
       } = this.props;
 
-      delete quote.meta;
+      delete info.meta;
 
-      loveQuote(quote);
-      addFav(quote);
+      console.log(info)
+
+      loveQuote(info);
+      addFav(info);
     }
     this.loveQuote.bind(this);
   }
 
   render() {
     const {
-      randomQuote, toggleFavorites
+      quote: { randomQuote }, ui: { toggleFavorites }
     } = this.props;
     return (
       <footer>
@@ -56,10 +53,3 @@ class Footer extends Component {
     );
   }
 }
-
-const mapStateToProps = (state, props) => ({
-  quote: state.quote
-})
-const mapDispatchToProps = (dispatch) => 
-  bindActionCreators(Actions, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);
