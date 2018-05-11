@@ -5,7 +5,7 @@ import { observer, inject } from 'mobx-react';
 @observer
 export default class Header extends Component {
   render() {
-    const { toggleTheme } = this.props;
+    const { toggleTheme } = this.props.ui;
     return (
       <header id="pendingQ">
         <div className='theme' onClick={toggleTheme}>
