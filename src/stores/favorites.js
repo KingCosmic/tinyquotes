@@ -1,5 +1,7 @@
 import { observable, action } from 'mobx';
 
+import { indexOfQuote } from '../helpers';
+
 export default class Favorites {
   @observable favs = []
 
@@ -10,6 +12,9 @@ export default class Favorites {
 
   @action
   addFav = (quote) => {
+    // already faved
+    if (indexOfQuote(this.favs, quote) !== -1) return;
     this.favs.push(quote);
+    localStorage.setItem('loved', JSON.stringify(this.favs));
   }
 }

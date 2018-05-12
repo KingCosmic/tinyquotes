@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
-import { loveQuote } from '../helpers';
-
 @inject ('quote', 'favorites', 'ui')
 @observer
 export default class Footer extends Component {
@@ -16,10 +14,6 @@ export default class Footer extends Component {
       } = this.props;
 
       delete info.meta;
-
-      console.log(info)
-
-      loveQuote(info);
       addFav(info);
     }
     this.loveQuote.bind(this);

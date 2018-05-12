@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx';
 
-import { quotes } from '../views/main/quotes';
-import { networkLink, checkTwitter } from '../views/main/helpers';
+import { quotes } from '../quotes';
+import { networkLink, checkTwitter } from '../helpers';
 
 export default class Quote {
   @observable info = {
