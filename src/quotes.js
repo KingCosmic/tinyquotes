@@ -1,6 +1,13 @@
 
 export default [
   {
+    id: '25',
+    cite: 'Always helpful to remember that we\'re building things that work not things that are perfect lol',
+    author: 'KingCosmic',
+    referer: 'KingCosm1c',
+    social: 'twitter'
+  },
+  {
     id: '24',
     cite: 'With great power comes great responsibility.',
     author: 'Uncle Ben',
