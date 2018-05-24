@@ -3,7 +3,7 @@ import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const Copy = (props) => {
-  const { cite, author } = props;
+  const { cite, author } = props.quote;
 
   return (
     <li className='toolTipContainer'>
