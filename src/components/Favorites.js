@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { observer, inject } from 'mobx-react';
 
-@inject('ui', 'favorites')
-@observer
 export default class Favorites extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +9,7 @@ export default class Favorites extends Component {
     }
 
     this.renderFavorites = () => {
-      let { favs } = this.props.favorites;
+      let { favs } = this.props;
       let { favSearch } = this.state;
       if (favs.length === 0) return undefined;
 
@@ -39,11 +36,13 @@ export default class Favorites extends Component {
     this.renderFavorites.bind(this);
   }
   render() {
-    const { showFavorites, toggleFavorites } = this.props.ui;
+    const { toggleFavs } = this.props;
+    const { favs } = this.props.ui;
+
     return (
       <div
-        className={`favoritesOverlay ${(showFavorites) ? 'open' : ''}`}
-        onClick={toggleFavorites}
+        className={`favoritesOverlay ${(favs) ? 'open' : ''}`}
+        onClick={toggleFavs}
       >
 
         <div className='favoritesContainer'

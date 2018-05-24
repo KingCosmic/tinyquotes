@@ -5,7 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import './css/index.css';
 import './css/fonts.css';
 
-import Router from './router';
+import AppContainer from './containers/AppContainer';
 
-ReactDOM.render(<Router />, document.getElementById('root'));
+ReactDOM.render(<AppContainer />, document.getElementById('root'));
 registerServiceWorker();

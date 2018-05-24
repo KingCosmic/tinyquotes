@@ -1,5 +1,5 @@
 
-export const quotes = [
+export default [
   {
     id: '24',
     cite: 'With great power comes great responsibility.',
@@ -157,7 +157,7 @@ export const quotes = [
   },
   {
     id: '4',
-    cite: 'There is a pleasure in the pathless woods; There is a rapture on the lonely shore; There is society, where none intrudes, By the sea, and music in its roar, I love not man the less, but Nature more...',
+    cite: 'There is a pleasure in the pathless woods;\n There is a rapture on the lonely shore;\n There is society, where none intrudes, By the sea, and music in its roar, I love not man the less, but Nature more...',
     author: 'Lord Byron, Into The Woods',
     referer: 'toofartooblack',
     social: 'tumblr',
@@ -187,16 +187,4 @@ export const quotes = [
     social: 'twitter',
     tags: ['love','kataomoi']
   }
-];
-
-
-export const legends = [
-  'kataomoi',
-  'legend',
-  'james cook',
-  'pure',
-  'philosophy of chaos',
-  'anchorer',
-  'skins',
-  'into the wild'
 ];
