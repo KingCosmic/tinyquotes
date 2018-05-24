@@ -17,6 +17,9 @@ class Store extends ReduceStore {
   getInitialState() {
     setInterval(actions.randomQuote, 60000);
     
+    let quote = window.location.hash;
+    if (quote) return new Quote(this.setQuote(quote.substring(1)));
+
     return new Quote(this.randomQuote());
   }
 
@@ -29,6 +32,11 @@ class Store extends ReduceStore {
       default:
         return state;
     }
+  }
+
+  setQuote(id) {
+    let quote = quotes.filter((quote) => quote.id === id)[0];
+    return this.getQuoteInfo(quote)
   }
 
   randomQuote() {
@@ -68,9 +76,3 @@ class Store extends ReduceStore {
 }
 
 export default new Store();
-
-/*
-const setQuote = (id) => {
-  let quote = quotes.filter((quote) => quote.id === id)[0];
-  return getQuoteInfo(quote)
-}*/

@@ -4,6 +4,7 @@ export default [
     id: '25',
     cite: 'Always helpful to remember that we\'re building things that work not things that are perfect lol',
     author: 'KingCosmic',
+    tags: ['philosophical'],
     referer: 'KingCosm1c',
     social: 'twitter'
   },
