@@ -49,7 +49,7 @@ export default [
     author: 'Bob Marley',
     referer: 'toofartooblack',
     social: 'tumblr',
-    tags: ['Bob Marley, legend', 'kataomoi']
+    tags: ['Bob Marley, legend']
   },
   {
     id: '18',
@@ -193,6 +193,6 @@ export default [
     author: 'Liana Radulescu',
     referer: 'KingCosm1c',
     social: 'twitter',
-    tags: ['love','kataomoi']
+    tags: ['love']
   }
 ];
