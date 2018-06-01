@@ -146,14 +146,6 @@ header {
         text-decoration: none;
         cursor: default;
         opacity: .4; }
-      .toolTip {
-        font-size: 15px !important;
-        pointer-events: auto !important;
-      }
-      .toolTip:hover {
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
   .quoteContainer .tags {
     float: left;
     width: 50%;

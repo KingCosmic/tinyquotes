@@ -1,6 +1,12 @@
 
 export default [
   {
+    id: '26',
+    cite: 'The stars don\'t tell the future, Donkey. They tell stories.',
+    author: 'Shrek',
+    tags: ['legend']
+  },
+  {
     id: '25',
     cite: 'Always helpful to remember that we\'re building things that work not things that are perfect lol',
     author: 'KingCosmic',
