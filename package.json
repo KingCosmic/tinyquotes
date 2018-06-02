@@ -1,14 +1,21 @@
 {
-  "name": "tq",
+  "name": "new",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kingcosmic.github.io/tinyquotes",
   "dependencies": {
-    "kc-tooltip": "^0.1.7",
+    "flux": "^3.1.3",
+    "gh-pages": "^1.2.0",
+    "immutable": "^3.8.2",
+    "kc-tooltip": "^1.0.0",
     "react": "^16.4.0",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -11,7 +11,7 @@ const Copy = (props) => {
       <CopyToClipboard
         text={`${cite} - ${author}`}
       >
-        <Tooltip content='Copied' type='click' delayHide={10000}>
+        <Tooltip content='Copied' type='click' delayHide={1000}>
           <a title='Copy quote to clipboard'>
             Copy
           </a>
