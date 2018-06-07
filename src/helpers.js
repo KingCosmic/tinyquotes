@@ -29,6 +29,9 @@ export const networkLink = (social, referrer) => {
     case 'youtube':
       referal = `http://www.youtube.com/user/${referrer}`;
       break;
+    case 'instagram':
+      referal = `https://www.instagram.com/${referrer}`;
+      break;
     default:
       referal = referrer;
       break;
