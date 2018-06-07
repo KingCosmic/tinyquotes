@@ -1,6 +1,30 @@
 
 export default [
   {
+    id: '31',
+    cite: 'You must want to spend the rest of your life with yourself first.',
+    author: 'Rupi Kaur',
+    tags: ['philosophical', 'poetry', 'milk and honey']
+  },
+  {
+    id: '30',
+    cite: 'Time you enjoy wasting is never wasted.',
+    author: 'John Lennon',
+    tags: ['truth', 'real life']
+  },
+  {
+    id: '29',
+    cite: 'Courage is grace under pressure.',
+    author: 'Earnest Hemingway',
+    tags: ['truth', 'Hemingway', 'deep shit']
+  },
+   {
+    id: '28',
+    cite: 'Comparison is an act of violence against the self.',
+    author: 'Iyanla Vanzant',
+    tags: ['philosophical', 'self-care']
+  },
+  {
     id: '27',
     cite: 'Sometimes I have a way with words - sometimes words have a way with me.',
     author: 'Atticus',
@@ -157,7 +181,7 @@ export default [
     author: 'Anonymous',
     referer: 'toofartooblack',
     social: 'tumblr',
-    tags: ['deep shit', 'truth', 'pure']
+    tag:'deep shit', 'truth', 'pure']
   },
   {
     id: '6',
