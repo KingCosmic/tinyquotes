@@ -1,6 +1,12 @@
 
 export default [
   {
+    id: '27',
+    cite: 'Sometimes I have a way with words - sometimes words have a way with me.',
+    author: 'Atticus',
+    tags: ['philosophical', 'Atticus']
+  },
+  {
     id: '26',
     cite: 'The stars don\'t tell the future, Donkey. They tell stories.',
     author: 'Shrek',
