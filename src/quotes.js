@@ -181,7 +181,7 @@ export default [
     author: 'Anonymous',
     referer: 'toofartooblack',
     social: 'tumblr',
-    tag:'deep shit', 'truth', 'pure']
+    tags: ['deep shit', 'truth', 'pure']
   },
   {
     id: '6',
